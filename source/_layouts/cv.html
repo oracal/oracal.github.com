@@ -1,0 +1,109 @@
+---
+layout: default
+---
+
+<div>
+<article role="article">
+  <div id ="cvoptions">
+  <ul>
+  <li>Summary</li>
+  <li>Technical</li>
+  <li>Programming</li>
+  <li>Career</li>
+  <li>Education</li>
+  <li>Interests</li>
+  </ul>
+
+  </div>
+  <div id ="cvtext">
+  </div>
+  <script>
+      $(document).ready(function(){
+
+          var email = "mail@";
+          email += "thomaswhitton.com";
+          $("#cvtext").hide();
+          var summary = '<table><tr><td nowrap="nowrap">Email:</td><td><a href = "mailto:" + email + "">' + email + '</a></td></tr><tr><td nowrap="nowrap">Key Skills:</td><td>C++, Boost, Qt, Python, Django, Javascript, jQuery, Angular, Node, Networking, Ruby, Rails.</b></td></tr><tr><td colspan="2">An intelligent software developer with a strong basis in mathematics and simulation. Experienced with the full life cycle of the software design process for large projects. Strong written and verbal communication skills. Interested in a challenging technical career in an application development environment.</td></tr></table>'
+          $("#cvtext").html(summary);
+  $("#cvoptions li:contains('Summary')").addClass('clicked');
+  $("#cvtext").fadeIn("slow");
+
+  $('#cvoptions li').click(function(){
+     $('#cvoptions li').removeClass('clicked');
+     $(this).addClass('clicked');
+  });
+
+  $("#cvoptions li:contains('Summary')").click(
+      function () {
+          $("#cvtext").html(summary);
+  $("#cvtext").fadeIn("slow");
+        });
+
+      $("#cvoptions li:contains('Technical')").click(
+      function () {
+          $("#cvtext").hide();
+          $("#cvtext").html('<table><tr><td nowrap="nowrap">Languages:</td><td>C++, Python, JavaScript, Ruby.</td></tr><tr><td nowrap="nowrap">Frameworks:</td><td>Boost, Qt, Django, jQuery, Node, Rails, Angular.</td></tr><tr><td nowrap="nowrap">Databases:</td><td>PostgreSQL, MySQL, SQLite, MongoDB.</td></tr><tr><td nowrap="nowrap">Systems:</td><td>Ubuntu, CentOS.</td></tr><tr><td nowrap="nowrap">Other:</td><td>Object Orientated Design, Concurrency, Unit Testing, Scrum, Agile.</td></tr></table>');
+  $("#cvtext").fadeIn("slow");
+  }
+  );
+      $("#cvoptions li:contains('Programming')").click(
+      function () {
+          $("#cvtext").hide();
+          $("#cvtext").html('<table><tr><td colspan ="2"></td><td>Level</td><td>Known Since</td></tr><tr><td>Languages:</td><td>C</td><td>Advanced</td><td>2003</td></tr><tr><td></td><td>C++</td><td>Advanced</td><td>2004</td></tr><tr><td></td><td>Javascript</td><td>Advanced</td><td>2005</td></tr><tr><td></td><td>Python</td><td>Advanced</td><td>2011</td></tr><tr><td></td><td>Ruby</td><td>Intermediate</td><td>2011</td></tr><tr><tr><td>Frameworks:</td><td>Qt</td><td>Advanced</td><td>2009</td></tr><tr><td></td><td>jQuery</td><td>Advanced</td><td>2009</td></tr><tr><td></td><td>Django</td><td>Advanced</td><td>2011</td></tr><tr><td></td><td>Boost</td><td>Advanced</td><td>2011</td></tr><tr><td></td><td>Node</td><td>Advanced</td><td>2012</td></tr><tr><td></td><td>Angular</td><td>Intermediate</td><td>2012</td></tr><tr><td></td><td>Rails</td><td>Intermediate</td><td>2012</td></tr></table>');
+  $("#cvtext").fadeIn("slow");
+  }
+  );
+
+      $("#cvoptions li:contains('Career')").click(
+      function () {
+          $("#cvtext").hide();
+          $("#cvtext").html('<table><tr><td nowrap="nowrap"><b>2011 – Present:</b></td><td><b>BAE Systems Detica</b></td></tr><td></td><td><b>Software Developer</b></td></tr><tr><td class="right">&#8226;</td><td>Software developer, working within the Electronic Systems Group.</td></tr><tr><td class="right">&#8226;</td><td>Consulting across a range of varying projects, providing innovations that keep the technology at provided by Detica at the cutting edge.<td></tr><tr><td nowrap="nowrap" align="right"><b>Key Skills:</b></ nowrap="nowrap"><td><b>C++, Boost, Linux, Networking, Python, Django, Ruby, Rails.</b></td></tr><tr><td></td></tr><td nowrap="nowrap"><b>2009 – 2011:</b></td><td><b>Defence Science and Technology Laboratory, MOD</b></td></tr><td></td><td><b>Electronic Engineer</b></td></tr><tr><td class="right">&#8226;</td><td>Developed and demonstrated a product, and presented results obtained through automated testing analysing its performance.</td></tr><tr><td class="right">&#8226;</td><td>Increased efficiency of automated testing systems by implementing improved algorithms and more efficient Matlab code.<td></tr><tr><td class="right">&#8226;</td><td>Simulated and investigated inconsistencies with performance of equipment.</td></tr><tr><td class="right">&#8226;</td><td>Designed and developed a concept demonstrator and its microcontroller interface for an important research project.</td></tr><tr><td class="right">&#8226;</td><td>Researching and evaluating digital signal processing techniques to increase the performance and efficiency of equipment.</td></tr><tr><td nowrap="nowrap" align="right"><b>Key Skills:</b></ nowrap="nowrap"><td><b>Matlab, C++, Microcontroller Programming, Modelling, Simulation, Instrument Automation, Digital Signal Processing.</b></td></tr></table>');
+   $("#cvtext").fadeIn("slow");
+   }
+  );
+      $("#cvoptions li:contains('Education')").click(
+      function () {
+          $("#cvtext").hide();
+          $("#cvtext").html('<table><tr><td nowrap="nowrap"><b>2005 – 2009:</b></td><td><b>University of Bath<br>MSci Mathematics and Physics with first-class honours.</td></tr><tr><td class="right">&#8226;</td><td>Advanced mathematical, optimisation and simulation techniques.</td></tr><tr><td class="right">&#8226;</td><td>Dissertation involved creating a substantial C application to simulate the chemical and mechanical characteristics of complex carbon nanostructures.</td></tr><tr><td nowrap="nowrap"><b>Key Skills:</b></td><td><b>Optimisation, Simulation, C, Mathematics, Physics.</b></td></tr><tr><td nowrap="nowrap"><b>1998 – 2005:</b></td><td><b>Chislehurst and Sidcup Grammar School<br>A Levels: Computing A, Maths A, Physics A, Chemistry C.</td></tr><tr><td class="right">&#8226;</td><td>Cedric Morley award for Physics.</td></tr><tr><td class="right">&#8226;</td><td>Outstanding A levels award.</td></tr></table>');
+  $("#cvtext").fadeIn("slow");
+
+  }
+  );
+
+      $("#cvoptions li:contains('Interests')").click(
+      function () {
+          $("#cvtext").hide();
+          $("#cvtext").html('<table><tr><td class="right">&#8226;</td><td>I am a great advocate of and have a keen interest open-source programming and, when I can, I like to help out on a number of projects.</td></tr><tr><td class="right">&#8226;</td><td>I also enjoy web developing. I started out by building my own custom blogging system and then moved on to designing WordPress themes for personal websites.</td></tr></table>');
+  $("#cvtext").fadeIn("slow");
+  });
+  });
+  </script>
+  {% unless page.footer == false %}
+    <footer>
+      {% if page.date or page.author %}<p class="meta">
+        {% if page.author %}{% include post/author.html %}{% endif %}
+        {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+        {% if page.categories %}{% include post/categories.html %}{% endif %}
+      </p>{% endif %}
+      {% unless page.sharing == false %}
+        {% include post/sharing.html %}
+      {% endunless %}
+    </footer>
+  {% endunless %}
+</article>
+{% if site.disqus_short_name and page.comments == true %}
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite">{% include post/disqus_thread.html %}</div>
+  </section>
+{% endif %}
+</div>
+{% unless page.sidebar == false %}
+<aside class="sidebar">
+  {% if site.page_asides.size %}
+    {% include_array page_asides %}
+  {% else %}
+    {% include_array default_asides %}
+  {% endif %}
+</aside>
+{% endunless %}
