@@ -1,2 +1,49 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+html {
+ background: url(/images/bg.gif) repeat;
+}
+
+#cvoptions {
+  float:left;
+}
+
+#cvoptions li{
+  color:#999999;
+}
+
+
+#cvoptions li:hover{
+  color:#000000;
+}
+
+
+#cvoptions .clicked{
+  color:#000000;
+}
+
+#cvoptions ul{
+  list-style-type: none;
+  cursor:pointer;
+  margin-left:0px;
+
+}
+
+#cvtext{
+  width:620px;
+  float:left;
+  height:auto;
+  margin:0px 0px 0px 30px;
+
+}
+
+#cvtext td{
+  padding-top:0px;
+  text-align: justify;
+  vertical-align: top;
+  padding: 4px 10px 4px 5px;
+}
+
+.right {
+    float: right;
+}
