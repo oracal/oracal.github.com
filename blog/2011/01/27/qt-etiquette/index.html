@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Qt Etiquette - Thomas Whitton</title>
+  <meta name="author" content="Thomas Whitton">
+
+  
+  <meta name="description" content="So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://oracal.github.com/blog/2011/01/27/qt-etiquette">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Thomas Whitton" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Thomas Whitton</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:oracal.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/cv">CV</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Qt Etiquette</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-27T20:55:41+00:00" pubdate data-updated="true">Jan 27<span>th</span>, 2011</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&#8217;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
+
+<!-- more -->
+
+
+<p>One thing I found when using signals and slots was that I had trouble connecting signals and slots when they there was a widget inside a widget inside a widget, lets call them A, B and C respectively. Setting up a connection between A and C was impossible, what I had to do was create an intermediate slot inside B that emitted a signal from B, to keep the signal going. This was pretty annoying as I had to create the new slot function and there was a simple solution that I didn&#8217;t get for a while. Connections can be made between a signal and a signal, so that when the first emitted so is the other signal, now this may not be a huge improvement in code, but it looks so much neater and when working on a larger project it is so much easier to follow. A simple example, not sure it&#8217;s really needed, but anyway here it is:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">connect</span><span class="p">(</span><span class="n">myButton</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">clicked</span><span class="p">()),</span> <span class="k">this</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">buttonClicked</span><span class="p">()));</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Another problem I had with signals and slots was that sometimes I&#8217;d like to quickly take control of my connection and stop it for a while and then reconnect it, and this was fine I could use the</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">disconnect</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>method to explicitly remove the connection and then reattach it in the normal way. This gets a bit complicated when you are dealing with an important QObject and there a lot of connections that need to be disconnected, half your code would be establishing and disconnecting connections. There&#8217;s a handy method in the QObject toolbox that solves this problem called</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">blockSignals</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This function blocks all signals being emitted from an object, if set to true and you can easily remove this block by calling this function again with the false parameter.</p>
+
+<p>These two fixes really helped me fall in love with the signal and slot mechanism behind pretty much any Qt program.</p>
+
+<p>A lot of questions I see paraded around in regards to Qt is about which containers classes to use. Now I have pretty much been brought up on the STL, and know them pretty well but I am a big believer that when using a particular framework that you use the more integrated containers. Not only that but the documentation for the Qt containers insdie the Qt Creator IDE is impressive, press F1 and I have every single meber function and there are a lot of them. Not only that but reading some of the documentation surrounding Qt containers brought me to an underlying methodology called implicitly shared. Which pretty much means that within any Qt container class it will make your code more efficient by reducing the copying with that container, vist the <a href="http://doc.qt.nokia.com/latest/implicit-sharing.html#implicitly-shared">website</a> for more details. Also lots of outputs of other functions within Qt generate the Qt generic classes so the amount of code needed to convert and reconvert would be a bit excessive.</p>
+
+<p>Another thing I liked about Qt was how easy it was to access external applicationsand give input arguemnts and easily receive standard outputs (mainly command line). This has been really useful when making wrappers for some of my commonly used command line applications (a task I try to do whenever learning a new gui framework) this meant I didn&#8217;t have to worry too much about looking through a lot of code and the only way to proceed when using a closed source application. A simple example:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// declare a new QProcess</span>
+</span><span class='line'><span class="n">QProcess</span> <span class="o">*</span><span class="n">extraction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QProcess</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// define command line arguments</span>
+</span><span class='line'><span class="n">QStringList</span> <span class="n">args</span><span class="p">;</span>
+</span><span class='line'><span class="n">args</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;e&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/ad&quot;</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;/y&quot;</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// run external application</span>
+</span><span class='line'><span class="n">extraction</span><span class="o">-&gt;</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;C:/Program Files/WinRAR/unRAR&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// get the output from the application</span>
+</span><span class='line'><span class="n">QByteArray</span> <span class="n">output</span> <span class="o">=</span> <span class="n">extraction</span><span class="o">-&gt;</span><span class="n">readAllStandardOutput</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I hope this has been at least slightly helpful to anyone who has read it, and for anyone who has yet to make the leap into the Qt framework I say go for it, you won&#8217;t regret it.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Thomas Whitton</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-27T20:55:41+00:00" pubdate data-updated="true">Jan 27<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://oracal.github.com/blog/2011/01/27/qt-etiquette/" data-via="thomaswhitton" data-counturl="http://oracal.github.com/blog/2011/01/27/qt-etiquette/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2011/01/20/encryption-libraries/" title="Previous Post: Encryption Libraries">&laquo; Encryption Libraries</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2011/02/05/beginning-with-the-explorer-16/" title="Next Post: Beginning with the Explorer 16">Beginning with the Explorer 16 &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/08/26/cineworld-api/">Cineworld API</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/03/06/python-gui-programming/">Python GUI Programming</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/03/06/the-simplest-wordpress-blog-part-2/">The Simplest Wordpress Blog, Part 2</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/03/01/the-simplest-wordpress-blog/">The Simplest WordPress Blog</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/02/13/explorer-16-lcd/">Explorer 16 LCD</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/oracal">@oracal</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'oracal',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/112919431559357572505?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Thomas Whitton -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'thomaswhitton';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://oracal.github.com/blog/2011/01/27/qt-etiquette/';
+        var disqus_url = 'http://oracal.github.com/blog/2011/01/27/qt-etiquette/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Microcontroller Programming | Thomas Whitton]]></title>
+  <link href="http://oracal.github.com/blog/categories/microcontroller-programming/atom.xml" rel="self"/>
+  <link href="http://oracal.github.com/"/>
+  <updated>2013-04-02T22:46:29+01:00</updated>
+  <id>http://oracal.github.com/</id>
+  <author>
+    <name><![CDATA[Thomas Whitton]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Explorer 16 LCD]]></title>
+    <link href="http://oracal.github.com/blog/2011/02/13/explorer-16-lcd/"/>
+    <updated>2011-02-13T00:06:12+00:00</updated>
+    <id>http://oracal.github.com/blog/2011/02/13/explorer-16-lcd</id>
+    <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we'll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we're going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn't require a  connection to a computer, which is handy.</p>
+
+<!-- more -->
+
+
+<p>Another important point to mention is the fact that we are going to use the Parallel Master Port (PMP) peripheral, new to the PIC24F series PIC. This module has made connecting to many different types of parallel interface much easier and so is useful when connecting to the  LCD.</p>
+
+<p>First of all create a header file called "lcd.h", this will include some useful definitions and function prototypes.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">p24fj128ga010</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// define some useful constants&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// access data register&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">LCDDATA</span> <span class="mi">1</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// access command register&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">LCDCMD</span>  <span class="mi">0</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// PMP data buffer&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">PMDATA</span>  <span class="n">PMDIN1</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">void</span> <span class="n">initLCD</span><span class="p">();</span>         <span class="c1">// initialise the LCD</span>
+</span><span class='line'><span class="kt">char</span> <span class="nf">readLCD</span><span class="p">(</span><span class="kt">int</span> <span class="n">addr</span><span class="p">);</span> <span class="c1">// read from the LCD&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// define some macros that make life a bit easier&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// check if LCD busy&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">busyLCD</span><span class="p">()</span> <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x80</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// check address of LCD position&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">addrLCD</span><span class="p">()</span> <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x7F</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// read what is on the LCD&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">getLCD</span><span class="p">()</span>  <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDDATA</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// set cursor position&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">setLCDC</span><span class="p">(</span> <span class="n">a</span><span class="p">)</span> <span class="n">writeLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x7F</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x80</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">void</span> <span class="n">writeLCD</span><span class="p">(</span> <span class="kt">int</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">);</span>    <span class="c1">// write to LCD at particular address&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">void</span> <span class="n">putLCD</span><span class="p">(</span><span class="kt">char</span> <span class="n">d</span><span class="p">);</span>    <span class="c1">// send a character to be displayed on screen</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The comments pretty much explain the different definitions and macros, the real explanation will be needed for the actual implementation of the functions.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// check if LCD busy&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">busyLCD</span><span class="p">()</span> <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x80</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// check address of LCD position&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">addrLCD</span><span class="p">()</span> <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x7F</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// read what is on the LCD&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">getLCD</span><span class="p">()</span>  <span class="n">readLCD</span><span class="p">(</span> <span class="n">LCDDATA</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// set cursor position&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">setLCDC</span><span class="p">(</span> <span class="n">a</span><span class="p">)</span> <span class="n">writeLCD</span><span class="p">(</span> <span class="n">LCDCMD</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="mh">0x7F</span><span class="p">)</span> <span class="o">|</span> <span class="mh">0x80</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></h1>
+
+<p>The four definitions above allow us to check if the LCD is busy,  check the address, get current display and moving the cursor using a  combination of reading the LCD data, checking for the corresponsding  data and writing to the LCD command register .</p>
+
+<p>Again we have an initialisation function which sets up both the PMP and the LCD screen. The LCD is quite a slow electronic component by micro controller standards so we need to put in a few delays during it's initialisation. This is accomplished by using the Timer1 module on the PIC24F. After the initialisation we can actually physically check if the LCD is ready to use, rather than putting in our own delays.</p>
+
+<p>In the comments I've put in important information about the specific registers being set, but I suggest you look at the data sheet to see what exactly is happening.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &amp;lt;p24fj128ga010.h&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;lcd.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// initialise the LCD</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">initLCD</span><span class="p">(</span> <span class="kt">void</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// PMP initialization</span>
+</span><span class='line'><span class="n">PMCON</span> <span class="o">=</span> <span class="mh">0x83BF</span><span class="p">;</span>             <span class="c1">// Enable the PMP</span>
+</span><span class='line'><span class="n">PMMODE</span> <span class="o">=</span> <span class="mh">0x3FF</span><span class="p">;</span>             <span class="c1">// Master Mode 1</span>
+</span><span class='line'><span class="n">PMAEN</span> <span class="o">=</span> <span class="mh">0x0001</span><span class="p">;</span>             <span class="c1">// PMA0 enabled</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// initialise TMR1</span>
+</span><span class='line'><span class="n">T1CON</span> <span class="o">=</span> <span class="mh">0x8030</span><span class="p">;</span>             <span class="c1">// Fosc/2, prescaled 1:256, 16us/tick</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// wait for &amp;gt;30ms</span>
+</span><span class='line'><span class="n">TMR1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="n">TMR1</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="mi">2000</span><span class="p">);</span><span class="c1">// 2000 x 16us = 32ms</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//initiate the HD44780 display 8-bit init sequence</span>
+</span><span class='line'><span class="n">PMADDR</span> <span class="o">=</span> <span class="n">LCDCMD</span><span class="p">;</span>            <span class="c1">// command register</span>
+</span><span class='line'><span class="n">PMDATA</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b00111000</span><span class="p">;</span>        <span class="c1">// 8-bit interface, 2 lines, 5x7</span>
+</span><span class='line'><span class="n">TMR1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="n">TMR1</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="mi">3</span><span class="p">);</span>   <span class="c1">// 3 x 16us = 48us</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PMDATA</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b00001100</span><span class="p">;</span>        <span class="c1">// display ON, cursor off, blink off</span>
+</span><span class='line'><span class="n">TMR1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="n">TMR1</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="mi">3</span><span class="p">);</span>   <span class="c1">// 3 x 16us = 48us</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PMDATA</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b00000001</span><span class="p">;</span>        <span class="c1">// clear display</span>
+</span><span class='line'><span class="n">TMR1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="n">TMR1</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// 100 x 16us = 1.6ms</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PMDATA</span> <span class="o">=</span> <span class="mi">0</span><span class="n">b00000110</span><span class="p">;</span>        <span class="c1">// increment cursor, no shift</span>
+</span><span class='line'><span class="n">TMR1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="k">while</span><span class="p">(</span> <span class="n">TMR1</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// 100 x 16us = 1.6ms</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now we create a function that can read from the data register of the LCD, this will allow us to check things like current position and what is currently being display etc.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// read from the LCD</span>
+</span><span class='line'><span class="kt">char</span> <span class="nf">readLCD</span><span class="p">(</span> <span class="kt">int</span> <span class="n">addr</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">dummy</span><span class="p">;</span>
+</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="n">PMMODEbits</span><span class="p">.</span><span class="n">BUSY</span><span class="p">);</span>    <span class="c1">// wait for PMP to be available</span>
+</span><span class='line'><span class="n">PMADDR</span> <span class="o">=</span> <span class="n">addr</span><span class="p">;</span>              <span class="c1">// select the command address</span>
+</span><span class='line'><span class="n">dummy</span> <span class="o">=</span> <span class="n">PMDATA</span><span class="p">;</span>             <span class="c1">// initiate a read cycle, dummy read</span>
+</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="n">PMMODEbits</span><span class="p">.</span><span class="n">BUSY</span><span class="p">);</span>    <span class="c1">// wait for PMP to be available</span>
+</span><span class='line'><span class="k">return</span><span class="p">(</span> <span class="n">PMDATA</span><span class="p">);</span>            <span class="c1">// read the status register</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The function above reads from the LCD status register and returns it. It does this by first checking to see if the LCD is busy and then computes a dummy read cycle and then checks the data on the PMP once it is no longer busy.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// write to LCD at particular address</span>
+</span><span class='line'><span class="kt">void</span> <span class="nf">writeLCD</span><span class="p">(</span> <span class="kt">int</span> <span class="n">addr</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">while</span><span class="p">(</span> <span class="n">busyLCD</span><span class="p">());</span>
+</span><span class='line'><span class="k">while</span><span class="p">(</span> <span class="n">PMMODEbits</span><span class="p">.</span><span class="n">BUSY</span><span class="p">);</span>    <span class="c1">// wait for PMP to be available</span>
+</span><span class='line'><span class="n">PMADDR</span> <span class="o">=</span> <span class="n">addr</span><span class="p">;</span>
+</span><span class='line'><span class="n">PMDATA</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// send a character to be displayed on screen</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">putLCD</span><span class="p">(</span> <span class="kt">char</span> <span class="n">d</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">z</span><span class="p">,</span><span class="n">x</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// section of code to include special characters such as new line</span>
+</span><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span><span class="sc">&#39;\n&#39;</span>:
+</span><span class='line'>        <span class="n">setLCDC</span><span class="p">(</span><span class="mh">0x40</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span><span class="sc">&#39;\r&#39;</span>:
+</span><span class='line'>        <span class="n">z</span> <span class="o">=</span> <span class="n">addrLCD</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">+</span><span class="mi">64</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">z</span><span class="o">=</span><span class="p">(</span><span class="n">z</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="mh">0x40</span><span class="p">);</span>
+</span><span class='line'>        <span class="n">setLCDC</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">case</span><span class="sc">&#39;\t&#39;</span>:
+</span><span class='line'>        <span class="n">z</span> <span class="o">=</span> <span class="n">addrLCD</span><span class="p">();</span>
+</span><span class='line'>        <span class="n">x</span><span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="p">(</span><span class="n">z</span><span class="o">%</span><span class="mi">5</span><span class="p">));</span>
+</span><span class='line'>        <span class="n">setLCDC</span><span class="p">((</span><span class="n">z</span><span class="o">+</span><span class="n">x</span><span class="p">));</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nl">default:</span>
+</span><span class='line'>        <span class="n">writeLCD</span><span class="p">(</span> <span class="n">LCDDATA</span><span class="p">,</span> <span class="n">d</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The two above functions actually write to the LCD screen, writeLCD is the general command that takes in a character and an address and putLCD automatically writes to the LCD at its current position. In the putLCD command we have created cases for when we send special characters to the LCD, these include the newline character '\n', the carriage return character '\r' and the tab character '\t'. Each one performs a specific action using the macros that were defined earlier.</p>
+
+<p>Again we need to re-implement the write function in the c standard library. This time we are going to have any output to stdout going to the LCD screen and any output to stderr going to the serial port. All we do is to use the other cases in the switch statement inside the write function to do different things, as follows:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &amp;lt;p24fj128ga010.h&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;conu2.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;lcd.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">handle</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">0</span>:
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// case for stdout outout</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span>:
+</span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">putLCD</span><span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="o">++</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// case for stderr outout</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">2</span>:
+</span><span class='line'>        <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">putU2</span><span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="o">++</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nl">default:</span>
+</span><span class='line'>        <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">return</span><span class="p">(</span><span class="n">len</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>To show our library of functions actually work we can create the following main function to test both peripherals.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &amp;lt;p24fj128ga010.h&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;conU2.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;lcd.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">initLCD</span><span class="p">();</span>
+</span><span class='line'><span class="n">InitU2</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello lcd&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">&quot;hello serial&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The fprintf command allows us to specify the output stream that we want to write to rather than just using printf to output to the default stream of stdout. So in this case stdout is the LCD screen and stderr is the serial port.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Beginning with the Explorer 16]]></title>
+    <link href="http://oracal.github.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
+    <updated>2011-02-05T21:22:48+00:00</updated>
+    <id>http://oracal.github.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
+    <content type="html"><![CDATA[<p>So I've found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here's my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I'm just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
+
+<!-- more -->
+
+
+<p>First of all I'll quickly go through the very simple steps to set up your PIC project.</p>
+
+<p>Ok so you'll need the MPLAB IDE and the MPLAB C Compiler for PIC24F PIC's from the Microchip Website, the IDE is free and you can you get the lite version of the compiler for free. Start a new project in the IDE by going to project wizard and selecting your chip and your compiler in the options. Also you'll need to select and add a linker file to your project, it's located inside the compiler's folder inside the sub folder support/PIC24F/gld/, you need to select the file with your exact chip number on it.</p>
+
+<p>So now you're ready to begin actual programming.</p>
+
+<p>The first example I want to show you is the "Hello World" of the microcontroller programming field, the lighting of an LED. Now there are already LED's on the explorer 16 board so we won't have to do any soldering or connecting up, we just need to know the way in which it is connected up. Now I implore you to download the data sheet for both the PIC and the explorer 16 board, they are so useful and will tell you exactly what is connected to what and what each register controls. In our case the 8 LED's are connected to PORTA which is basically a set of digital input/output ports which we can control with the PIC. Now to set the first LED (D3) on we need to configure the PORTA to be an output on the first LED. We do this by setting</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">TRISA</span> <span class="o">=</span> <span class="mh">0xFFFE</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>TRISA is the register of the PIC that controls whether or not a digital i/o pin is an input (bit has value 1) or an output (bit has value 0). The 0x in front of the FFFE means that it is a hexadecimal number which in binary form is: 1111111111111110, setting the very first pin RA0 to an output. You can also set the bit as an output by using</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">TRISAbits</span><span class="p">.</span><span class="n">RA0</span> <span class="o">=</span> <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>which is a handy shortcut when you only really need to change 1 bit.</p>
+
+<p>Ok so we have set the pin as an output, now we want to set whether it is actually giving out current, we do this by setting the pin high, if the pin is low then it gives out no current. To do this we set the first bit of the PORTA register to 1 i.e.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">PORTA</span><span class="o">=</span><span class="mh">0x0001</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>As with all c programs we're going to need to put this in the usual main function so set up your main.c file to look like the following:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">p24fj128ga010</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">TRISA</span> <span class="o">=</span> <span class="mh">0xFFFE</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">PORTA</span> <span class="o">=</span> <span class="mh">0x0001</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Don't forget to put the header file for your PIC at the top of the file, just use your exact PIC designator with a .h at the end, the same as your linker file. Just a quick note about the while at the end of the code, we need that there so that the PIC doesn't complete the program as when it does the LED will turn off, and it will do this so quickly that you will not even see it flash. So now go to project on the top menu and click build all, then select your programmer and program your PIC. The D3 LED should turn on and shows how easy it is to control something physically with some programming and a PIC.</p>
+
+<p>Next I'll show you a simple way to use your serial port connection to connect to your computer. A few things you'll need before we get going, first of all serial ports are kind of legacy equipment for computers nowadays so it is very unlikely your pc will have one, however they are very easy connection to use and are still widely accepted in the embedded programming world, so you'll probably need a usb to serial adapter. Another thing you'll need is hyper terminal, a really great simple windows program that will do exactly what we need, however on more modern window versions they don't have it included so you might have to download a copy from the internet. So anyway onto the programming.</p>
+
+<p>First of all you to need to initialise the uart2 module on the board so that you can use it with the serial port with particular connection information. I'm going to put this in a separate function to make it easier in the main program. We'll make a library file "u2.h" to contain come constants:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="c1">// some helpful definitions for setting the uart2 module&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// clear To Send, input, HW handshake&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">CTS</span> <span class="n">_RF12</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// request To Send, output, HW handshake&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">RTS</span> <span class="n">_RF13</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// initialise the serial port (UART2, 115200@32MHz, 8, N, 1, CTS/RTS )</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">initU2</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// send a character to the serial port</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">putU2</span><span class="p">(</span> <span class="kt">int</span> <span class="n">c</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Then we make the "u2.c" file that contains the initialisation function and also the function to send a single ASCII character to the serial port:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &amp;lt;p24fj128ga010.h&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;u2.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// tris control for RTS pin&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">TRTS</span> <span class="n">TRISFbits</span><span class="p">.</span><span class="n">TRISF13</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// timing and baud rate settings&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// 115200 baud (BREGH=1)&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">BRATE</span> <span class="mi">34</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// enable the UART peripheral&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">U_ENABLE</span> <span class="mh">0x8008</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// enable transmission&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">define</span> <span class="n">U_TX</span> <span class="mh">0x0400</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// initialise the serial port (UART2, 115200, 8, N, 1, CTS/RTS )</span>
+</span><span class='line'><span class="kt">void</span> <span class="n">initU2</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">U2BRG</span> <span class="o">=</span> <span class="n">BRATE</span><span class="p">;</span>
+</span><span class='line'><span class="n">U2MODE</span> <span class="o">=</span> <span class="n">U_ENABLE</span><span class="p">;</span>
+</span><span class='line'><span class="n">U2STA</span> <span class="o">=</span> <span class="n">U_TX</span><span class="p">;</span>
+</span><span class='line'><span class="n">TRTS</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="err">       </span> <span class="c1">// make RTS output</span>
+</span><span class='line'><span class="n">RTS</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="err">       </span> <span class="c1">// set RTS default status</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// send a character to the UART2 serial port</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">putU2</span><span class="p">(</span><span class="kt">int</span> <span class="n">c</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">while</span> <span class="p">(</span><span class="n">CTS</span><span class="p">);</span><span class="err">  </span> <span class="err">   </span> <span class="err">        </span> <span class="c1">// wait for clear to send</span>
+</span><span class='line'><span class="k">while</span> <span class="p">(</span><span class="n">U2STAbits</span><span class="p">.</span><span class="n">UTXBF</span><span class="p">);</span><span class="err"> </span> <span class="err"> </span> <span class="c1">// wait while Tx buffer full</span>
+</span><span class='line'><span class="n">U2TXREG</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
+</span><span class='line'><span class="k">return</span> <span class="n">c</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Now this means that the function putU2() has an input of a single character and sends it down the serial port, now what we really want is a function to write an entire string to the serial port. So we are going to reimplement the printf function in the c standard library and use that to send a string to the serial port, its useful since the printf function doesn't really have a current output to print to when working on the explorer 16 board, so we create one. To do this we create a new file write.c to override the old write function which is used by printf to actually write the data. So the write file should look like this:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &amp;lt;p24fj128ga010.h&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;u2.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">write</span><span class="p">(</span><span class="kt">int</span> <span class="n">handle</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">switch</span> <span class="p">(</span><span class="n">handle</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">case</span> <span class="mi">0</span>:
+</span><span class='line'>    <span class="k">case</span> <span class="mi">1</span>:
+</span><span class='line'>    <span class="k">case</span> <span class="mi">2</span>:
+</span><span class='line'>    <span class="c1">// case for stdout output</span>
+</span><span class='line'>    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="p">;</span> <span class="o">--</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">putU2</span><span class="p">(</span> <span class="o">*</span><span class="p">(</span><span class="kt">char</span><span class="o">*</span><span class="p">)</span><span class="n">buffer</span><span class="o">++</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nl">default:</span>
+</span><span class='line'>    <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">return</span><span class="p">(</span><span class="n">len</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>and now in your main function you simply need to initialise the uart2 and then use the printf command to send a string, as follows:</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">p24fj128ga010</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="s">&quot;u2.h&quot;</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">include</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">initU2</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="n">printf</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>What you will want to do now is to compile and transfer the program to the board and then connect the Explorer 16 to the serial port on your computer (or usb to serial adapter) and open up hyper terminal. Create a new connection on the COM port of your serial port and set the baud rate to 115200, data bits to 8, parity to none, stop bits to 1 and flow control to hardware. Then you should be able to see your board spitting out the word hello on every iteration of the while loop. Now that you have a connection to your board there are a ton of things you can do, the most useful I've encountered are data collection, controlling equipment and debugging. Enjoy!</p>
+]]></content>
+  </entry>
+  
+</feed>
