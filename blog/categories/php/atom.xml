@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: PHP | Thomas Whitton]]></title>
-  <link href="http://oracal.github.com/blog/categories/php/atom.xml" rel="self"/>
-  <link href="http://oracal.github.com/"/>
-  <updated>2013-04-02T23:17:51+01:00</updated>
-  <id>http://oracal.github.com/</id>
+  <link href="http://www.thomaswhitton.com/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
+  <updated>2013-04-03T20:14:09+01:00</updated>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest Wordpress Blog, Part 2]]></title>
-    <link href="http://oracal.github.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
     <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you'll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
@@ -421,9 +421,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest WordPress Blog]]></title>
-    <link href="http://oracal.github.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
     <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here's my guide for setting up a really simple blog.</p>
 
 <!-- more -->

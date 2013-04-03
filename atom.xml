@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Thomas Whitton]]></title>
-  <link href="http://oracal.github.com/atom.xml" rel="self"/>
-  <link href="http://oracal.github.com/"/>
-  <updated>2013-04-02T23:17:51+01:00</updated>
-  <id>http://oracal.github.com/</id>
+  <link href="http://www.thomaswhitton.com/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
+  <updated>2013-04-03T20:14:09+01:00</updated>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Cineworld API]]></title>
-    <link href="http://oracal.github.com/blog/2011/08/26/cineworld-api/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
     <updated>2011-08-26T22:19:42+01:00</updated>
-    <id>http://oracal.github.com/blog/2011/08/26/cineworld-api</id>
+    <id>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
     <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&#8217;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&#8217;t resist making a wrapper for it.</p>
 
 <p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&#8217;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
@@ -186,9 +186,9 @@
   
   <entry>
     <title type="html"><![CDATA[Python GUI Programming]]></title>
-    <link href="http://oracal.github.com/blog/2011/03/06/python-gui-programming/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/03/06/python-gui-programming</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
     <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&#8217;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&#8217;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&#8217;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->
@@ -603,9 +603,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest Wordpress Blog, Part 2]]></title>
-    <link href="http://oracal.github.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
     <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&#8217;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
@@ -990,9 +990,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest WordPress Blog]]></title>
-    <link href="http://oracal.github.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
     <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&#8217;s my guide for setting up a really simple blog.</p>
 
 <!-- more -->
@@ -1177,9 +1177,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
   
   <entry>
     <title type="html"><![CDATA[Explorer 16 LCD]]></title>
-    <link href="http://oracal.github.com/blog/2011/02/13/explorer-16-lcd/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
     <updated>2011-02-13T00:06:12+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/02/13/explorer-16-lcd</id>
+    <id>http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
     <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we&#8217;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&#8217;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&#8217;t require a  connection to a computer, which is handy.</p>
 
 <!-- more -->
@@ -1564,9 +1564,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
   
   <entry>
     <title type="html"><![CDATA[Beginning with the Explorer 16]]></title>
-    <link href="http://oracal.github.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
     <updated>2011-02-05T21:22:48+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
+    <id>http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
     <content type="html"><![CDATA[<p>So I&#8217;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&#8217;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&#8217;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
 
 <!-- more -->
@@ -1820,9 +1820,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
   
   <entry>
     <title type="html"><![CDATA[Qt Etiquette]]></title>
-    <link href="http://oracal.github.com/blog/2011/01/27/qt-etiquette/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
     <updated>2011-01-27T20:55:41+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/01/27/qt-etiquette</id>
+    <id>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
     <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&#8217;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
 
 <!-- more -->
@@ -1890,9 +1890,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
   
   <entry>
     <title type="html"><![CDATA[Encryption Libraries]]></title>
-    <link href="http://oracal.github.com/blog/2011/01/20/encryption-libraries/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
     <updated>2011-01-20T20:44:29+00:00</updated>
-    <id>http://oracal.github.com/blog/2011/01/20/encryption-libraries</id>
+    <id>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
     <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&#8217;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
 
 <!-- more -->
