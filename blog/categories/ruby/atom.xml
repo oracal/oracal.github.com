@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-04-04T23:32:58+01:00</updated>
+  <updated>2013-04-04T23:35:49+01:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[scripting-packet-analysis-presentation]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/04/04/scripting-packet-analysis/"/>
-    <updated>2013-04-04T22:16:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/04/04/scripting-packet-analysis</id>
+    <link href="http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
+    <updated>2013-01-10T22:16:00+00:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
     <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can't do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
 
 <!-- more -->
