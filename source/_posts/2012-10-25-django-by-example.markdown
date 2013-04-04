@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Django by Example"
-date: 2013-04-04 21:50
+date: 2012-10-25 21:50
 comments: true
 categories:
 - Python
