@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "scripting-packet-analysis-presentation"
+title: "scripting-packet-analysis"
 date: 2013-01-10 22:16
 comments: true
 categories:
