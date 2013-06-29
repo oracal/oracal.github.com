@@ -2,7 +2,7 @@
 layout: post
 title: "Binary Message Format C++ Examples"
 slug: "binary-message-format-c++-examples"
-date: 2013-06-13 06:55
+date: 2013-06-29 15:44
 comments: true
 categories:
 - c++
@@ -139,13 +139,97 @@ google::protobuf::ShutdownProtobufLibrary();
 Msgpack C++ Example
 -------------------
 
-In c++ if created from vectors and maps then it will automatically covert data into vectors and maps. Unfortunately for use with c++ if you require in the message format an array or map that contain different types of data then one must create a class or struct in c++ that can hold these values, and then call the macro MSGPACK_DEFINE to tell msgpack what variables are going to be part of the serialisation. It is also possible to use a msgpack helper function to do a similar thing.
+In c++ if the messages created from vectors, maps and PODs then msgpack will automatically covert data back into typed objects. Unfortunately for use with c++ if you require the message format as an array or map that contains different types then one must use helper functions to allow serialising of different types in the same message one after another (order will matter). Or you can create a class or struct in c++ that can hold these values, and then call the macro MSGPACK\_DEFINE to tell msgpack what variables are going to be part of the serialisation, this can also be used to serialise custom classes.
 
-Below we create a type "Root" that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.
+The simple example of msgpack i.e. when you serialise just vectors, maps and PODs it can be performed very easily as can be seen below:
 
+{% codeblock simple msgpack lang:cpp %}
 
-{% codeblock custom msgpack lang:cpp %}
+// ---- create the structure that will be serialised ----
+std::vector<std::string> vec;
+vec.push_back("Hello");
+vec.push_back("World");
 
+// ---- serialize it into buffer ----
+msgpack::sbuffer sbuf;
+msgpack::pack(sbuf, vec);
+
+// ---- deserialize it ----
+msgpack::unpacked msg;
+msgpack::unpack(&msg, sbuf.data(), sbuf.size());
+
+msgpack::object obj = msg.get();
+
+// ---- convert msgpack objects into statically typed object ----
+std::vector<std::string> rvec;
+obj.convert(&rvec);
+
+std::cout << vec[0] << " " << vec[1] << std::endl;
+
+{% endcodeblock %}
+
+Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it's pretty simple code to unpack the message using the unpacker object.
+
+{% codeblock msgpack packing lang:cpp %}
+
+// ---- create the structure that will be serialised ----
+std::vector<std::string> vec;
+vec.push_back("Hello");
+vec.push_back("World");
+
+std::map<std::string, std::string> map;
+map["hello"] = "world";
+
+// ---- serialize it into buffer ----
+msgpack::sbuffer buffer;
+msgpack::packer<msgpack::sbuffer> pk(&buffer);
+pk.pack(std::string("hello"));
+pk.pack(vec);
+pk.pack(map);
+
+// ---- de-serialise these objects using msgpack::unpacker ----
+msgpack::unpacker pac;
+
+// copy the buffer data to the unpacker object
+pac.reserve_buffer(buffer.size());
+memcpy(pac.buffer(), buffer.data(), buffer.size());
+pac.buffer_consumed(buffer.size());
+
+// deserialize it.
+msgpack::unpacked msg;
+
+std::string outputString;
+std::vector<std::string> outputVector;
+std::map<std::string, std::string> outputMap;
+
+// ---- convert msgpack objects into statically typed objects ----
+
+// unpsck objects in the order in which they were packed
+pac.next(&msg);
+msgpack::object obj = msg.get();
+obj.convert(&outputString);
+
+std::cout << outputString << std::endl;
+
+pac.next(&msg);
+obj = msg.get();
+obj.convert(&outputVector);
+
+std::cout << outputVector[0] << ", " << outputVector[1] << std::endl;
+
+pac.next(&msg);
+obj = msg.get();
+obj.convert(&outputMap);
+
+std::cout << outputMap["hello"] << std::endl;
+
+{% endcodeblock %}
+
+Below we create a type "Root" that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK\_DEFINE macro. This could easily have been a struct with public variables instead.
+
+{% codeblock custom msgpack class lang:cpp %}
+
+// define custom msgpack serialisation for class
 class Root
 {
 private:
@@ -162,38 +246,39 @@ public:
     };
     Root(){};
     Root(const std::vector<int> &ints, const std::string &string): ints_(ints), string_(string){};
+
+    // msgpack macro to define what to serialize in custom classes
     MSGPACK_DEFINE(ints_, string_);
 };
 
 {% endcodeblock %}
 
-Below is the usual msgpack serialisation and deserialisation process, the comments should provide enough information to help you understand what is happening.
+The code to use the custom serialisation is very similar to the simple example above:
 
 {% codeblock custom msgpack lang:cpp %}
 
+// ---- create the structure that will be serialised ----
 std::vector<int> ints;
 ints.push_back(2);
 ints.push_back(5);
 
-Root hello(ints, "hello");
+Root fromScratch(ints, "hello");
 
-// serialize it into simple buffer.
+// ---- serialize it into buffer ----
 msgpack::sbuffer sbuf;
-msgpack::pack(sbuf, hello);
+msgpack::pack(sbuf, fromScratch);
 
-// deserialize it.
+// ---- deserialize it ----
 msgpack::unpacked msg;
 msgpack::unpack(&msg, sbuf.data(), sbuf.size());
 
-// print the deserialized object.
 msgpack::object obj = msg.get();
-std::cout << obj << std::endl;
 
-// convert it into statically typed object.
+// ---- convert msgpack objects into statically typed object ----
 Root world;
 obj.convert(&world);
 
-std::cout << world.getInts() << std::endl;
+std::cout << world.getInts()[0] << ", " << world.getInts()[1] << std::endl;
 std::cout << world.getString() << std::endl;
 
 {% endcodeblock %}
@@ -201,8 +286,8 @@ std::cout << world.getString() << std::endl;
 Conclusion
 ----------
 
-In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven't gone through it here, but it can easily convert the dynamic languages standard containers (maps and lists) into a msgpack binary message without too much problem, and in a really effecient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limititation that appear when message structure becomes more complicated.
+In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven't gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really effecient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.
 
 I think c++ is where protobuf really shines. It provides a very simple api to a complicated problem as well as a list of interesting features such as default values, extensions and message validation and the only limitation is the fact that protobuf schemas (and the respective generated code) have to stay consistent wherever the messaging is used.
 
-Saying that, if the message structure that you wish to send from the c++ program is a simple std::map or std::vector then I see no reason why to choose protobuf over msgpack.
+Saying that, if the message structure that you wish to send from the c++ program is a simple std::map or std::vector using PODs then I see no reason why to choose protobuf over msgpack.
