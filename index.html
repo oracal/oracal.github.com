@@ -9,7 +9,7 @@
   <meta name="author" content="Thomas Whitton">
 
   
-  <meta name="description" content="Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however &hellip;">
+  <meta name="description" content="Protobuf C++ Example Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,180 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-29T15:44:00+01:00" pubdate data-updated="true">Jun 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Protobuf C++ Example</h2>
+
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &#8220;generated&#8221; directory: protoc AddressBook.proto &#8211;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-28T06:55:00+01:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/28/xml-c-plus-plus-examples/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In each of the examples below I have used the address example from the previous article as an example xml file to be read in and parsed (as is common with xml, especially configuration files), create an xml message from scratch, query the xml message and also output as xml to a stream or file. I have separated out the querying into an outputAddress function that will be used throughout the example.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/28/xml-c-plus-plus-examples/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-27T06:54:00+01:00" pubdate data-updated="true">Jun 27<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/27/json-c-plus-plus-examples/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In each of the examples below I have tried to show you most of the different aspects of using json, i.e. creating json messages from scratch, outputting json, parsing json and querying json objects. The example json message used contains most of the features that a json message could contain. Querying the json object has been extracted into an output functon which is used multiple times in each example to show that everything is working correctly.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/27/json-c-plus-plus-examples/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/26/messaging-formats/">Messaging Formats</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-26T15:42:00+01:00" pubdate data-updated="true">Jun 26<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/06/26/messaging-formats/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It ussually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and dissadvantages, including my opinions, and links to some other blogs posts with examples of using them with c++.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/26/messaging-formats/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -326,179 +500,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/13/explorer-16-lcd/">Explorer 16 LCD</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-13T00:06:12+00:00" pubdate data-updated="true">Feb 13<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/02/13/explorer-16-lcd/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As a follow up to my previous article on the Explorer 16 board we&#8217;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&#8217;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&#8217;t require a  connection to a computer, which is handy.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/02/13/explorer-16-lcd/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/02/05/beginning-with-the-explorer-16/">Beginning With the Explorer 16</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-02-05T21:22:48+00:00" pubdate data-updated="true">Feb 5<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/02/05/beginning-with-the-explorer-16/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So I&#8217;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&#8217;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&#8217;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/02/05/beginning-with-the-explorer-16/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/27/qt-etiquette/">Qt Etiquette</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-27T20:55:41+00:00" pubdate data-updated="true">Jan 27<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/01/27/qt-etiquette/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&#8217;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/01/27/qt-etiquette/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/20/encryption-libraries/">Encryption Libraries</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-20T20:44:29+00:00" pubdate data-updated="true">Jan 20<span>th</span>, 2011</time>
-        
-         | <a href="/blog/2011/01/20/encryption-libraries/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&#8217;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2011/01/20/encryption-libraries/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/2/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -511,23 +515,23 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/26/messaging-formats/">Messaging Formats</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/01/10/scripting-packet-analysis/">scripting-packet-analysis</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/10/25/django-by-example/">Django by Example</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/08/26/cineworld-api/">Cineworld API</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/03/06/python-gui-programming/">Python GUI Programming</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2011/03/06/the-simplest-wordpress-blog-part-2/">The Simplest Wordpress Blog, Part 2</a>
       </li>
     
   </ul>

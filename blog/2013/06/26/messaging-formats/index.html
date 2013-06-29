@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Messaging Formats - Thomas Whitton</title>
+  <meta name="author" content="Thomas Whitton">
+
+  
+  <meta name="description" content="With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Thomas Whitton" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Thomas Whitton</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:www.thomaswhitton.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/cv">CV</a></li>
+  <li><a href="/about">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Messaging Formats</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-26T15:42:00+01:00" pubdate data-updated="true">Jun 26<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It ussually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and dissadvantages, including my opinions, and links to some other blogs posts with examples of using them with c++.</p>
+
+<!-- more -->
+
+
+<h2>Text Formats</h2>
+
+<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readible format. These have the advantage that it&#8217;s very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restfull web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I&#8217;ll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
+
+<h3>Json</h3>
+
+<p><a href="/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a></p>
+
+<p>Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:</p>
+
+<figure class='code'><figcaption><span>example.json  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='json'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;array&quot;</span><span class="p">:</span> <span class="p">[</span>
+</span><span class='line'>    <span class="s2">&quot;hello&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s2">&quot;world&quot;</span>
+</span><span class='line'>  <span class="p">],</span>
+</span><span class='line'>  <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>  <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class='line'>      <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Xml</h3>
+
+<p><a href="/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a></p>
+
+<p>Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema defination languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.</p>
+
+<figure class='code'><figcaption><span>address.xsd  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;xs:schema</span> <span class="na">elementFormDefault=</span><span class="s">&quot;qualified&quot;</span> <span class="na">xmlns:xs=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;Address&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;xs:complexType&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;xs:sequence&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;Recipient&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;House&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;Street&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;Town&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;County&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;PostCode&quot;</span> <span class="na">type=</span><span class="s">&quot;xs:string&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;xs:element</span> <span class="na">name=</span><span class="s">&quot;Country&quot;</span> <span class="na">minOccurs=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;xs:simpleType&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;xs:restriction</span> <span class="na">base=</span><span class="s">&quot;xs:string&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;IN&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;DE&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;ES&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;UK&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;xs:enumeration</span> <span class="na">value=</span><span class="s">&quot;US&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/xs:restriction&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/xs:simpleType&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/xs:element&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;/xs:sequence&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/xs:complexType&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/xs:element&gt;</span>
+</span><span class='line'><span class="nt">&lt;/xs:schema&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>With an example of an xml message conforming to the above schema being.</p>
+
+<figure class='code'><figcaption><span>address.xml  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+</span><span class='line'><span class="nt">&lt;Address</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+</span><span class='line'>    <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;address.xsd&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;Recipient&gt;</span>Mr. Walter C. Brown<span class="nt">&lt;/Recipient&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;House&gt;</span>49<span class="nt">&lt;/House&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;Street&gt;</span>Featherstone Street<span class="nt">&lt;/Street&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;Town&gt;</span>LONDON<span class="nt">&lt;/Town&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;PostCode&gt;</span>EC1Y 8SY<span class="nt">&lt;/PostCode&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;Country&gt;</span>UK<span class="nt">&lt;/Country&gt;</span>
+</span><span class='line'><span class="nt">&lt;/Address&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Binary Formats</h2>
+
+<p><a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
+
+<p>Then we have non human-readilble messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &#8220;protocol buffers&#8221;. The two mainly used ones are Google&#8217;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readible format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
+
+<h2>Protobuf</h2>
+
+<p>Protobuf requires a schema to keep data consistent and at least in c++ uses this schema to generate optimised code. This gives you methods, depending on the datatypes defined in the schema, to access and set any value you defined. You can not add any value into a protobuf message that is not defined in the schema nor one that has an incorrect type. An example of a schema taken from the protobuf documentation is:</p>
+
+<figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">message</span> <span class="n">Person</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">required</span> <span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">required</span> <span class="n">int32</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">optional</span> <span class="n">string</span> <span class="n">email</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">enum</span> <span class="n">PhoneType</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">MOBILE</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">HOME</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">WORK</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">message</span> <span class="n">PhoneNumber</span> <span class="p">{</span>
+</span><span class='line'>    <span class="n">required</span> <span class="n">string</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">optional</span> <span class="n">PhoneType</span> <span class="n">type</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="n">HOME</span><span class="p">];</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">repeated</span> <span class="n">PhoneNumber</span> <span class="n">phone</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">message</span> <span class="n">AddressBook</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">repeated</span> <span class="n">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This defines an address book which stores a list of people and their phone numbers, specifying what ntype the number is.</p>
+
+<h3>Protobuf Binary Format</h3>
+
+<h4>Varints</h4>
+
+<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two&#8217;s complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
+
+<pre><code>1011 1000 0011 1100
+</code></pre>
+
+<p>First take off the first bit from each byte.</p>
+
+<pre><code>011 1000 011 1100
+</code></pre>
+
+<p>Then reverse the byte order as the protocol defines that the least significant group comes first.</p>
+
+<pre><code>111 1100 111 0000
+</code></pre>
+
+<p>Then finally convert the two&#8217;s compliment binary number into a decimal.</p>
+
+<pre><code>-400
+</code></pre>
+
+<h4>Message Structure</h4>
+
+<p>Like with most messaging format a protocol buffer message is a series of key-value pairs. In the binary format the key is made up from the fields number from the .proto file and a number defining the field type. The use of the field number from the schema saves quite a lot of space, however, means that at each end there is a requirement for a .proto file referencing that field. The field type is needed so that protobuf can work out the length of the value so as to skip over any it does not recognise, i.e. to allow backwards compatability of .proto files.</p>
+
+<p>Each key in the binary message is a varint with the value:</p>
+
+<pre><code>(field_number &lt;&lt; 3) | type
+</code></pre>
+
+<p>i.e. the last three bits of the number specify the type, these values are hardcoded and defined in the protobuf documentation.</p>
+
+<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc&#8230;) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
+
+<h2>Msgpack</h2>
+
+<p>Msgpack is very dynamic and bases itself on json except that at either end it encodes/decodes into a binary protocol. Even when you output it out inside the code it prints it out as if it were encoded in json. Since it allows any data to be added and removed it generally uses the language own containers (lists and maps) as the undecoded format. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limititation that appear when message structure becomes more complicated.</p>
+
+<h2>Msgpack Binary Format</h2>
+
+<p>Msgpack contains all type information inside the binary message and therefore is always backwards compatible. Each value is stored in a <strong>type-data</strong> or <strong>type-length-data</strong> style. Meaning that there are quite a few well defined types that have a hardcoded fixed length value and others such as raw bytes and containers need to know the lenght of their values.</p>
+
+<h2>Summary</h2>
+
+<p>I think with the modern day responsive websites mostly utilising restfull web api&#8217;s that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
+
+<p>I see no real reason to replace restfull json api&#8217;s with binary protocl buffers considering with json it is very quick to convert into javascript objects and since with gzipping api respones the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
+
+<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack&#8217;s dynamic features.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Thomas Whitton</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-26T15:42:00+01:00" pubdate data-updated="true">Jun 26<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>, <a class='category' href='/blog/categories/json/'>json</a>, <a class='category' href='/blog/categories/msgpack/'>msgpack</a>, <a class='category' href='/blog/categories/protobuf/'>protobuf</a>, <a class='category' href='/blog/categories/xml/'>xml</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/" data-via="thomaswhitton" data-counturl="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/01/10/scripting-packet-analysis/" title="Previous Post: scripting-packet-analysis">&laquo; scripting-packet-analysis</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/06/27/json-c-plus-plus-examples/" title="Next Post: Json C++ Examples">Json C++ Examples &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/26/messaging-formats/">Messaging Formats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/01/10/scripting-packet-analysis/">scripting-packet-analysis</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/oracal">@oracal</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'oracal',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/112919431559357572505?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Thomas Whitton -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'thomaswhitton';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/';
+        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
