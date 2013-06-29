@@ -2,7 +2,7 @@
 layout: post
 title: "Messaging Formats"
 slug: "messaging-formats"
-date: 2013-04-16 06:43
+date: 2013-06-26 15:42
 comments: true
 categories:
 - c++
@@ -29,7 +29,7 @@ Lets first of all split these messaging formats up into two subcategories. First
 
 ### Json
 
-[Json C++ Examples](/blog/2013/06/13/json-c-plus-plus-examples/)
+[Json C++ Examples](/blog/2013/06/27/json-c-plus-plus-examples/)
 
 Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:
 
@@ -51,7 +51,7 @@ Json is simply made up of a combination of of arrays and objects (aka dictionari
 
 ### Xml
 
-[Xml C++ Examples](/blog/2013/06/13/xml-c-plus-plus-examples/)
+[Xml C++ Examples](/blog/2013/06/28/xml-c-plus-plus-examples/)
 
 Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema defination languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.
 
@@ -106,7 +106,7 @@ With an example of an xml message conforming to the above schema being.
 Binary Formats
 --------------
 
-[Binary Message Format C++ Examples](/blog/2013/06/13/binary-message-format-c-plus-plus-examples/)
+[Binary Message Format C++ Examples](/blog/2013/06/29/binary-message-format-c-plus-plus-examples/)
 
 Then we have non human-readilble messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of "protocol buffers". The two mainly used ones are Google's protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readible format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.
 
@@ -193,4 +193,4 @@ I think with the modern day responsive websites mostly utilising restfull web ap
 
 I see no real reason to replace restfull json api's with binary protocl buffers considering with json it is very quick to convert into javascript objects and since with gzipping api respones the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.
 
-As for which binary representation to use is going to be heavily dependent on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpacks dynamic features.
+Which binary representation to use depend heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack's dynamic features.
