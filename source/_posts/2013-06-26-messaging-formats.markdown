@@ -193,4 +193,4 @@ I think with the modern day responsive websites mostly utilising restfull web ap
 
 I see no real reason to replace restfull json api's with binary protocl buffers considering with json it is very quick to convert into javascript objects and since with gzipping api respones the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.
 
-Which binary representation to use depend heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack's dynamic features.
+Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack's dynamic features.
