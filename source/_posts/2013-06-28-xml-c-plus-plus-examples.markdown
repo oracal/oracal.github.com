@@ -21,7 +21,7 @@ In each of the examples below I have used the address example from the previous 
 - uses a data binding technique with generated code from an xsd schema file
 - a very small amount of code is required to effectively use the library
 - requires an xsd
-- uses generated code, which will need to be regenerated everytime there is a schema change
+- uses generated code, which will need to be regenerated every time there is a schema change
 - simple to use
 - restrictive license
 
@@ -418,5 +418,5 @@ I think the choice is very much dependent on what your use case is. If you have 
 
 Alternatively pugixml has a very simple api and is relatively fast, and so is an obvious choice, especially if there is a package available on your distribution that you can link against.
 
-If you are looking for super fast encoding/decoding of xml then your two options are rapidxml and boost property tree. The boost library uses rapidxml to parse xml and therefore should be very comparable in speed. The good thing about boost is the fact that it allows a convenient package management solution for a header only library and boost is a very common requirement for a lot of projects, so in most cases you will already have access to the xml library, as well as slighly improving the rapidxml api.
+If you are looking for super fast encoding/decoding of xml then your two options are rapidxml and boost property tree. The boost library uses rapidxml to parse xml and therefore should be very comparable in speed. The good thing about boost is the fact that it allows a convenient package management solution for a header only library and boost is a very common requirement for a lot of projects, so in most cases you will already have access to the xml library, as well as slightly improving the rapidxml api.
 
