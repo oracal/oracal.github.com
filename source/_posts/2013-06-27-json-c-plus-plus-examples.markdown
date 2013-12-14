@@ -23,7 +23,7 @@ In each of the examples below I have tried to show you most of the different asp
 - c++ interface
 - very simple api
 
-{% codeblock jsoncpp.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create from scratch ----
 
@@ -58,7 +58,7 @@ if (parsingSuccessful)
 
 {% endcodeblock %}
 
-{% codeblock jsoncpp.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void output(const Json::Value & value)
 {
@@ -78,7 +78,7 @@ void output(const Json::Value & value)
 - c++ interface
 - verbose api
 
-{% codeblock rapidjson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create from scratch ----
 
@@ -124,7 +124,7 @@ output(parsedFromString);
 
 {% endcodeblock %}
 
-{% codeblock jansson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void output(const rapidjson::Document & document)
 {
@@ -150,7 +150,7 @@ void output(const rapidjson::Document & document)
 - nasty memory allocation mainly due to it being a c library
 - every json item is a json\_t pointer, which must be checked to see what type it is before being used
 
-{% codeblock jansson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create from scratch ----
 
@@ -203,7 +203,7 @@ json_decref(parsedFromString);
 
 {% endcodeblock %}
 
-{% codeblock jansson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void output(const json_t* document)
 {

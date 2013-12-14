@@ -1,72 +1,29 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
-html {
- background: url(/images/bg.gif) repeat;
+
+
+// have made most of the backgrounds simply white
+figure.code
+{
+  background: #fff;
 }
 
-html a:visited{
-  color: #1863a1;
+table
+{
+  background:#fff !important;
 }
 
-#cv {
-  width: 100%;
+pre
+{
+  background:#fff !important;
 }
 
-
-#cv a:visited{
-  color: #1863a1;
+input[type="text"]
+{
+  background: #f8f8f8 !important;
 }
 
-#cvoptions {
-  width: 20%;
-  min-width: 120px;
-  float:left;
-}
-
-#cvoptions li{
-  color:#999999;
-}
-
-
-#cvoptions li:hover{
-  color:#000000;
-}
-
-
-#cvoptions .clicked{
-  color:#000000;
-}
-
-#cvoptions ul{
-  list-style-type: none;
-  cursor:pointer;
-  margin-left:0px;
-
-}
-
-#cvtext{
-  width: 80%;
-  float:left;
-  height:auto;
-  line-height: 1.5em;
-
-}
-
-#cvtext td{
-  padding-top:0px;
-  text-align: justify;
-  vertical-align: top;
-  padding: 2px 10px 2px 5px;
-}
-
-#cvtext td b{
-    font-weight:bold;
-}
-
-#cvtext td i{
-    font-style:italic;
-}
-
-.right {
-    float: right;
+input[type="text"]:focus
+{
+  background: #fff !important;
 }

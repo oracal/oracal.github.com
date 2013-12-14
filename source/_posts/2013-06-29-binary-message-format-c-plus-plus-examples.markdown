@@ -21,7 +21,7 @@ Below is the schema for an address book example, this is used to generate c++ co
 
 <!-- more -->
 
-{% codeblock protobuf proto file lang:cpp %}
+{% codeblock lang:cpp %}
 
 message Person {
   required string name = 1;
@@ -50,7 +50,7 @@ message AddressBook {
 
 Below the protobuf is created and in this case is serialized to a string value, there are many protobuf methods to serialize the protobuf into different formats but with string you do not have to worry about memory allocation.
 
-{% codeblock create protobuf lang:cpp %}
+{% codeblock lang:cpp %}
 
 void createProtobuf(std::string & data)
 {
@@ -75,7 +75,7 @@ void createProtobuf(std::string & data)
 
 Not too much interesting code below, all it does is output the protobuf message defined above. Useful for understanding the different getters available in the protobuf api.
 
-{% codeblock output protobuf lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddresBook(const AddressBook &address_book)
 {
@@ -115,7 +115,7 @@ void outputAddresBook(const AddressBook &address_book)
 
 Below is the code that brings the other two snippets together, first we check for protobuf version using a special protobuf macro, then we store the protobuf binary into a string, then we parse this binary data into a completely new protobuf message, then we output the new message using the method defined above. Also it is good practice to call the ShutDownProtobufLibrary method once you have finished using protobuf code. Most applications probably will not have to do this since the program will terminate anyway once it has stopped using protobuf.
 
-{% codeblock protobuf.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // Verify that the version of the library that we linked against is
 // compatible with the version of the headers we compiled against.
@@ -143,7 +143,7 @@ In c++ if the messages created from vectors, maps and PODs then msgpack will aut
 
 The simple example of msgpack i.e. when you serialise just vectors, maps and PODs it can be performed very easily as can be seen below:
 
-{% codeblock simple msgpack lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create the structure that will be serialised ----
 std::vector<std::string> vec;
@@ -170,7 +170,7 @@ std::cout << vec[0] << " " << vec[1] << std::endl;
 
 Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it's pretty simple code to unpack the message using the unpacker object.
 
-{% codeblock msgpack packing lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create the structure that will be serialised ----
 std::vector<std::string> vec;
@@ -227,7 +227,7 @@ std::cout << outputMap["hello"] << std::endl;
 
 Below we create a type "Root" that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK\_DEFINE macro. This could easily have been a struct with public variables instead.
 
-{% codeblock custom msgpack class lang:cpp %}
+{% codeblock lang:cpp %}
 
 // define custom msgpack serialisation for class
 class Root
@@ -255,7 +255,7 @@ public:
 
 The code to use the custom serialisation is very similar to the simple example above:
 
-{% codeblock custom msgpack lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- create the structure that will be serialised ----
 std::vector<int> ints;

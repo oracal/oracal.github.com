@@ -33,7 +33,7 @@ Lets first of all split these messaging formats up into two subcategories. First
 
 Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:
 
-{% codeblock example.json lang:json %}
+{% codeblock lang:json %}
 
 {
   "hello": "world",
@@ -55,7 +55,7 @@ Json is simply made up of a combination of of arrays and objects (aka dictionari
 
 Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema definition languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.
 
-{% codeblock address.xsd lang:xml %}
+{% codeblock lang:xml %}
 
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
@@ -88,7 +88,7 @@ Xml is made up of a hierarchy of tags and values. Each tag may also have its own
 
 With an example of an xml message conforming to the above schema being.
 
-{% codeblock address.xml lang:xml %}
+{% codeblock lang:xml %}
 
 <?xml version="1.0" encoding="utf-8"?>
 <Address xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -115,7 +115,7 @@ Protobuf
 
 Protobuf requires a schema to keep data consistent and at least in c++ uses this schema to generate optimised code. This gives you methods, depending on the datatypes defined in the schema, to access and set any value you defined. You can not add any value into a protobuf message that is not defined in the schema nor one that has an incorrect type. An example of a schema taken from the protobuf documentation is:
 
-{% codeblock protobuf proto file lang:cpp %}
+{% codeblock lang:cpp %}
 
 message Person {
   required string name = 1;

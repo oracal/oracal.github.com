@@ -25,7 +25,7 @@ In each of the examples below I have used the address example from the previous 
 - simple to use
 - restrictive license
 
-{% codeblock xsd.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- parse from file ----
 
@@ -76,7 +76,7 @@ Address_(ofs, *parsedFromStream, map);
 
 {% endcodeblock %}
 
-{% codeblock xsd.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddress(const Address& address)
 {
@@ -96,7 +96,7 @@ void outputAddress(const Address& address)
 - header only
 - verbose api, but usable
 
-{% codeblock rapidjson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- parse from file and stream ----
 
@@ -163,7 +163,7 @@ fout << fromScratch;
 
 {% endcodeblock %}
 
-{% codeblock rapidjson.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddress(const rapidxml::xml_node<> &addressNode)
 {
@@ -182,7 +182,7 @@ void outputAddress(const rapidxml::xml_node<> &addressNode)
 - a lot of tiny memory allocations, so can be rather slow
 - simple api for simple tasks, otherwise seems quite complicated
 
-{% codeblock tinyxml.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- parse from file ----
 
@@ -244,7 +244,7 @@ delete fromScratch;
 
 {% endcodeblock %}
 
-{% codeblock tinyxml.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddress(const TiXmlElement * address)
 {
@@ -262,7 +262,7 @@ void outputAddress(const TiXmlElement * address)
 - very simple api
 - reasonably fast
 
-{% codeblock pugixml.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- parse from file ----
 
@@ -312,7 +312,7 @@ if(streamResult)
 
 {% endcodeblock %}
 
-{% codeblock pugixml.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddress(const pugi::xml_node& address)
 {
@@ -332,7 +332,7 @@ void outputAddress(const pugi::xml_node& address)
 - uses rapidxml to parse xml
 - simple to use api
 
-{% codeblock boost.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // ---- parse from file ----
 
@@ -388,7 +388,7 @@ write_xml(fout, parsedFromStream);
 
 {% endcodeblock %}
 
-{% codeblock boost.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 void outputAddress(const boost::property_tree::ptree &pt)
 {
