@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "scripting-packet-analysis"
+title: "Scripting Packet Analysis"
+slug: "scripting-packet-analysis"
 date: 2013-01-10 22:16
 comments: true
 categories:
