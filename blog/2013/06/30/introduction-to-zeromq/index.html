@@ -1,0 +1,512 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Introduction to Zeromq - Thomas Whitton</title>
+	<meta name="author" content="Thomas Whitton">
+
+	
+	<meta name="description" content="In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Thomas Whitton" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Thomas Whitton</a></h1>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/cv">CV</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+	<li><a href="/">Blog</a></li>
+	<li><a href="/cv">CV</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:www.thomaswhitton.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/112919431559357572505?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/thomaswhitton" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/oracal" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="http://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:www.thomaswhitton.com">
+	</form>
+</nav>
+
+</header>
+	
+		
+	
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Introduction to Zeromq</h2>
+	<div class="entry-content"><p>In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll their own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).</p>
+
+<!-- more -->
+
+
+<h2>Over the Wire</h2>
+
+<p>The socket api is fundamental to network communication, it is the standard that has existed for many years, it provides a file like api to network commnications which abstracts the complications of network transport. It is very useful and powerful, but it is too low-lovel. There are too many edge cases in which you must protect yourself against. Many people create custom wrappers around the socket api to deal with these edge cases. In c++ there is the boost asio library which abstracts the socket api, but not by much (in fact it still uses sockets, it just makes them platform independent). These custom wrappers never catch everything and often take quite a bit of time to create.</p>
+
+<p>Why not use a library created by some of the experts in the field and which deals with a lot of these edge cases for you?</p>
+
+<p>Enter zeromq. Zeromq provides a very powerful abstraction on communication, which allows networked applications to talk to each other very easily and resiliently. The blurb from the developers themselves provides a very good description of what zeromq is and what it does:</p>
+
+<blockquote><p>ØMQ (also seen as ZeroMQ, 0MQ, zmq) looks like an embeddable networking library but acts like a concurrency framework. It gives you sockets that carry atomic messages across various transports like in-process, inter-process, TCP, and multicast. You can connect sockets N-to-N with patterns like fanout, pub-sub, task distribution, and request-reply. It&rsquo;s fast enough to be the fabric for clustered products. Its asynchronous I/O model gives you scalable multicore applications, built as asynchronous message-processing tasks. It has a score of language APIs and runs on most operating systems. ØMQ is from iMatix and is LGPLv3 open source.</p></blockquote>
+
+<p>Now that I have given you a brief introduction lets see what this library can do.</p>
+
+<h2>Implementation</h2>
+
+<p>The first example I will show you is the most simplest possible. In fact this could easily be done using sockets. It is a simple request and response between a client and server. Specifically in this example I pass a msgpack binary message over the zeromq connection.</p>
+
+<p>A couple of c++ implementation details to note is that all data that zeromq passes around inside messages uses void pointers, and these need to be staticaly cast into the type of data that you actually want (msgpack uses char *, but a lot of the time these will be converted into std::strings, I&rsquo;ll do this plenty of times in my json examples). Also since everything that is sent over zeromq is formed of messages we must populate zmq::message_t objects and send them using the zeromq socket api. One final thing to note down is that zeromq needs to work with multiple languages including ones that treat strings differently, namely null terminating string compared to most other types of strings. To keep things consistent zeromq has decided to not send null terminating strings so this is a very important factor to keep in mind when dealing with languages that use null terminating strings such as c++.</p>
+
+<h2>Request Reply</h2>
+
+<p>The client below starts by generating some msgpack data, then it creates a zeromq context, this is required for an application to use zeromq and starts off all the asyncrounous fun that zeromq uses behind the scenes. The number argument that you pass to this context is the amount of threads that zeromq will use in the background and should obviously be optimised for your application/hardware. Next we create a zmq socket that has a very similar api to a normal socket, however we pass to it an ENUM which describes the scenario that we would like zeromq to use, in this case the request part of a request-reply scenario. There are quite a few scenarios and I will go over a few of them in this post.</p>
+
+<p>Once the socket has been created it needs to be connected to an end point. In this case the server application that will be shown below. It is important to note that the server doesn&rsquo;t neccesarily need to be started first for the client to connect to it. Due to the way way zeromq buffers messages either one can be started first.</p>
+
+<p>For each piece of data that we send to the socket we are required to create a zmq::message_t object which we can populate with any data cast to a void * pointer. When we create a zmq message we must pass into it the amount of bytes that message will be in the constructor. We can then memcpy the data over to it.</p>
+
+<p>Then it&rsquo;s just a matter of sending over the message and receiving a reply message.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// the vector that is going to be sent</span>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;MessagePack&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// serialize it into simple buffer.</span>
+</span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
+</span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">vec</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Prepare our context and socket</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">context_t</span> <span class="n">context</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">socket_t</span> <span class="n">socket</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ZMQ_REQ</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">socket</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;tcp://localhost:5555&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Do 10 requests, waiting each time for a response</span>
+</span><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">request_nbr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">request_nbr</span> <span class="o">!=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">request_nbr</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="c1">// create request object, fill it up and send it</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">request</span><span class="p">(</span><span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>    <span class="n">memcpy</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>    <span class="n">socket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//  Get the reply.</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">reply</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">socket</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">reply</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now for the server, it sets things up in a very similar way to the client, except that this time we use the reply ENUM ZMQ_REP, and we bind the server to a port rather than to an ip address.</p>
+
+<p>This time we create a zmq::message_t object to receive the incoming message. We do not pass a number to the constructor of the message object this time since obviously we don&rsquo;t know yet what that is and also since when we pass it into the socket.recv() method the size will be populated with the incoming message size. In the example we then decode the msgpack message and turn it into a static type object and then send a reply back, all very easy stuff.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">//  Prepare our context and socket</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">context_t</span> <span class="n">context</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">socket_t</span> <span class="n">socket</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ZMQ_REP</span><span class="p">);</span>
+</span><span class='line'><span class="n">socket</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;tcp://*:5555&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">request</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//  Wait for next request from client</span>
+</span><span class='line'>    <span class="n">socket</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">request</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">sbuf</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">request</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// deserialize it.</span>
+</span><span class='line'>    <span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// print the deserialized object.</span>
+</span><span class='line'>    <span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// convert it into statically typed object.</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">rvec</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rvec</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Do some &#39;work&#39;</span>
+</span><span class='line'>    <span class="n">sleep</span> <span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//  Send reply back to client</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">reply</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">memcpy</span><span class="p">(</span><span class="n">reply</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="s">&quot;Hello World&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">socket</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">reply</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Publish and Subscribe</h2>
+
+<p>The publish and subscribe pattern is quite a common network structure and involves a single server constantly outputting data and clients subscribing to the server so that they too receive the same information from the server. If just using sockets for this problem alot of extra code would have to be written to accomodate this new architecture, having to deal with the subscriptions of all clients and making sure that edge cases of this system would not cause a problem.</p>
+
+<p>Below is an example of a weather server sending out important weather information. It is very similar to the example given in the Zeromq documentation, however I have replaced the data being sent to a json representation. You will notice that underlying zeromq code for this is very similar to the response and reply examples above, with the only real difference being the second argument to the socket constructor. The enum ZMQ_PUB defines the publisher socket type and means that all the extra complexities of using a publisher subscriber pattern will now be dealt with under the zeromq socket api. And similarly with the client example below the ZMQ_SUB enum is passed in allowing the specific socket code for subscriptions to be applied.</p>
+
+<p>One extra detail in this example is that there is an envelope message which is supposed to define the type of message being sent, this uses two separate zeromq messages but uses the ZMQ_SNDMORE argument to the send method (part of the zeromq api). This means that the message will only be sent the next time a send without ZMQ_SNDMORE argument is called. This allows you to combine separate zeromq messages into single &ldquo;real messages&rdquo;. In this example it is used to filter out certain messages from the publisher.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0))</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Prepare our context and publisher</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">context_t</span> <span class="n">context</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">socket_t</span> <span class="n">publisher</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ZMQ_PUB</span><span class="p">);</span>
+</span><span class='line'><span class="n">publisher</span><span class="p">.</span><span class="n">bind</span><span class="p">(</span><span class="s">&quot;tcp://*:5556&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">root</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Initialize random number generator</span>
+</span><span class='line'><span class="n">srandom</span><span class="p">((</span><span class="kt">unsigned</span><span class="p">)</span> <span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">int</span> <span class="n">zipcode</span><span class="p">,</span> <span class="n">temperature</span><span class="p">,</span> <span class="n">relhumidity</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//  Get values that will fool the boss</span>
+</span><span class='line'>    <span class="n">zipcode</span>     <span class="o">=</span> <span class="n">within</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">temperature</span> <span class="o">=</span> <span class="n">within</span><span class="p">(</span><span class="mi">215</span><span class="p">)</span> <span class="o">-</span> <span class="mi">80</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">relhumidity</span> <span class="o">=</span> <span class="n">within</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">root</span><span class="p">[</span><span class="s">&quot;zipcode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zipcode</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">root</span><span class="p">[</span><span class="s">&quot;temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">temperature</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">root</span><span class="p">[</span><span class="s">&quot;relhumidity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">relhumidity</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">Json</span><span class="o">::</span><span class="n">StyledWriter</span> <span class="n">styledWriter</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">styledWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">Json</span><span class="o">::</span><span class="n">FastWriter</span> <span class="n">fastWriter</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">jsonMessage</span> <span class="o">=</span> <span class="n">fastWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">//  Send message to all subscribers</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">message</span><span class="p">(</span><span class="n">jsonMessage</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">filter</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">memcpy</span><span class="p">(</span><span class="n">filter</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">memcpy</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">jsonMessage</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">jsonMessage</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+</span><span class='line'>    <span class="c1">// send a message that will wait for other messages to send using flag</span>
+</span><span class='line'>    <span class="n">publisher</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">filter</span><span class="p">,</span> <span class="n">ZMQ_SNDMORE</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">publisher</span><span class="p">.</span><span class="n">send</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The client example below is very similar to the client in the request reply example above.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// set up jsoncpp objects</span>
+</span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">v</span><span class="p">;</span>
+</span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Reader</span> <span class="n">reader</span><span class="p">;</span>
+</span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">StyledWriter</span> <span class="n">styledWriter</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// set up zeromq context</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">context_t</span> <span class="n">context</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Socket to talk to server</span>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Collecting updates from server...&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'><span class="n">zmq</span><span class="o">::</span><span class="n">socket_t</span> <span class="n">subscriber</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">ZMQ_SUB</span><span class="p">);</span>
+</span><span class='line'><span class="n">subscriber</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="s">&quot;tcp://localhost:5556&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// subscribe to filter</span>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filter</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span><span class="p">;</span>
+</span><span class='line'><span class="n">subscriber</span><span class="p">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">ZMQ_SUBSCRIBE</span><span class="p">,</span> <span class="n">filter</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">filter</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//  Process 100 updates</span>
+</span><span class='line'><span class="kt">int</span> <span class="n">update_nbr</span><span class="p">;</span>
+</span><span class='line'><span class="k">for</span><span class="p">(</span><span class="n">update_nbr</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">update_nbr</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">update_nbr</span><span class="o">++</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">envelope</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">zmq</span><span class="o">::</span><span class="n">message_t</span> <span class="n">update</span><span class="p">;</span>
+</span><span class='line'>    <span class="c1">// receive the envelope message which is used to filter out subscribers</span>
+</span><span class='line'>    <span class="n">subscriber</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">envelope</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// receive the json message and actually do soemthing with it</span>
+</span><span class='line'>    <span class="n">subscriber</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">update</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// convert non null terminating cstring into a string</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">update</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">update</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// parse json data</span>
+</span><span class='line'>    <span class="kt">bool</span> <span class="n">parsingSuccessful</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+</span><span class='line'>    <span class="k">if</span><span class="p">(</span><span class="n">parsingSuccessful</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">styledWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>I have just given some basic examples of using zeromq and how easy it is to use. Zeromq has quite a few different network patterns at its disposal and many of them are much more complex, however, they all have a similar simple api to use (the hard part is understanding the network pattern itself). What I am mainly interested in is the use of zeromq in edge-cases, such as network connectivity issues; I believe it will allow me to write much more fault-tolerant software in the future. I look forward to using zeromq in real applications and learning about the other network patterns available.</p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-30T06:43:00+01:00" pubdate data-updated="true">Jun 30<span>th</span>, 2013</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/networking/'>Networking</a>, <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+
+
+</div>
+	
+	<div class="comments"><a href="#disqus_thread">Comments</a></div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+		
+		
+		<a class="addthis_button_tweet"></a>
+		
+		
+		<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+		
+		
+	</div>
+	
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Thomas Whitton
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'thomaswhitton';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/';
+        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//go.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+</body>
+</html>
