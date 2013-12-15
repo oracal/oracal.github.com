@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Python | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-07-05T19:54:23+01:00</updated>
+  <updated>2013-12-15T20:51:42+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -18,7 +18,7 @@
     <link href="http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
     <updated>2013-01-10T22:16:00+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
-    <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can't do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
+    <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can&rsquo;t do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
 
 <!-- more -->
 
@@ -34,7 +34,7 @@
     <link href="http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
     <updated>2012-10-25T21:50:00+01:00</updated>
     <id>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
-    <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that's where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it's always useful to see how abother language/framework does things differently.</p>
+    <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&rsquo;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&rsquo;s always useful to see how abother language/framework does things differently.</p>
 
 <!-- more -->
 
@@ -50,9 +50,9 @@
     <link href="http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
     <updated>2011-08-26T22:19:42+01:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
-    <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven't had too much time for this, but when I found out my favorite cinema had their own API I couldn't resist making a wrapper for it.</p>
+    <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&rsquo;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&rsquo;t resist making a wrapper for it.</p>
 
-<p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I'll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
+<p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&rsquo;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
 
 <!-- more -->
 
@@ -61,23 +61,23 @@
 
 <p>Without saving your API key in the cineworld_api_key.py file:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">cineworld</span> <span class="kn">import</span> <span class="n">CW</span>
-</span><span class='line'><span class="n">CW</span><span class="p">(</span><span class="s">&#39;my_api_key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="s">&#39;some movie here&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">CW</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">my_api_key</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;)</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">some</span> <span class="n">movie</span> <span class="n">here</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>With your API key saved:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">cineworld</span> <span class="kn">import</span> <span class="n">CW</span>
-</span><span class='line'><span class="n">CW</span><span class="p">()</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="s">&#39;some movie here&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">CW</span><span class="p">()</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">some</span> <span class="n">movie</span> <span class="n">here</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>I'd like to mention that the cineworld API doesn't have a way to search using film titles so I had to make my own using their list of films. But before I get into explaining that I would like to go through some of the easy functions that just directly link to the API.</p>
+<p>I&rsquo;d like to mention that the cineworld API doesn&rsquo;t have a way to search using film titles so I had to make my own using their list of films. But before I get into explaining that I would like to go through some of the easy functions that just directly link to the API.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -169,7 +169,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;dates&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="ow">not</span> <span class="n">well</span> <span class="n">documented</span> <span class="n">but</span> <span class="n">I</span> <span class="n">assume</span> <span class="n">it</span><span class="s">&#39;s for more specialized performances i.e. not films&lt;/h1&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="ow">not</span> <span class="n">well</span> <span class="n">documented</span> <span class="n">but</span> <span class="n">I</span> <span class="n">assume</span> <span class="n">it</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="n">s</span> <span class="k">for</span> <span class="n">more</span> <span class="n">specialized</span> <span class="n">performances</span> <span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="ow">not</span> <span class="n">films</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">def</span> <span class="nf">get_performances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -181,13 +181,13 @@
 
 <p>Each function above accesses their respective API call and allows the user to specify their own arguments using the **kwargs parameter. These are the only functions to actually call the API and the rest of the functionality is completely based on these. A unique identifier can be passed along with the get_cinemas and get_films function to allow us to get specific film information.</p>
 
-<p>Now the problem I have is how do I get specific films if a user wanted one, they would have to first call the get_films function and then manually pick out their film. The list returned from the films API does contain a unique identifier for each film called the EDI number. However, EDI numbers are not as popular as say imdb or the tmdb movie identification number. The only way to get the specific film information is to look at the name and extract its EDI number. The problem was that the name of the films could be slightly different from imdb or tmdb so I couldn't do an exact string match. They could be shortened versions of the film names or additional identifiers such as 3D appended onto the name.</p>
+<p>Now the problem I have is how do I get specific films if a user wanted one, they would have to first call the get_films function and then manually pick out their film. The list returned from the films API does contain a unique identifier for each film called the EDI number. However, EDI numbers are not as popular as say imdb or the tmdb movie identification number. The only way to get the specific film information is to look at the name and extract its EDI number. The problem was that the name of the films could be slightly different from imdb or tmdb so I couldn&rsquo;t do an exact string match. They could be shortened versions of the film names or additional identifiers such as 3D appended onto the name.</p>
 
-<p>So I pretty much had to implement my own search functionality using the film list generated by cineworld as the base information. Now performance wasn't really an issue as there were only at most about 20 films in the list, so I didn't need hardcore performance search indexers like Lucene and I could easily use python for my search.</p>
+<p>So I pretty much had to implement my own search functionality using the film list generated by cineworld as the base information. Now performance wasn&rsquo;t really an issue as there were only at most about 20 films in the list, so I didn&rsquo;t need hardcore performance search indexers like Lucene and I could easily use python for my search.</p>
 
 <p>What I needed was a fuzzy searching alogirthm, luckily I had just read a <a href="http://seatgeek.com/blog/dev/fuzzywuzzy-fuzzy-string-matching-in-python">seatgeek blog post</a> with a really great introductory tutorial on fuzzy searching. They aslo released the code they used as an opensource python library amazingly called <a href="https://github.com/seatgeek/fuzzywuzzy">fuzzywuzzy</a>. It provided me with an easy way to match a good representation a film title with the film name that cineworld would give me.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -231,11 +231,11 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>So this function will return a list of films ordered by the strength of the fuzzy string match, generally we will only need the top results, possible the second result when the string matches a film name with both its 2D and 3D version. So this is going to be the main function to get hold of a film's id and then use that to find show times etc.</p>
+<p>So this function will return a list of films ordered by the strength of the fuzzy string match, generally we will only need the top results, possible the second result when the string matches a film name with both its 2D and 3D version. So this is going to be the main function to get hold of a film&rsquo;s id and then use that to find show times etc.</p>
 
-<p>I needed a way to get the current box office films to place on a site, unfortunately Cineworld have quite a few unorthodox films that play sometimes, like kids cartoons on Saturday morning and Bollywood films on a Thursday. Not that those films aren't important but I wouldn't say they were really Box Office films. Wednesday on the other hand, being Orange Wednesdays, generally had all of the Box Office films playing. Also, the way the Cineworld site seemed to work was that looking forward to Wednesday was a good way to get the most up to date films. So I made a function that would look forward to the next Wednesday and return a list of films playing that night. Also, I picked a single cinema which was likely to have quite a large amount of films due to its size, the O2 in Greenwich. Finally I made sure that I wouldn't get both the 3D and the 2D version of the film and it would only return the film name once using a simple filter to remove any 3D films and then removing the 2D text at the beginning of the string.</p>
+<p>I needed a way to get the current box office films to place on a site, unfortunately Cineworld have quite a few unorthodox films that play sometimes, like kids cartoons on Saturday morning and Bollywood films on a Thursday. Not that those films aren&rsquo;t important but I wouldn&rsquo;t say they were really Box Office films. Wednesday on the other hand, being Orange Wednesdays, generally had all of the Box Office films playing. Also, the way the Cineworld site seemed to work was that looking forward to Wednesday was a good way to get the most up to date films. So I made a function that would look forward to the next Wednesday and return a list of films playing that night. Also, I picked a single cinema which was likely to have quite a large amount of films due to its size, the O2 in Greenwich. Finally I made sure that I wouldn&rsquo;t get both the 3D and the 2D version of the film and it would only return the film name once using a simple filter to remove any 3D films and then removing the 2D text at the beginning of the string.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -273,7 +273,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>It's pretty easy to see that using quite a basic API you can create a lot more functionality with only making the slightest of approximations.</p>
+<p>It&rsquo;s pretty easy to see that using quite a basic API you can create a lot more functionality with only making the slightest of approximations.</p>
 ]]></content>
   </entry>
   
@@ -282,20 +282,20 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
-    <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I'll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren't really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I'll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
+    <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&rsquo;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&rsquo;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&rsquo;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->
 
 
-<p>The GUI program we'll make is a simple single button example that changes the color of a square rectangle. In each of the frameworks this will show its basic syntax, its widget creation and show its widget interconnectivity. Three of the most important aspects in using a GUI framework, especially widget connectivity.</p>
+<p>The GUI program we&rsquo;ll make is a simple single button example that changes the color of a square rectangle. In each of the frameworks this will show its basic syntax, its widget creation and show its widget interconnectivity. Three of the most important aspects in using a GUI framework, especially widget connectivity.</p>
 
 <h2>PyQt</h2>
 
 <p>When I first started looking at Python GUI frameworks I of course had already heard about PyQt from my extensive work with Qt using c++. If I ever found a solution online for a Qt problem using PyQt it was easily transferable to the c++ world. Now PyQt is the more mature set of bindings for Qt and therefore is generally a good choice if one already knows Qt, however it only has a GPL license which means you need to purchase a license to sell on the program when using PyQt. In contrast to PySide (which we shall discuss later) which has a LGPL license when can be used in a commercial application without license.</p>
 
-<p>Now getting past the licensing issues, PyQt is extremely easy to work with and contains most of the functionality of the original Qt. I'm just going to show and explain an example bit of code that will get you used to the PyQt syntax and show some widget connectivity, which you should be able to adapt to any already implemented Qt widgets.</p>
+<p>Now getting past the licensing issues, PyQt is extremely easy to work with and contains most of the functionality of the original Qt. I&rsquo;m just going to show and explain an example bit of code that will get you used to the PyQt syntax and show some widget connectivity, which you should be able to adapt to any already implemented Qt widgets.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -367,9 +367,9 @@
 </span><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>I'll go over each section of code to explain it</p>
+<p>I&rsquo;ll go over each section of code to explain it</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
@@ -377,7 +377,7 @@
 
 <p>This bit of code simply imports the modules needed for the Qt framework.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -395,23 +395,23 @@
 
 <p>This section of code creates our own widget that inherits the QDialog class and then defines the contructor which in turn calls the QDialog constructor.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">button</span><span class="o">=</span><span class="n">QPushButton</span><span class="p">(</span><span class="s">&quot;Change Color&quot;</span><span class="p">)</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">button</span><span class="o">=</span><span class="n">QPushButton</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Change</span> <span class="n">Color</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>
 </span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">=</span><span class="n">QLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </span><span class='line'><span class="n">fill</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 </span><span class='line'><span class="n">fill</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">Qt</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
 </span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">setPixmap</span><span class="p">(</span><span class="n">fill</span><span class="p">)</span>
-</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Color Changer&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Color</span> <span class="n">Changer</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now still in the constructor we create a button and a label. We then fill the label with the color red. Fianlly we set the tite of the dialog.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -421,15 +421,15 @@
 </span><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">setLayout</span><span class="p">(</span><span class="n">layout</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>This part of the code creates the layout of the dialog, pretty simple if you're coming from a Qt background.</p>
+<p>This part of the code creates the layout of the dialog, pretty simple if you&rsquo;re coming from a Qt background.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;clicked()&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">change</span><span class="p">)</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">clicked</span><span class="p">()</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;),</span> <span class="bp">self</span><span class="o">.</span><span class="n">change</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>This is a really important bit here, this shows PyQt's implementation of the signals and slots mechanism. Here we connect the buttons clicked signal to the change function, which simply changes the color of the label.</p>
+<p>This is a really important bit here, this shows PyQt&rsquo;s implementation of the signals and slots mechanism. Here we connect the buttons clicked signal to the change function, which simply changes the color of the label.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -439,15 +439,15 @@
 </span><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Now bringing everything together, we create an QApplication oject which every Qt program needs. And then create an instance of our Form dialog and then call the function to show the dialog. We then enter the event loop of the application using <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>Now bringing everything together, we create an QApplication oject which every Qt program needs. And then create an instance of our Form dialog and then call the function to show the dialog. We then enter the event loop of the application using <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div> (notice the slight difference with the original exec function in Qt to account for Python's own exec function), and thats it.</p>
+</span></code></pre></td></tr></table></div></figure></notextile></div> (notice the slight difference with the original exec function in Qt to account for Python&rsquo;s own exec function), and thats it.</p>
 
 <h2>PySide</h2>
 
-<p>Now this code is very similar to the PyQt code, as obviously it uses pretty much the same framework, so I'm only going to go over the changes in the code.</p>
+<p>Now this code is very similar to the PyQt code, as obviously it uses pretty much the same framework, so I&rsquo;m only going to go over the changes in the code.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -517,7 +517,7 @@
 
 <p>Ok so for the differences:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">PySide.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'><span class="kn">from</span> <span class="nn">PySide.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
@@ -525,18 +525,18 @@
 
 <p>We have a slightly different import section here for the new PySide bindings.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">change</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The signal and slots procedure is slightly different, here we just chain the object, the event and then the connect function with the function you want to be the slot inside the parenthesis.</p>
 
-<p>So that's it, the only differences. In larger programs you would find a few more but for the most part they are identical.</p>
+<p>So that&rsquo;s it, the only differences. In larger programs you would find a few more but for the most part they are identical.</p>
 
 <h2>wxPython</h2>
 
-<p>This GUI framework is based on the c++ wxWidgets framework. It uses very similar code to the other examples above, with only slight differences in syntax, naming conventions and connecting widgets. We still create our own form that inherits from a dialog class, in this case wx.dialog. We then create the button, I'll go over the rest of the code after you have had a quick browse:
-<div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p>This GUI framework is based on the c++ wxWidgets framework. It uses very similar code to the other examples above, with only slight differences in syntax, naming conventions and connecting widgets. We still create our own form that inherits from a dialog class, in this case wx.dialog. We then create the button, I&rsquo;ll go over the rest of the code after you have had a quick browse:
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -588,7 +588,7 @@
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
-</span><span class='line'><span class="n">form</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;Color Changer&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">form</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Color</span> <span class="n">Changer</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;)</span>
 </span><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">()</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
@@ -596,17 +596,17 @@
 
 <p>The code I want to draw your attention to is this bit here:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Change</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>This is the way wxPython connects its widgets together, using the Bind function and linking an event, in this case wx.EVT_BUTTON (which is just wxPython's button clicked event), of a certain button which calls a certain function self.change when activated.</p>
+<p>This is the way wxPython connects its widgets together, using the Bind function and linking an event, in this case wx.EVT_BUTTON (which is just wxPython&rsquo;s button clicked event), of a certain button which calls a certain function self.change when activated.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
-</span><span class='line'><span class="n">form</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s">&#39;Color Changer&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="n">form</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">Color</span> <span class="n">Changer</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;)</span>
 </span><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">MainLoop</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
@@ -614,9 +614,9 @@
 
 <h2>PyGTK</h2>
 
-<p>Now I hate to say it but I'm really not a fan of PyGTK, but you should definitely know about it. Here's a bit of code that does the same as the other examples but I'm not going to explain it in detail because I'd suggest you look at either wxPython or one of the python Qt frameworks. You see the same general theme as the other frameworks, you import the specific module, and then create a window, add buttons using a layout object (in this case a HBox) and then connect widgets together (in this case the connect command chained onto the button object).</p>
+<p>Now I hate to say it but I&rsquo;m really not a fan of PyGTK, but you should definitely know about it. Here&rsquo;s a bit of code that does the same as the other examples but I&rsquo;m not going to explain it in detail because I&rsquo;d suggest you look at either wxPython or one of the python Qt frameworks. You see the same general theme as the other frameworks, you import the specific module, and then create a window, add buttons using a layout object (in this case a HBox) and then connect widgets together (in this case the connect command chained onto the button object).</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -698,7 +698,7 @@
 </span><span class='line'><span class="n">gtk</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>As you might be able to tell I'm slightly biased towards Qt, but in this case I think I have some good reasons to be, not only by how simple the code is although that is a huge part of it, but also by the support from the developers and the community. For example the documentation on both the Qt frameworks is awesome and there are a lot of resources out there to learn from. Also they have adapted their Qt designer to work with the Python frameworks so one can design them physically and then use them in code. The other frameworks have this ability but it really is so much easier with Qt. Happy coding!</p>
+<p>As you might be able to tell I&rsquo;m slightly biased towards Qt, but in this case I think I have some good reasons to be, not only by how simple the code is although that is a huge part of it, but also by the support from the developers and the community. For example the documentation on both the Qt frameworks is awesome and there are a lot of resources out there to learn from. Also they have adapted their Qt designer to work with the Python frameworks so one can design them physically and then use them in code. The other frameworks have this ability but it really is so much easier with Qt. Happy coding!</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-07-05T19:54:23+01:00</updated>
+  <updated>2013-12-15T20:51:42+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -20,15 +20,14 @@
     <id>http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<h2>Protobuf C++ Example</h2>
 
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &#8220;generated&#8221; directory: protoc AddressBook.proto &#8211;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <!-- more -->
 
 
 
 
-<figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -77,8 +76,7 @@
 
 <p>Below the protobuf is created and in this case is serialized to a string value, there are many protobuf methods to serialize the protobuf into different formats but with string you do not have to worry about memory allocation.</p>
 
-<figure class='code'><figcaption><span>create protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -119,8 +117,7 @@
 
 <p>Not too much interesting code below, all it does is output the protobuf message defined above. Useful for understanding the different getters available in the protobuf api.</p>
 
-<figure class='code'><figcaption><span>output protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -191,8 +188,7 @@
 
 <p>Below is the code that brings the other two snippets together, first we check for protobuf version using a special protobuf macro, then we store the protobuf binary into a string, then we parse this binary data into a completely new protobuf message, then we output the new message using the method defined above. Also it is good practice to call the ShutDownProtobufLibrary method once you have finished using protobuf code. Most applications probably will not have to do this since the program will terminate anyway once it has stopped using protobuf.</p>
 
-<figure class='code'><figcaption><span>protobuf.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -233,8 +229,7 @@
 
 <p>The simple example of msgpack i.e. when you serialise just vectors, maps and PODs it can be performed very easily as can be seen below:</p>
 
-<figure class='code'><figcaption><span>simple msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -277,10 +272,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it&#8217;s pretty simple code to unpack the message using the unpacker object.</p>
+<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it&rsquo;s pretty simple code to unpack the message using the unpacker object.</p>
 
-<figure class='code'><figcaption><span>msgpack packing  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -383,10 +377,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Below we create a type &#8220;Root&#8221; that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
+<p>Below we create a type &ldquo;Root&rdquo; that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
 
-<figure class='code'><figcaption><span>custom msgpack class  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -433,8 +426,7 @@
 
 <p>The code to use the custom serialisation is very similar to the simple example above:</p>
 
-<figure class='code'><figcaption><span>custom msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -485,7 +477,7 @@
 
 <h2>Conclusion</h2>
 
-<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven&#8217;t gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
+<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven&rsquo;t gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
 
 <p>I think c++ is where protobuf really shines. It provides a very simple api to a complicated problem as well as a list of interesting features such as default values, extensions and message validation and the only limitation is the fact that protobuf schemas (and the respective generated code) have to stay consistent wherever the messaging is used.</p>
 
@@ -515,8 +507,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>xsd.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -613,8 +604,7 @@
 
 
 
-<figure class='code'><figcaption><span>xsd.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -644,8 +634,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -774,8 +763,7 @@
 
 
 
-<figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -804,8 +792,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>tinyxml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -924,8 +911,7 @@
 
 
 
-<figure class='code'><figcaption><span>tinyxml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -952,8 +938,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>pugixml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1048,8 +1033,7 @@
 
 
 
-<figure class='code'><figcaption><span>pugixml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1078,8 +1062,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>boost.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1186,8 +1169,7 @@
 
 
 
-<figure class='code'><figcaption><span>boost.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1256,8 +1238,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>jsoncpp.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1322,8 +1303,7 @@
 
 
 
-<figure class='code'><figcaption><span>jsoncpp.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1352,8 +1332,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1440,8 +1419,7 @@
 
 
 
-<figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1482,8 +1460,7 @@
 </ul>
 
 
-<figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1584,8 +1561,7 @@
 
 
 
-<figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1678,7 +1654,7 @@
 
 <h2>Conslusion</h2>
 
-<p>I think the choice is very much dependent on what your use case is. If you would like a very simple api and do not rely too heavily on being super fast then the obvious choice is jsoncpp, especially if there is a package available on your distribution that you can link against. If you require super fast json encoding and decoding or are working on a system where a header-only library is an attractive option then choose rapidjson. Since we&#8217;re talking about c++ here, I don&#8217;t think there should be a situation in which you should choose jansson over the others.</p>
+<p>I think the choice is very much dependent on what your use case is. If you would like a very simple api and do not rely too heavily on being super fast then the obvious choice is jsoncpp, especially if there is a package available on your distribution that you can link against. If you require super fast json encoding and decoding or are working on a system where a header-only library is an attractive option then choose rapidjson. Since we&rsquo;re talking about c++ here, I don&rsquo;t think there should be a situation in which you should choose jansson over the others.</p>
 ]]></content>
   </entry>
   
@@ -1694,7 +1670,7 @@
 
 <h2>Text Formats</h2>
 
-<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it&#8217;s very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I&#8217;ll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
+<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it&rsquo;s very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I&rsquo;ll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
 
 <h3>Json</h3>
 
@@ -1702,8 +1678,7 @@
 
 <p>Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:</p>
 
-<figure class='code'><figcaption><span>example.json  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1734,8 +1709,7 @@
 
 <p>Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema definition languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.</p>
 
-<figure class='code'><figcaption><span>address.xsd  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1792,8 +1766,7 @@
 
 <p>With an example of an xml message conforming to the above schema being.</p>
 
-<figure class='code'><figcaption><span>address.xml  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1820,14 +1793,13 @@
 
 <p><a href="http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
 
-<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &#8220;protocol buffers&#8221;. The two mainly used ones are Google&#8217;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
+<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &ldquo;protocol buffers&rdquo;. The two mainly used ones are Google&rsquo;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
 
 <h2>Protobuf</h2>
 
 <p>Protobuf requires a schema to keep data consistent and at least in c++ uses this schema to generate optimised code. This gives you methods, depending on the datatypes defined in the schema, to access and set any value you defined. You can not add any value into a protobuf message that is not defined in the schema nor one that has an incorrect type. An example of a schema taken from the protobuf documentation is:</p>
 
-<figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1880,7 +1852,7 @@
 
 <h4>Varints</h4>
 
-<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two&#8217;s complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
+<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two&rsquo;s complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
 
 <pre><code>1011 1000 0011 1100
 </code></pre>
@@ -1895,7 +1867,7 @@
 <pre><code>111 1100 111 0000
 </code></pre>
 
-<p>Then finally convert the two&#8217;s compliment binary number into a decimal.</p>
+<p>Then finally convert the two&rsquo;s compliment binary number into a decimal.</p>
 
 <pre><code>-400
 </code></pre>
@@ -1911,7 +1883,7 @@
 
 <p>i.e. the last three bits of the number specify the type, these values are hard coded and defined in the protobuf documentation.</p>
 
-<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc&#8230;) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
+<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc&hellip;) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
 
 <h2>Msgpack</h2>
 
@@ -1923,11 +1895,11 @@
 
 <h2>Summary</h2>
 
-<p>I think with the modern day responsive websites mostly utilising restful web api&#8217;s that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
+<p>I think with the modern day responsive websites mostly utilising restful web api&rsquo;s that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
 
-<p>I see no real reason to replace restful json api&#8217;s with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
+<p>I see no real reason to replace restful json api&rsquo;s with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
 
-<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack&#8217;s dynamic features.</p>
+<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack&rsquo;s dynamic features.</p>
 ]]></content>
   </entry>
   
@@ -1936,7 +1908,7 @@
     <link href="http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
     <updated>2013-01-10T22:16:00+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
-    <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can&#8217;t do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
+    <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can&rsquo;t do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
 
 <!-- more -->
 
@@ -1952,7 +1924,7 @@
     <link href="http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
     <updated>2012-10-25T21:50:00+01:00</updated>
     <id>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
-    <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&#8217;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&#8217;s always useful to see how abother language/framework does things differently.</p>
+    <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&rsquo;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&rsquo;s always useful to see how abother language/framework does things differently.</p>
 
 <!-- more -->
 
@@ -1968,9 +1940,9 @@
     <link href="http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
     <updated>2011-08-26T22:19:42+01:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
-    <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&#8217;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&#8217;t resist making a wrapper for it.</p>
+    <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&rsquo;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&rsquo;t resist making a wrapper for it.</p>
 
-<p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&#8217;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
+<p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&rsquo;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
 
 <!-- more -->
 
@@ -1979,7 +1951,7 @@
 
 <p>Without saving your API key in the cineworld_api_key.py file:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">cineworld</span> <span class="kn">import</span> <span class="n">CW</span>
 </span><span class='line'><span class="n">CW</span><span class="p">(</span><span class="s">&#39;my_api_key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="s">&#39;some movie here&#39;</span><span class="p">)</span>
@@ -1988,16 +1960,16 @@
 
 <p>With your API key saved:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">cineworld</span> <span class="kn">import</span> <span class="n">CW</span>
 </span><span class='line'><span class="n">CW</span><span class="p">()</span><span class="o">.</span><span class="n">film_search</span><span class="p">(</span><span class="s">&#39;some movie here&#39;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&#8217;d like to mention that the cineworld API doesn&#8217;t have a way to search using film titles so I had to make my own using their list of films. But before I get into explaining that I would like to go through some of the easy functions that just directly link to the API.</p>
+<p>I&rsquo;d like to mention that the cineworld API doesn&rsquo;t have a way to search using film titles so I had to make my own using their list of films. But before I get into explaining that I would like to go through some of the easy functions that just directly link to the API.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2058,13 +2030,13 @@
 
 <p>Each function above accesses their respective API call and allows the user to specify their own arguments using the **kwargs parameter. These are the only functions to actually call the API and the rest of the functionality is completely based on these. A unique identifier can be passed along with the get_cinemas and get_films function to allow us to get specific film information.</p>
 
-<p>Now the problem I have is how do I get specific films if a user wanted one, they would have to first call the get_films function and then manually pick out their film. The list returned from the films API does contain a unique identifier for each film called the EDI number. However, EDI numbers are not as popular as say imdb or the tmdb movie identification number. The only way to get the specific film information is to look at the name and extract its EDI number. The problem was that the name of the films could be slightly different from imdb or tmdb so I couldn&#8217;t do an exact string match. They could be shortened versions of the film names or additional identifiers such as 3D appended onto the name.</p>
+<p>Now the problem I have is how do I get specific films if a user wanted one, they would have to first call the get_films function and then manually pick out their film. The list returned from the films API does contain a unique identifier for each film called the EDI number. However, EDI numbers are not as popular as say imdb or the tmdb movie identification number. The only way to get the specific film information is to look at the name and extract its EDI number. The problem was that the name of the films could be slightly different from imdb or tmdb so I couldn&rsquo;t do an exact string match. They could be shortened versions of the film names or additional identifiers such as 3D appended onto the name.</p>
 
-<p>So I pretty much had to implement my own search functionality using the film list generated by cineworld as the base information. Now performance wasn&#8217;t really an issue as there were only at most about 20 films in the list, so I didn&#8217;t need hardcore performance search indexers like Lucene and I could easily use python for my search.</p>
+<p>So I pretty much had to implement my own search functionality using the film list generated by cineworld as the base information. Now performance wasn&rsquo;t really an issue as there were only at most about 20 films in the list, so I didn&rsquo;t need hardcore performance search indexers like Lucene and I could easily use python for my search.</p>
 
 <p>What I needed was a fuzzy searching alogirthm, luckily I had just read a <a href="http://seatgeek.com/blog/dev/fuzzywuzzy-fuzzy-string-matching-in-python">seatgeek blog post</a> with a really great introductory tutorial on fuzzy searching. They aslo released the code they used as an opensource python library amazingly called <a href="https://github.com/seatgeek/fuzzywuzzy">fuzzywuzzy</a>. It provided me with an easy way to match a good representation a film title with the film name that cineworld would give me.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2101,11 +2073,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>So this function will return a list of films ordered by the strength of the fuzzy string match, generally we will only need the top results, possible the second result when the string matches a film name with both its 2D and 3D version. So this is going to be the main function to get hold of a film&#8217;s id and then use that to find show times etc.</p>
+<p>So this function will return a list of films ordered by the strength of the fuzzy string match, generally we will only need the top results, possible the second result when the string matches a film name with both its 2D and 3D version. So this is going to be the main function to get hold of a film&rsquo;s id and then use that to find show times etc.</p>
 
-<p>I needed a way to get the current box office films to place on a site, unfortunately Cineworld have quite a few unorthodox films that play sometimes, like kids cartoons on Saturday morning and Bollywood films on a Thursday. Not that those films aren&#8217;t important but I wouldn&#8217;t say they were really Box Office films. Wednesday on the other hand, being Orange Wednesdays, generally had all of the Box Office films playing. Also, the way the Cineworld site seemed to work was that looking forward to Wednesday was a good way to get the most up to date films. So I made a function that would look forward to the next Wednesday and return a list of films playing that night. Also, I picked a single cinema which was likely to have quite a large amount of films due to its size, the O2 in Greenwich. Finally I made sure that I wouldn&#8217;t get both the 3D and the 2D version of the film and it would only return the film name once using a simple filter to remove any 3D films and then removing the 2D text at the beginning of the string.</p>
+<p>I needed a way to get the current box office films to place on a site, unfortunately Cineworld have quite a few unorthodox films that play sometimes, like kids cartoons on Saturday morning and Bollywood films on a Thursday. Not that those films aren&rsquo;t important but I wouldn&rsquo;t say they were really Box Office films. Wednesday on the other hand, being Orange Wednesdays, generally had all of the Box Office films playing. Also, the way the Cineworld site seemed to work was that looking forward to Wednesday was a good way to get the most up to date films. So I made a function that would look forward to the next Wednesday and return a list of films playing that night. Also, I picked a single cinema which was likely to have quite a large amount of films due to its size, the O2 in Greenwich. Finally I made sure that I wouldn&rsquo;t get both the 3D and the 2D version of the film and it would only return the film name once using a simple filter to remove any 3D films and then removing the 2D text at the beginning of the string.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2130,7 +2102,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>It&#8217;s pretty easy to see that using quite a basic API you can create a lot more functionality with only making the slightest of approximations.</p>
+<p>It&rsquo;s pretty easy to see that using quite a basic API you can create a lot more functionality with only making the slightest of approximations.</p>
 ]]></content>
   </entry>
   
@@ -2139,20 +2111,20 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
-    <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&#8217;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&#8217;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&#8217;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
+    <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&rsquo;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&rsquo;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&rsquo;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->
 
 
-<p>The GUI program we&#8217;ll make is a simple single button example that changes the color of a square rectangle. In each of the frameworks this will show its basic syntax, its widget creation and show its widget interconnectivity. Three of the most important aspects in using a GUI framework, especially widget connectivity.</p>
+<p>The GUI program we&rsquo;ll make is a simple single button example that changes the color of a square rectangle. In each of the frameworks this will show its basic syntax, its widget creation and show its widget interconnectivity. Three of the most important aspects in using a GUI framework, especially widget connectivity.</p>
 
 <h2>PyQt</h2>
 
 <p>When I first started looking at Python GUI frameworks I of course had already heard about PyQt from my extensive work with Qt using c++. If I ever found a solution online for a Qt problem using PyQt it was easily transferable to the c++ world. Now PyQt is the more mature set of bindings for Qt and therefore is generally a good choice if one already knows Qt, however it only has a GPL license which means you need to purchase a license to sell on the program when using PyQt. In contrast to PySide (which we shall discuss later) which has a LGPL license when can be used in a commercial application without license.</p>
 
-<p>Now getting past the licensing issues, PyQt is extremely easy to work with and contains most of the functionality of the original Qt. I&#8217;m just going to show and explain an example bit of code that will get you used to the PyQt syntax and show some widget connectivity, which you should be able to adapt to any already implemented Qt widgets.</p>
+<p>Now getting past the licensing issues, PyQt is extremely easy to work with and contains most of the functionality of the original Qt. I&rsquo;m just going to show and explain an example bit of code that will get you used to the PyQt syntax and show some widget connectivity, which you should be able to adapt to any already implemented Qt widgets.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2217,9 +2189,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I&#8217;ll go over each section of code to explain it</p>
+<p>I&rsquo;ll go over each section of code to explain it</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'><span class="kn">from</span> <span class="nn">PyQt4.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
@@ -2228,7 +2200,7 @@
 
 <p>This bit of code simply imports the modules needed for the Qt framework.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="k">class</span> <span class="nc">Form</span><span class="p">(</span><span class="n">QDialog</span><span class="p">):</span>
@@ -2239,7 +2211,7 @@
 
 <p>This section of code creates our own widget that inherits the QDialog class and then defines the contructor which in turn calls the QDialog constructor.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2256,7 +2228,7 @@
 
 <p>Now still in the constructor we create a button and a label. We then fill the label with the color red. Fianlly we set the tite of the dialog.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2267,16 +2239,16 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This part of the code creates the layout of the dialog, pretty simple if you&#8217;re coming from a Qt background.</p>
+<p>This part of the code creates the layout of the dialog, pretty simple if you&rsquo;re coming from a Qt background.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="s">&quot;clicked()&quot;</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">change</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This is a really important bit here, this shows PyQt&#8217;s implementation of the signals and slots mechanism. Here we connect the buttons clicked signal to the change function, which simply changes the color of the label.</p>
+<p>This is a really important bit here, this shows PyQt&rsquo;s implementation of the signals and slots mechanism. Here we connect the buttons clicked signal to the change function, which simply changes the color of the label.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2289,18 +2261,18 @@
 
 <p>Now bringing everything together, we create an QApplication oject which every Qt program needs. And then create an instance of our Form dialog and then call the function to show the dialog. We then enter the event loop of the application using</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p> (notice the slight difference with the original exec function in Qt to account for Python&#8217;s own exec function), and thats it.</p>
+<p> (notice the slight difference with the original exec function in Qt to account for Python&rsquo;s own exec function), and thats it.</p>
 
 <h2>PySide</h2>
 
-<p>Now this code is very similar to the PyQt code, as obviously it uses pretty much the same framework, so I&#8217;m only going to go over the changes in the code.</p>
+<p>Now this code is very similar to the PyQt code, as obviously it uses pretty much the same framework, so I&rsquo;m only going to go over the changes in the code.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2367,7 +2339,7 @@
 
 <p>Ok so for the differences:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="kn">from</span> <span class="nn">PySide.QtCore</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'><span class="kn">from</span> <span class="nn">PySide.QtGui</span> <span class="kn">import</span> <span class="o">*</span>
@@ -2376,20 +2348,20 @@
 
 <p>We have a slightly different import section here for the new PySide bindings.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">button</span><span class="o">.</span><span class="n">clicked</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">change</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>The signal and slots procedure is slightly different, here we just chain the object, the event and then the connect function with the function you want to be the slot inside the parenthesis.</p>
 
-<p>So that&#8217;s it, the only differences. In larger programs you would find a few more but for the most part they are identical.</p>
+<p>So that&rsquo;s it, the only differences. In larger programs you would find a few more but for the most part they are identical.</p>
 
 <h2>wxPython</h2>
 
-<p>This GUI framework is based on the c++ wxWidgets framework. It uses very similar code to the other examples above, with only slight differences in syntax, naming conventions and connecting widgets. We still create our own form that inherits from a dialog class, in this case wx.dialog. We then create the button, I&#8217;ll go over the rest of the code after you have had a quick browse:</p>
+<p>This GUI framework is based on the c++ wxWidgets framework. It uses very similar code to the other examples above, with only slight differences in syntax, naming conventions and connecting widgets. We still create our own form that inherits from a dialog class, in this case wx.dialog. We then create the button, I&rsquo;ll go over the rest of the code after you have had a quick browse:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2440,14 +2412,14 @@
 
 <p>The code I want to draw your attention to is this bit here:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="bp">self</span><span class="o">.</span><span class="n">Bind</span><span class="p">(</span><span class="n">wx</span><span class="o">.</span><span class="n">EVT_BUTTON</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Change</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">button</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This is the way wxPython connects its widgets together, using the Bind function and linking an event, in this case wx.EVT_BUTTON (which is just wxPython&#8217;s button clicked event), of a certain button which calls a certain function self.change when activated.</p>
+<p>This is the way wxPython connects its widgets together, using the Bind function and linking an event, in this case wx.EVT_BUTTON (which is just wxPython&rsquo;s button clicked event), of a certain button which calls a certain function self.change when activated.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">app</span> <span class="o">=</span> <span class="n">wx</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
@@ -2460,9 +2432,9 @@
 
 <h2>PyGTK</h2>
 
-<p>Now I hate to say it but I&#8217;m really not a fan of PyGTK, but you should definitely know about it. Here&#8217;s a bit of code that does the same as the other examples but I&#8217;m not going to explain it in detail because I&#8217;d suggest you look at either wxPython or one of the python Qt frameworks. You see the same general theme as the other frameworks, you import the specific module, and then create a window, add buttons using a layout object (in this case a HBox) and then connect widgets together (in this case the connect command chained onto the button object).</p>
+<p>Now I hate to say it but I&rsquo;m really not a fan of PyGTK, but you should definitely know about it. Here&rsquo;s a bit of code that does the same as the other examples but I&rsquo;m not going to explain it in detail because I&rsquo;d suggest you look at either wxPython or one of the python Qt frameworks. You see the same general theme as the other frameworks, you import the specific module, and then create a window, add buttons using a layout object (in this case a HBox) and then connect widgets together (in this case the connect command chained onto the button object).</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2547,7 +2519,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>As you might be able to tell I&#8217;m slightly biased towards Qt, but in this case I think I have some good reasons to be, not only by how simple the code is although that is a huge part of it, but also by the support from the developers and the community. For example the documentation on both the Qt frameworks is awesome and there are a lot of resources out there to learn from. Also they have adapted their Qt designer to work with the Python frameworks so one can design them physically and then use them in code. The other frameworks have this ability but it really is so much easier with Qt. Happy coding!</p>
+<p>As you might be able to tell I&rsquo;m slightly biased towards Qt, but in this case I think I have some good reasons to be, not only by how simple the code is although that is a huge part of it, but also by the support from the developers and the community. For example the documentation on both the Qt frameworks is awesome and there are a lot of resources out there to learn from. Also they have adapted their Qt designer to work with the Python frameworks so one can design them physically and then use them in code. The other frameworks have this ability but it really is so much easier with Qt. Happy coding!</p>
 ]]></content>
   </entry>
   
@@ -2556,14 +2528,14 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
-    <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&#8217;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
+    <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&rsquo;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
 
 
-<p>So now onto single.php, this is the code to display how a single post is shown. First we&#8217;ll look at the code to insert the post.</p>
+<p>So now onto single.php, this is the code to display how a single post is shown. First we&rsquo;ll look at the code to insert the post.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2630,14 +2602,14 @@
 
 <p>We first set up the loop that checks for the current post using the following code:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>We then extract the required information for the post using wordpress functions, the following commands are the most commonly used:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2652,9 +2624,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now the only other functions which we need to include in the single.php file and which we haven&#8217;t seen already is the worpdress function which pulls in the comments.php file and the functions for linking to the next and previous posts:</p>
+<p>Now the only other functions which we need to include in the single.php file and which we haven&rsquo;t seen already is the worpdress function which pulls in the comments.php file and the functions for linking to the next and previous posts:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_template</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -2663,9 +2635,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The entire single.php follows a very similar pattern to the index.php so you should have no real problem following it, the comments.php file is slightly more complicated and probably the most complicated part of the wordpress system, but they still manage to make it quite simple for us. I&#8217;m going to split the file comments.php up into managable chucks and explain each chunk, heres the first:</p>
+<p>The entire single.php follows a very similar pattern to the index.php so you should have no real problem following it, the comments.php file is slightly more complicated and probably the most complicated part of the wordpress system, but they still manage to make it quite simple for us. I&rsquo;m going to split the file comments.php up into managable chucks and explain each chunk, heres the first:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2688,9 +2660,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This is wordpress&#8217;s own code, do not touch this. It pretty much stops people from accessing the page directly and checks to see if you need a password to view comments, not really something we should worry about, but make sure you include it.</p>
+<p>This is wordpress&rsquo;s own code, do not touch this. It pretty much stops people from accessing the page directly and checks to see if you need a password to view comments, not really something we should worry about, but make sure you include it.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2717,7 +2689,7 @@
 
 <p>This chunk of code tests whether there are comments in the wordpress query, and if there is, then the code first of all uses</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_number</span><span class="p">(</span><span class="s1">&#39;No Responses&#39;</span><span class="p">,</span> <span class="s1">&#39;One Response&#39;</span><span class="p">,</span> <span class="s1">&#39;% Responses&#39;</span> <span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -2726,16 +2698,16 @@
 
 <p>Next we provide a link to pages of comments for when pagination is used and then we output the comments using this handy WordPress function:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">wp_list_comments</span><span class="p">(</span><span class="s1">&#39;avatar_size=48&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The parameter given here tells us what sixe to put the avatar images on the site, there are a few other parameters and you should probably check out on the wordpress codex, but for our simple blog we don&#8217;t need it.</p>
+<p>The parameter given here tells us what sixe to put the avatar images on the site, there are a few other parameters and you should probably check out on the wordpress codex, but for our simple blog we don&rsquo;t need it.</p>
 
 <p>Next we have the chunk of code that will generally just display nothing, but you might want to put in a message saying that there are no comments or something like that here.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2756,14 +2728,14 @@
 
 <p>This chunk outputs the form where comments are inputted, its quite long because it displays a slightly different form if the user is already logged in. Which is easily checked using:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">is_user_logged_in</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>The rest of the code is pretty easy to follow:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2854,14 +2826,14 @@
 
 <p>The only thing you might not understand is the final function:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span><span class="s1">&#39;comment_form&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>which pretty much tells the form what to do with the information. And so there we have it the most simple comments implementaation in the wordpress framework. One last bit to go over is the nice search functionality wordpress has. This is implemented using a theme&#8217;s search.php file. I&#8217;m not going to go too much in depth into this as it is very similar to index.php but I thought I would show you the code just to round off this article, so here you go:</p>
+<p>which pretty much tells the form what to do with the information. And so there we have it the most simple comments implementaation in the wordpress framework. One last bit to go over is the nice search functionality wordpress has. This is implemented using a theme&rsquo;s search.php file. I&rsquo;m not going to go too much in depth into this as it is very similar to index.php but I thought I would show you the code just to round off this article, so here you go:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2943,12 +2915,12 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
-    <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&#8217;s my guide for setting up a really simple blog.</p>
+    <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&rsquo;s my guide for setting up a really simple blog.</p>
 
 <!-- more -->
 
 
-<p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&#8217;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
+<p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&rsquo;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
 
 <p>[css]
 /<em>
@@ -2957,16 +2929,16 @@ Theme URI:
 Description: A Starter Theme
 Version: 0.1
 Author: Thomas Whitton
-Author URI: http://www.thomaswhitton.com
+Author URI: <a href="http://www.thomaswhitton.com">http://www.thomaswhitton.com</a>
 Tags: simple, clean, single column
 </em>/
 [/css]</p>
 
-<p>We&#8217;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
+<p>We&rsquo;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
 
-<p>Then we&#8217;ll add the index.php, the glue that holds the rest of the files together. First of all we&#8217;ll create the main Wordpress loop, as this is the most important part of the design. This is the main part of your site, generally on the front page, that displays a selection of your posts.</p>
+<p>Then we&rsquo;ll add the index.php, the glue that holds the rest of the files together. First of all we&rsquo;ll create the main Wordpress loop, as this is the most important part of the design. This is the main part of your site, generally on the front page, that displays a selection of your posts.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2985,7 +2957,7 @@ Tags: simple, clean, single column
 
 <p>Now this code is just checking if any posts exist and then looping through all the posts in reverse chronilogical order. Now inside the loop nothing is happening so whats the point? Well now we can add some special wordpress functions that will extract the information from each post that we loop through. The code also supplies an error message if there are no posts to display.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3000,7 +2972,7 @@ Tags: simple, clean, single column
 
 <p>For showing how many comments a post has, still inside the loop, we have a slightly more complicated bit of code. First we have to check certain conditions:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3013,36 +2985,36 @@ Tags: simple, clean, single column
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we&#8217;d like to show for each case particular case of comment status. It&#8217;s pretty easy to work out what each parameter corresponds to from the example given above.</p>
+<p>Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we&rsquo;d like to show for each case particular case of comment status. It&rsquo;s pretty easy to work out what each parameter corresponds to from the example given above.</p>
 
 <p>So thats it for the loop, we obviously have to add a bit more divs and css styling to get everything formatted in the correct way but that goes beyond the scope of this tutorial.</p>
 
 <p>One further bit of code to add after the end of the loop but still inside the if(have_post()) function is the code for pagination. Again wordpress makes this simple and is just a matter of adding:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="s1">&#39;&amp;laquo; Older&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">previous_posts_link</span><span class="p">(</span><span class="s1">&#39;Newer &amp;raquo;&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>We then have to include the header, sidebar and footer pages which we&#8217;ll quickly create in a minute. This is easily done using the built in Wordpress functions as follows. Adding this function to the top of the index.php file:</p>
+<p>We then have to include the header, sidebar and footer pages which we&rsquo;ll quickly create in a minute. This is easily done using the built in Wordpress functions as follows. Adding this function to the top of the index.php file:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>And then to the bottom of index.php:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span> <span class="nx">get_sidebar</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">get_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&#8217;ll create these files now. First we&#8217;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
+<p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&rsquo;ll create these files now. First we&rsquo;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
 
 <p>[html]
 &lt;?php wp_footer(); ?>
@@ -3052,7 +3024,7 @@ Tags: simple, clean, single column
 
 <p>The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.</p>
 
-<p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&#8217;ll check to see if the their are any widgets loaded in the primary widget area and if not we&#8217;ll put our own in. Then we&#8217;ll add a secondry widget area for less important widgets.</p>
+<p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&rsquo;ll check to see if the their are any widgets loaded in the primary widget area and if not we&rsquo;ll put our own in. Then we&rsquo;ll add a secondry widget area for less important widgets.</p>
 
 <p>[html]</p>
 
@@ -3084,7 +3056,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </ul>
 
 
-<p>&lt;?php if(is_active_sidebar(&#8216;secondary-widget-area&#8217;)) : ?></p>
+<p>&lt;?php if(is_active_sidebar(&lsquo;secondary-widget-area&rsquo;)) : ?></p>
 
 <pre><code>&lt;ul&gt;
 &lt;?php dynamic_sidebar('secondary-widget-area'); ?&gt;
@@ -3097,16 +3069,16 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 <p>Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.</p>
 
 <p>[html]
-&lt;!DOCTYPE html PUBLIC &#8220;-//W3C//DTD XHTML 1.0 Transitional//EN&#8221; &#8220;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&#8221;>
+&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>></p>
 
 <p><head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&#8216;charset&#8217;); ?>&#8221; />
-<title>&lt;?php wp_title(&#8216;:&#8217;, true, &#8216;right&#8217;); ?> &lt;?php bloginfo(&#8216;name&#8217;); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&#8221; type=&#8221;text/css&#8221; media=&#8221;screen&#8221; charset=&#8221;utf-8&#8221; />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed&#8221; href=&#8221;&lt;?php bloginfo(&#8216;rss2_url&#8217;); ?>&#8221; />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed&#8221; href=&#8221;&lt;?php bloginfo(&#8216;atom_url&#8217;); ?>&#8221; />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&#8221; />
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&lsquo;charset&rsquo;); ?>&ldquo; />
+<title>&lt;?php wp_title(&lsquo;:&rsquo;, true, &lsquo;right&rsquo;); ?> &lt;?php bloginfo(&lsquo;name&rsquo;); ?></title>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&rdquo; type=&ldquo;text/css&rdquo; media=&ldquo;screen&rdquo; charset=&ldquo;utf-8&rdquo; />
+<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;rss2_url&rsquo;); ?>&rdquo; />
+<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;atom_url&rsquo;); ?>&rdquo; />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&ldquo; />
 &lt;?php wp_head(); ?>
 </head></p>
 
@@ -3119,7 +3091,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 
-<p>Now as long as you have customized the look and format of your blog using some div&#8217;s and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.</p>
+<p>Now as long as you have customized the look and format of your blog using some div&rsquo;s and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.</p>
 
 <p>Please head on over to <a href="http://www.thomaswhitton.com/thomaswhitton/2011/03/06/the-simplest-wordpress-blog-part-2/">Part 2</a>.</p>
 ]]></content>
@@ -3130,16 +3102,16 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
     <link href="http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
     <updated>2011-02-13T00:06:12+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
-    <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we&#8217;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&#8217;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&#8217;t require a  connection to a computer, which is handy.</p>
+    <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we&rsquo;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&rsquo;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&rsquo;t require a  connection to a computer, which is handy.</p>
 
 <!-- more -->
 
 
 <p>Another important point to mention is the fact that we are going to use the Parallel Master Port (PMP) peripheral, new to the PIC24F series PIC. This module has made connecting to many different types of parallel interface much easier and so is useful when connecting to the  LCD.</p>
 
-<p>First of all create a header file called &#8220;lcd.h&#8221;, this will include some useful definitions and function prototypes.</p>
+<p>First of all create a header file called &ldquo;lcd.h&rdquo;, this will include some useful definitions and function prototypes.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3200,7 +3172,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>The comments pretty much explain the different definitions and macros, the real explanation will be needed for the actual implementation of the functions.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3221,11 +3193,11 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>The four definitions above allow us to check if the LCD is busy,  check the address, get current display and moving the cursor using a  combination of reading the LCD data, checking for the corresponsding  data and writing to the LCD command register .</p>
 
-<p>Again we have an initialisation function which sets up both the PMP and the LCD screen. The LCD is quite a slow electronic component by micro controller standards so we need to put in a few delays during it&#8217;s initialisation. This is accomplished by using the Timer1 module on the PIC24F. After the initialisation we can actually physically check if the LCD is ready to use, rather than putting in our own delays.</p>
+<p>Again we have an initialisation function which sets up both the PMP and the LCD screen. The LCD is quite a slow electronic component by micro controller standards so we need to put in a few delays during it&rsquo;s initialisation. This is accomplished by using the Timer1 module on the PIC24F. After the initialisation we can actually physically check if the LCD is ready to use, rather than putting in our own delays.</p>
 
-<p>In the comments I&#8217;ve put in important information about the specific registers being set, but I suggest you look at the data sheet to see what exactly is happening.</p>
+<p>In the comments I&rsquo;ve put in important information about the specific registers being set, but I suggest you look at the data sheet to see what exactly is happening.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3292,7 +3264,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>Now we create a function that can read from the data register of the LCD, this will allow us to check things like current position and what is currently being display etc.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3317,7 +3289,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>The function above reads from the LCD status register and returns it. It does this by first checking to see if the LCD is busy and then computes a dummy read cycle and then checks the data on the PMP once it is no longer busy.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3398,11 +3370,11 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The two above functions actually write to the LCD screen, writeLCD is the general command that takes in a character and an address and putLCD automatically writes to the LCD at its current position. In the putLCD command we have created cases for when we send special characters to the LCD, these include the newline character &#8216;\n&#8217;, the carriage return character &#8216;\r&#8217; and the tab character &#8216;\t&#8217;. Each one performs a specific action using the macros that were defined earlier.</p>
+<p>The two above functions actually write to the LCD screen, writeLCD is the general command that takes in a character and an address and putLCD automatically writes to the LCD at its current position. In the putLCD command we have created cases for when we send special characters to the LCD, these include the newline character &lsquo;\n&rsquo;, the carriage return character &lsquo;\r&rsquo; and the tab character &lsquo;\t&rsquo;. Each one performs a specific action using the macros that were defined earlier.</p>
 
 <p>Again we need to re-implement the write function in the c standard library. This time we are going to have any output to stdout going to the LCD screen and any output to stderr going to the serial port. All we do is to use the other cases in the switch statement inside the write function to do different things, as follows:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3469,7 +3441,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>To show our library of functions actually work we can create the following main function to test both peripherals.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3517,27 +3489,27 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
     <link href="http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
     <updated>2011-02-05T21:22:48+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
-    <content type="html"><![CDATA[<p>So I&#8217;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&#8217;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&#8217;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
+    <content type="html"><![CDATA[<p>So I&rsquo;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&rsquo;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&rsquo;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
 
 <!-- more -->
 
 
-<p>First of all I&#8217;ll quickly go through the very simple steps to set up your PIC project.</p>
+<p>First of all I&rsquo;ll quickly go through the very simple steps to set up your PIC project.</p>
 
-<p>Ok so you&#8217;ll need the MPLAB IDE and the MPLAB C Compiler for PIC24F PIC&#8217;s from the Microchip Website, the IDE is free and you can you get the lite version of the compiler for free. Start a new project in the IDE by going to project wizard and selecting your chip and your compiler in the options. Also you&#8217;ll need to select and add a linker file to your project, it&#8217;s located inside the compiler&#8217;s folder inside the sub folder support/PIC24F/gld/, you need to select the file with your exact chip number on it.</p>
+<p>Ok so you&rsquo;ll need the MPLAB IDE and the MPLAB C Compiler for PIC24F PIC&rsquo;s from the Microchip Website, the IDE is free and you can you get the lite version of the compiler for free. Start a new project in the IDE by going to project wizard and selecting your chip and your compiler in the options. Also you&rsquo;ll need to select and add a linker file to your project, it&rsquo;s located inside the compiler&rsquo;s folder inside the sub folder support/PIC24F/gld/, you need to select the file with your exact chip number on it.</p>
 
-<p>So now you&#8217;re ready to begin actual programming.</p>
+<p>So now you&rsquo;re ready to begin actual programming.</p>
 
-<p>The first example I want to show you is the &#8220;Hello World&#8221; of the microcontroller programming field, the lighting of an LED. Now there are already LED&#8217;s on the explorer 16 board so we won&#8217;t have to do any soldering or connecting up, we just need to know the way in which it is connected up. Now I implore you to download the data sheet for both the PIC and the explorer 16 board, they are so useful and will tell you exactly what is connected to what and what each register controls. In our case the 8 LED&#8217;s are connected to PORTA which is basically a set of digital input/output ports which we can control with the PIC. Now to set the first LED (D3) on we need to configure the PORTA to be an output on the first LED. We do this by setting</p>
+<p>The first example I want to show you is the &ldquo;Hello World&rdquo; of the microcontroller programming field, the lighting of an LED. Now there are already LED&rsquo;s on the explorer 16 board so we won&rsquo;t have to do any soldering or connecting up, we just need to know the way in which it is connected up. Now I implore you to download the data sheet for both the PIC and the explorer 16 board, they are so useful and will tell you exactly what is connected to what and what each register controls. In our case the 8 LED&rsquo;s are connected to PORTA which is basically a set of digital input/output ports which we can control with the PIC. Now to set the first LED (D3) on we need to configure the PORTA to be an output on the first LED. We do this by setting</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">TRISA</span> <span class="o">=</span> <span class="mh">0xFFFE</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>TRISA is the register of the PIC that controls whether or not a digital i/o pin is an input (bit has value 1) or an output (bit has value 0). The 0x in front of the FFFE means that it is a hexadecimal number which in binary form is: 1111111111111110, setting the very first pin RA0 to an output. You can also set the bit as an output by using</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">TRISAbits</span><span class="p">.</span><span class="n">RA0</span> <span class="o">=</span> <span class="mi">0</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -3546,14 +3518,14 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>Ok so we have set the pin as an output, now we want to set whether it is actually giving out current, we do this by setting the pin high, if the pin is low then it gives out no current. To do this we set the first bit of the PORTA register to 1 i.e.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">PORTA</span><span class="o">=</span><span class="mh">0x0001</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>As with all c programs we&#8217;re going to need to put this in the usual main function so set up your main.c file to look like the following:</p>
+<p>As with all c programs we&rsquo;re going to need to put this in the usual main function so set up your main.c file to look like the following:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3580,13 +3552,13 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Don&#8217;t forget to put the header file for your PIC at the top of the file, just use your exact PIC designator with a .h at the end, the same as your linker file. Just a quick note about the while at the end of the code, we need that there so that the PIC doesn&#8217;t complete the program as when it does the LED will turn off, and it will do this so quickly that you will not even see it flash. So now go to project on the top menu and click build all, then select your programmer and program your PIC. The D3 LED should turn on and shows how easy it is to control something physically with some programming and a PIC.</p>
+<p>Don&rsquo;t forget to put the header file for your PIC at the top of the file, just use your exact PIC designator with a .h at the end, the same as your linker file. Just a quick note about the while at the end of the code, we need that there so that the PIC doesn&rsquo;t complete the program as when it does the LED will turn off, and it will do this so quickly that you will not even see it flash. So now go to project on the top menu and click build all, then select your programmer and program your PIC. The D3 LED should turn on and shows how easy it is to control something physically with some programming and a PIC.</p>
 
-<p>Next I&#8217;ll show you a simple way to use your serial port connection to connect to your computer. A few things you&#8217;ll need before we get going, first of all serial ports are kind of legacy equipment for computers nowadays so it is very unlikely your pc will have one, however they are very easy connection to use and are still widely accepted in the embedded programming world, so you&#8217;ll probably need a usb to serial adapter. Another thing you&#8217;ll need is hyper terminal, a really great simple windows program that will do exactly what we need, however on more modern window versions they don&#8217;t have it included so you might have to download a copy from the internet. So anyway onto the programming.</p>
+<p>Next I&rsquo;ll show you a simple way to use your serial port connection to connect to your computer. A few things you&rsquo;ll need before we get going, first of all serial ports are kind of legacy equipment for computers nowadays so it is very unlikely your pc will have one, however they are very easy connection to use and are still widely accepted in the embedded programming world, so you&rsquo;ll probably need a usb to serial adapter. Another thing you&rsquo;ll need is hyper terminal, a really great simple windows program that will do exactly what we need, however on more modern window versions they don&rsquo;t have it included so you might have to download a copy from the internet. So anyway onto the programming.</p>
 
-<p>First of all you to need to initialise the uart2 module on the board so that you can use it with the serial port with particular connection information. I&#8217;m going to put this in a separate function to make it easier in the main program. We&#8217;ll make a library file &#8220;u2.h&#8221; to contain come constants:</p>
+<p>First of all you to need to initialise the uart2 module on the board so that you can use it with the serial port with particular connection information. I&rsquo;m going to put this in a separate function to make it easier in the main program. We&rsquo;ll make a library file &ldquo;u2.h&rdquo; to contain come constants:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3613,9 +3585,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then we make the &#8220;u2.c&#8221; file that contains the initialisation function and also the function to send a single ASCII character to the serial port:</p>
+<p>Then we make the &ldquo;u2.c&rdquo; file that contains the initialisation function and also the function to send a single ASCII character to the serial port:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3684,9 +3656,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now this means that the function putU2() has an input of a single character and sends it down the serial port, now what we really want is a function to write an entire string to the serial port. So we are going to reimplement the printf function in the c standard library and use that to send a string to the serial port, its useful since the printf function doesn&#8217;t really have a current output to print to when working on the explorer 16 board, so we create one. To do this we create a new file write.c to override the old write function which is used by printf to actually write the data. So the write file should look like this:</p>
+<p>Now this means that the function putU2() has an input of a single character and sends it down the serial port, now what we really want is a function to write an entire string to the serial port. So we are going to reimplement the printf function in the c standard library and use that to send a string to the serial port, its useful since the printf function doesn&rsquo;t really have a current output to print to when working on the explorer 16 board, so we create one. To do this we create a new file write.c to override the old write function which is used by printf to actually write the data. So the write file should look like this:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3739,7 +3711,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>and now in your main function you simply need to initialise the uart2 and then use the printf command to send a string, as follows:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3764,7 +3736,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>What you will want to do now is to compile and transfer the program to the board and then connect the Explorer 16 to the serial port on your computer (or usb to serial adapter) and open up hyper terminal. Create a new connection on the COM port of your serial port and set the baud rate to 115200, data bits to 8, parity to none, stop bits to 1 and flow control to hardware. Then you should be able to see your board spitting out the word hello on every iteration of the while loop. Now that you have a connection to your board there are a ton of things you can do, the most useful I&#8217;ve encountered are data collection, controlling equipment and debugging. Enjoy!</p>
+<p>What you will want to do now is to compile and transfer the program to the board and then connect the Explorer 16 to the serial port on your computer (or usb to serial adapter) and open up hyper terminal. Create a new connection on the COM port of your serial port and set the baud rate to 115200, data bits to 8, parity to none, stop bits to 1 and flow control to hardware. Then you should be able to see your board spitting out the word hello on every iteration of the while loop. Now that you have a connection to your board there are a ton of things you can do, the most useful I&rsquo;ve encountered are data collection, controlling equipment and debugging. Enjoy!</p>
 ]]></content>
   </entry>
   
@@ -3773,28 +3745,28 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
     <link href="http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
     <updated>2011-01-27T20:55:41+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
-    <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&#8217;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
+    <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&rsquo;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
 
 <!-- more -->
 
 
-<p>One thing I found when using signals and slots was that I had trouble connecting signals and slots when they there was a widget inside a widget inside a widget, lets call them A, B and C respectively. Setting up a connection between A and C was impossible, what I had to do was create an intermediate slot inside B that emitted a signal from B, to keep the signal going. This was pretty annoying as I had to create the new slot function and there was a simple solution that I didn&#8217;t get for a while. Connections can be made between a signal and a signal, so that when the first emitted so is the other signal, now this may not be a huge improvement in code, but it looks so much neater and when working on a larger project it is so much easier to follow. A simple example, not sure it&#8217;s really needed, but anyway here it is:</p>
+<p>One thing I found when using signals and slots was that I had trouble connecting signals and slots when they there was a widget inside a widget inside a widget, lets call them A, B and C respectively. Setting up a connection between A and C was impossible, what I had to do was create an intermediate slot inside B that emitted a signal from B, to keep the signal going. This was pretty annoying as I had to create the new slot function and there was a simple solution that I didn&rsquo;t get for a while. Connections can be made between a signal and a signal, so that when the first emitted so is the other signal, now this may not be a huge improvement in code, but it looks so much neater and when working on a larger project it is so much easier to follow. A simple example, not sure it&rsquo;s really needed, but anyway here it is:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">connect</span><span class="p">(</span><span class="n">myButton</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">clicked</span><span class="p">()),</span> <span class="k">this</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">buttonClicked</span><span class="p">()));</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Another problem I had with signals and slots was that sometimes I&#8217;d like to quickly take control of my connection and stop it for a while and then reconnect it, and this was fine I could use the</p>
+<p>Another problem I had with signals and slots was that sometimes I&rsquo;d like to quickly take control of my connection and stop it for a while and then reconnect it, and this was fine I could use the</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">disconnect</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>method to explicitly remove the connection and then reattach it in the normal way. This gets a bit complicated when you are dealing with an important QObject and there a lot of connections that need to be disconnected, half your code would be establishing and disconnecting connections. There&#8217;s a handy method in the QObject toolbox that solves this problem called</p>
+<p>method to explicitly remove the connection and then reattach it in the normal way. This gets a bit complicated when you are dealing with an important QObject and there a lot of connections that need to be disconnected, half your code would be establishing and disconnecting connections. There&rsquo;s a handy method in the QObject toolbox that solves this problem called</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">blockSignals</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -3805,9 +3777,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>A lot of questions I see paraded around in regards to Qt is about which containers classes to use. Now I have pretty much been brought up on the STL, and know them pretty well but I am a big believer that when using a particular framework that you use the more integrated containers. Not only that but the documentation for the Qt containers insdie the Qt Creator IDE is impressive, press F1 and I have every single meber function and there are a lot of them. Not only that but reading some of the documentation surrounding Qt containers brought me to an underlying methodology called implicitly shared. Which pretty much means that within any Qt container class it will make your code more efficient by reducing the copying with that container, vist the <a href="http://doc.qt.nokia.com/latest/implicit-sharing.html#implicitly-shared">website</a> for more details. Also lots of outputs of other functions within Qt generate the Qt generic classes so the amount of code needed to convert and reconvert would be a bit excessive.</p>
 
-<p>Another thing I liked about Qt was how easy it was to access external applicationsand give input arguemnts and easily receive standard outputs (mainly command line). This has been really useful when making wrappers for some of my commonly used command line applications (a task I try to do whenever learning a new gui framework) this meant I didn&#8217;t have to worry too much about looking through a lot of code and the only way to proceed when using a closed source application. A simple example:</p>
+<p>Another thing I liked about Qt was how easy it was to access external applicationsand give input arguemnts and easily receive standard outputs (mainly command line). This has been really useful when making wrappers for some of my commonly used command line applications (a task I try to do whenever learning a new gui framework) this meant I didn&rsquo;t have to worry too much about looking through a lot of code and the only way to proceed when using a closed source application. A simple example:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3834,7 +3806,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I hope this has been at least slightly helpful to anyone who has read it, and for anyone who has yet to make the leap into the Qt framework I say go for it, you won&#8217;t regret it.</p>
+<p>I hope this has been at least slightly helpful to anyone who has read it, and for anyone who has yet to make the leap into the Qt framework I say go for it, you won&rsquo;t regret it.</p>
 ]]></content>
   </entry>
   
@@ -3843,14 +3815,14 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
     <link href="http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
     <updated>2011-01-20T20:44:29+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
-    <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&#8217;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
+    <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&rsquo;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
 
 <!-- more -->
 
 
 <p>I first looked at QCA considering my project was using Qt and since it uses a Qt-style API and Qt datatypes it was a very obvious first choice. I was quite surprised at how simple it was to perform an encryption, decryption cipher using AES 128, but I did have quite a bit of trouble using the QCA plugin with Qt Creator on my Windows PC, where as with Linux it was working within minutes. This is the code I had to get it working on linux, no guarantees for windows.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3907,9 +3879,9 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Since the QCA plugin was causing me trouble I thought I&#8217;d try out the other libraries. Crypto++ was the next obvious choice since it has fips accreditation on a lot of its algorithms. It seemed like a really good library with a lot of amazing features. However, I really struggled with its complex code and lack of understandable documentation. It had a very steep learning curve and was definitely not useful for a relative beginner into cryptography. I gave up trying to get it to work and tried my third library: Botan, and I was very glad I did. Here&#8217;s a sample of the code needed to get it woorking but I really struggled with it.</p>
+<p>Since the QCA plugin was causing me trouble I thought I&rsquo;d try out the other libraries. Crypto++ was the next obvious choice since it has fips accreditation on a lot of its algorithms. It seemed like a really good library with a lot of amazing features. However, I really struggled with its complex code and lack of understandable documentation. It had a very steep learning curve and was definitely not useful for a relative beginner into cryptography. I gave up trying to get it to work and tried my third library: Botan, and I was very glad I did. Here&rsquo;s a sample of the code needed to get it woorking but I really struggled with it.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -3952,7 +3924,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>Now Botan by comparison was very easy to pick up. It uses a very nice programming paradigm using real life metaphors, such as pipes, filters and forks. Pipes are just conduits of data where processes are applied to the data flowing through, such as encrpytion, hashes etc. In Botan terminology these processes are called filters and a pipe can have as many or as little as you like. Forks are where you split the data so that you end up with different outputs using the same data, assuming the filters you use are different. The documentation is also very easy to comprehend. The only downside is that it is not accredited, but it is still a very well respected encryption library none the less.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -4003,7 +3975,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>In conclusion if you&#8217;re looking for a quick and cheerful encrpytion library thats easy to pick up, I&#8217;d say go for Botan. Now dependent on the program you&#8217;re building and how much accreditation you need I&#8217;d say you might want to look at some of the others, but it might be worth trying Botan first to quickly create an early, perfectly function version of your program.</p>
+<p>In conclusion if you&rsquo;re looking for a quick and cheerful encrpytion library thats easy to pick up, I&rsquo;d say go for Botan. Now dependent on the program you&rsquo;re building and how much accreditation you need I&rsquo;d say you might want to look at some of the others, but it might be worth trying Botan first to quickly create an early, perfectly function version of your program.</p>
 ]]></content>
   </entry>
   

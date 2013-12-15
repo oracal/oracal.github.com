@@ -4,7 +4,7 @@
   <title><![CDATA[Category: protobuf | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/protobuf/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-07-05T19:54:23+01:00</updated>
+  <updated>2013-12-15T20:51:42+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -20,13 +20,12 @@
     <id>http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<h2>Protobuf C++ Example</h2>
 
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the "generated" directory: protoc AddressBook.proto --cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <!-- more -->
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -94,8 +93,7 @@
 
 <p>Below the protobuf is created and in this case is serialized to a string value, there are many protobuf methods to serialize the protobuf into different formats but with string you do not have to worry about memory allocation.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>create protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,8 +147,7 @@
 
 <p>Not too much interesting code below, all it does is output the protobuf message defined above. Useful for understanding the different getters available in the protobuf api.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>output protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -234,8 +231,7 @@
 
 <p>Below is the code that brings the other two snippets together, first we check for protobuf version using a special protobuf macro, then we store the protobuf binary into a string, then we parse this binary data into a completely new protobuf message, then we output the new message using the method defined above. Also it is good practice to call the ShutDownProtobufLibrary method once you have finished using protobuf code. Most applications probably will not have to do this since the program will terminate anyway once it has stopped using protobuf.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -283,8 +279,7 @@
 
 <p>The simple example of msgpack i.e. when you serialise just vectors, maps and PODs it can be performed very easily as can be seen below:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>simple msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -310,34 +305,33 @@
 <span class='line-number'>24</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">World</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">vec</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- deserialize it ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; deserialize it &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed object ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed object &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">rvec</span><span class="p">;</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">rvec</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot; &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it's pretty simple code to unpack the message using the unpacker object.</p>
+<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it&rsquo;s pretty simple code to unpack the message using the unpacker object.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>msgpack packing  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -393,22 +387,22 @@
 <span class='line-number'>54</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">World</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">map</span><span class="p">;</span>
-</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">buffer</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">packer</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span><span class="o">&gt;</span> <span class="n">pk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">buffer</span><span class="p">);</span>
-</span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
 </span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- de-serialise these objects using msgpack::unpacker ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; de-serialise these objects using msgpack::unpacker &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacker</span> <span class="n">pac</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// copy the buffer data to the unpacker object</span>
@@ -423,7 +417,7 @@
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">outputVector</span><span class="p">;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">outputMap</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed objects ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed objects &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// unpsck objects in the order in which they were packed</span>
 </span><span class='line'><span class="n">pac</span><span class="p">.</span><span class="n">next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">);</span>
@@ -436,21 +430,20 @@
 </span><span class='line'><span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">outputVector</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;, &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pac</span><span class="p">.</span><span class="n">next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">);</span>
 </span><span class='line'><span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">outputMap</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputMap</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputMap</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Below we create a type "Root" that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
+<p>Below we create a type &ldquo;Root&rdquo; that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom msgpack class  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -516,8 +509,7 @@
 
 <p>The code to use the custom serialisation is very similar to the simple example above:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -546,28 +538,28 @@
 <span class='line-number'>27</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ints</span><span class="p">;</span>
 </span><span class='line'><span class="n">ints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </span><span class='line'><span class="n">ints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Root</span> <span class="n">fromScratch</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Root</span> <span class="n">fromScratch</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- deserialize it ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; deserialize it &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed object ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed object &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">Root</span> <span class="n">world</span><span class="p">;</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">world</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;, &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getString</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
@@ -575,7 +567,7 @@
 
 <h2>Conclusion</h2>
 
-<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven't gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
+<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven&rsquo;t gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
 
 <p>I think c++ is where protobuf really shines. It provides a very simple api to a complicated problem as well as a list of interesting features such as default values, extensions and message validation and the only limitation is the fact that protobuf schemas (and the respective generated code) have to stay consistent wherever the messaging is used.</p>
 
@@ -595,7 +587,7 @@
 
 <h2>Text Formats</h2>
 
-<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it's very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I'll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
+<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it&rsquo;s very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I&rsquo;ll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
 
 <h3>Json</h3>
 
@@ -603,8 +595,7 @@
 
 <p>Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>example.json  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -628,22 +619,22 @@
 </pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;array&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;hello&amp;rdquo;:</span> <span class="err">&amp;ldquo;world&amp;rdquo;,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;array&amp;rdquo;:</span> <span class="err">[&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;world&quot;</span>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;hello&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;world&quot;</span>
 </span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">],</span>
-</span><span class='line'>  <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="err">]</span><span class="p">,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;number&amp;rdquo;:</span> <span class="err">0,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;object&amp;rdquo;:</span> <span class="err">{&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span>  <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span>
 </span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'><span class="err">}&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
@@ -654,8 +645,7 @@
 
 <p>Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema definition languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>address.xsd  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -690,9 +680,9 @@
 <span class='line-number'>33</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-</span><span class='line'><span class="ni">&amp;lt;</span>xs:schema elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-</span><span class='line'>  <span class="ni">&amp;lt;</span>xs:element name=&quot;Address&quot;&gt;<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>utf-8<span class="ni">&amp;rdquo;</span>?&gt;
+</span><span class='line'><span class="ni">&amp;lt;</span>xs:schema elementFormDefault=<span class="ni">&amp;ldquo;</span>qualified<span class="ni">&amp;rdquo;</span> xmlns:xs=<span class="ni">&amp;ldquo;</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="nt">&gt;</span>http://www.w3.org/2001/XMLSchema<span class="nt">&lt;/a&gt;</span><span class="ni">&amp;rdquo;</span>&gt;
+</span><span class='line'>  <span class="ni">&amp;lt;</span>xs:element name=<span class="ni">&amp;ldquo;</span>Address<span class="ni">&amp;rdquo;</span>&gt;<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>xs:complexType<span class="ni">&amp;gt;</span>
 </span><span class='line'>  <span class="ni">&amp;lt;</span>xs:sequence<span class="ni">&amp;gt;</span>
@@ -725,8 +715,7 @@
 
 <p>With an example of an xml message conforming to the above schema being.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>address.xml  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -744,7 +733,7 @@
 <span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>utf-8<span class="ni">&amp;rdquo;</span>?&gt;<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;Address</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
 </span><span class='line'>    <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;address.xsd&quot;</span><span class="nt">&gt;</span>
@@ -764,14 +753,13 @@
 
 <p><a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
 
-<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of "protocol buffers". The two mainly used ones are Google's protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
+<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &ldquo;protocol buffers&rdquo;. The two mainly used ones are Google&rsquo;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
 
 <h2>Protobuf</h2>
 
 <p>Protobuf requires a schema to keep data consistent and at least in c++ uses this schema to generate optimised code. This gives you methods, depending on the datatypes defined in the schema, to access and set any value you defined. You can not add any value into a protobuf message that is not defined in the schema nor one that has an incorrect type. An example of a schema taken from the protobuf documentation is:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -843,7 +831,7 @@
 
 <h4>Varints</h4>
 
-<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two's complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
+<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two&rsquo;s complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
 
 <pre><code>1011 1000 0011 1100
 </code></pre>
@@ -858,7 +846,7 @@
 <pre><code>111 1100 111 0000
 </code></pre>
 
-<p>Then finally convert the two's compliment binary number into a decimal.</p>
+<p>Then finally convert the two&rsquo;s compliment binary number into a decimal.</p>
 
 <pre><code>-400
 </code></pre>
@@ -874,7 +862,7 @@
 
 <p>i.e. the last three bits of the number specify the type, these values are hard coded and defined in the protobuf documentation.</p>
 
-<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc...) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
+<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc&hellip;) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
 
 <h2>Msgpack</h2>
 
@@ -886,11 +874,11 @@
 
 <h2>Summary</h2>
 
-<p>I think with the modern day responsive websites mostly utilising restful web api's that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
+<p>I think with the modern day responsive websites mostly utilising restful web api&rsquo;s that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
 
-<p>I see no real reason to replace restful json api's with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
+<p>I see no real reason to replace restful json api&rsquo;s with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
 
-<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack's dynamic features.</p>
+<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack&rsquo;s dynamic features.</p>
 ]]></content>
   </entry>
   

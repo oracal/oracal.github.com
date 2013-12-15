@@ -4,7 +4,7 @@
   <title><![CDATA[Category: c++ | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/c-plus-plus/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-07-05T19:54:23+01:00</updated>
+  <updated>2013-12-15T20:51:42+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -20,13 +20,12 @@
     <id>http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<h2>Protobuf C++ Example</h2>
 
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the "generated" directory: protoc AddressBook.proto --cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <!-- more -->
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -94,8 +93,7 @@
 
 <p>Below the protobuf is created and in this case is serialized to a string value, there are many protobuf methods to serialize the protobuf into different formats but with string you do not have to worry about memory allocation.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>create protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -149,8 +147,7 @@
 
 <p>Not too much interesting code below, all it does is output the protobuf message defined above. Useful for understanding the different getters available in the protobuf api.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>output protobuf  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -234,8 +231,7 @@
 
 <p>Below is the code that brings the other two snippets together, first we check for protobuf version using a special protobuf macro, then we store the protobuf binary into a string, then we parse this binary data into a completely new protobuf message, then we output the new message using the method defined above. Also it is good practice to call the ShutDownProtobufLibrary method once you have finished using protobuf code. Most applications probably will not have to do this since the program will terminate anyway once it has stopped using protobuf.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -283,8 +279,7 @@
 
 <p>The simple example of msgpack i.e. when you serialise just vectors, maps and PODs it can be performed very easily as can be seen below:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>simple msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -310,34 +305,33 @@
 <span class='line-number'>24</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">World</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">vec</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- deserialize it ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; deserialize it &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed object ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed object &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">rvec</span><span class="p">;</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">rvec</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot; &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it's pretty simple code to unpack the message using the unpacker object.</p>
+<p>Msgpack provides a packer object that can pack multiple types into a single msgpack message. This requires a little more code, but it is still pretty easy to follow. Then it&rsquo;s pretty simple code to unpack the message using the unpacker object.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>msgpack packing  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -393,22 +387,22 @@
 <span class='line-number'>54</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">vec</span><span class="p">;</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="s">&quot;World&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">World</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">map</span><span class="p">;</span>
-</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">buffer</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">packer</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span><span class="o">&gt;</span> <span class="n">pk</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">buffer</span><span class="p">);</span>
-</span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
 </span><span class='line'><span class="n">pk</span><span class="p">.</span><span class="n">pack</span><span class="p">(</span><span class="n">map</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- de-serialise these objects using msgpack::unpacker ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; de-serialise these objects using msgpack::unpacker &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacker</span> <span class="n">pac</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// copy the buffer data to the unpacker object</span>
@@ -423,7 +417,7 @@
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">outputVector</span><span class="p">;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">outputMap</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed objects ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed objects &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// unpsck objects in the order in which they were packed</span>
 </span><span class='line'><span class="n">pac</span><span class="p">.</span><span class="n">next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">);</span>
@@ -436,21 +430,20 @@
 </span><span class='line'><span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">outputVector</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;, &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputVector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pac</span><span class="p">.</span><span class="n">next</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">);</span>
 </span><span class='line'><span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">outputMap</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputMap</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">outputMap</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Below we create a type "Root" that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
+<p>Below we create a type &ldquo;Root&rdquo; that can hold different types of data, and which data is going to be serialised is defined by the MSGPACK_DEFINE macro. This could easily have been a struct with public variables instead.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom msgpack class  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -516,8 +509,7 @@
 
 <p>The code to use the custom serialisation is very similar to the simple example above:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>custom msgpack  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -546,28 +538,28 @@
 <span class='line-number'>27</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create the structure that will be serialised ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create the structure that will be serialised &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ints</span><span class="p">;</span>
 </span><span class='line'><span class="n">ints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </span><span class='line'><span class="n">ints</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Root</span> <span class="n">fromScratch</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Root</span> <span class="n">fromScratch</span><span class="p">(</span><span class="n">ints</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- serialize it into buffer ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; serialize it into buffer &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">sbuffer</span> <span class="n">sbuf</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">pack</span><span class="p">(</span><span class="n">sbuf</span><span class="p">,</span> <span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- deserialize it ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; deserialize it &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpacked</span> <span class="n">msg</span><span class="p">;</span>
 </span><span class='line'><span class="n">msgpack</span><span class="o">::</span><span class="n">unpack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">msg</span><span class="p">,</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">sbuf</span><span class="p">.</span><span class="n">size</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">msgpack</span><span class="o">::</span><span class="n">object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">msg</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- convert msgpack objects into statically typed object ----</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; convert msgpack objects into statically typed object &amp;mdash;&amp;mdash;</span>
 </span><span class='line'><span class="n">Root</span> <span class="n">world</span><span class="p">;</span>
 </span><span class='line'><span class="n">obj</span><span class="p">.</span><span class="n">convert</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">world</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;, &quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getInts</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">world</span><span class="p">.</span><span class="n">getString</span><span class="p">()</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
@@ -575,7 +567,7 @@
 
 <h2>Conclusion</h2>
 
-<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven't gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
+<p>In the world of dynamic languages msgpack seems like a very good choice for use with messaging. I haven&rsquo;t gone through it here, but it can easily convert the dynamic languages standard containers (maps and arrays) into a msgpack binary message without too much problem, and in a really efficient way. The problem with the use of this library with static languages is that it requires hacks and quite a lot of boilerplate code to get around the static limitation that appear when message structure becomes more complicated.</p>
 
 <p>I think c++ is where protobuf really shines. It provides a very simple api to a complicated problem as well as a list of interesting features such as default values, extensions and message validation and the only limitation is the fact that protobuf schemas (and the respective generated code) have to stay consistent wherever the messaging is used.</p>
 
@@ -605,8 +597,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>xsd.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -666,7 +657,7 @@
 <span class='line-number'>58</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">boost</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Address</span><span class="o">&gt;</span> <span class="n">parsedFromFile</span><span class="p">;</span>
 </span><span class='line'><span class="k">try</span>
@@ -688,10 +679,10 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// the constructor takes in the amount of required fields in the xsd as arguments</span>
-</span><span class='line'><span class="n">Address</span> <span class="n">fromScratch</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">Address</span> <span class="n">fromScratch</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">Malcolm</span> <span class="n">Reynolds</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="s">&quot;3&quot;</span><span class="p">,</span>
 </span><span class='line'>    <span class="s">&quot;Serenity&quot;</span><span class="p">,</span>
@@ -700,15 +691,15 @@
 </span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// set values</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">County</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">Country</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">County</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Solar</span> <span class="n">System</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">Country</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">UK</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from stream ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from stream &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">xml_schema</span><span class="o">::</span><span class="n">namespace_infomap</span> <span class="n">map</span><span class="p">;</span>
-</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="s">&quot;&quot;</span><span class="p">].</span><span class="n">schema</span> <span class="o">=</span> <span class="s">&quot;address.xsd&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">map</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;].</span><span class="n">schema</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">address</span><span class="p">.</span><span class="n">xsd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Address_</span><span class="p">(</span><span class="n">ss</span><span class="p">,</span> <span class="n">fromScratch</span><span class="p">,</span> <span class="n">map</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -716,16 +707,15 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="o">*</span><span class="n">parsedFromStream</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- output to file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; output to file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span> <span class="p">(</span><span class="s">&quot;test.xml&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">test</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span><span class='line'><span class="n">Address_</span><span class="p">(</span><span class="n">ofs</span><span class="p">,</span> <span class="o">*</span><span class="n">parsedFromStream</span><span class="p">,</span> <span class="n">map</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>xsd.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -768,8 +758,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -843,18 +832,18 @@
 <span class='line-number'>72</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from file and stream ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from file and stream &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// need to convert file and stream to cstring before parsing as rapidxml needs a null terminated cstring for parsing&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// file to string</span>
-</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">address</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
 </span><span class='line'><span class="n">ss</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">fin</span><span class="p">.</span><span class="n">rdbuf</span><span class="p">();</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">xml</span> <span class="o">=</span> <span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// string to dynamic cstring</span>
-</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">stringCopy</span><span class="p">(</span><span class="n">xml</span><span class="p">.</span><span class="n">length</span><span class="p">(),</span> <span class="sc">&#39;\0&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">stringCopy</span><span class="p">(</span><span class="n">xml</span><span class="p">.</span><span class="n">length</span><span class="p">(),</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="err">\</span><span class="mi">0</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;);</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">copy</span><span class="p">(</span><span class="n">xml</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">xml</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="n">stringCopy</span><span class="p">.</span><span class="n">begin</span><span class="p">());</span>
 </span><span class='line'><span class="kt">char</span> <span class="o">*</span><span class="n">cstr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">stringCopy</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -887,15 +876,15 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_document</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="n">fromScratch</span><span class="p">;</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">addressNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Address&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">recipientNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">houseNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">streetNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">townNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">postCodeNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">addressNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">recipientNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Recipient</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">Malcolm</span> <span class="n">Reynolds</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">houseNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">House</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="mi">3</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">streetNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Street</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Serenity</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">townNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Town</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Space</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&gt;</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">postCodeNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">PostCode</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">DE18</span> <span class="mi">5</span><span class="n">HI</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">recipientNode</span><span class="p">);</span>
 </span><span class='line'><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">houseNode</span><span class="p">);</span>
@@ -907,16 +896,15 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="o">*</span><span class="n">addressNode</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- output to file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; output to file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">fout</span><span class="p">(</span><span class="s">&quot;test.xml&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">fout</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">test</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span><span class='line'><span class="n">fout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">fromScratch</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -956,8 +944,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>tinyxml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1020,46 +1007,46 @@
 <span class='line-number'>61</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlDocument</span> <span class="n">parsedFromFile</span><span class="p">(</span> <span class="s">&quot;address.xml&quot;</span> <span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlDocument</span> <span class="n">parsedFromFile</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">address</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
 </span><span class='line'><span class="n">parsedFromFile</span><span class="p">.</span><span class="n">LoadFile</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromFile</span><span class="p">.</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromFile</span><span class="p">.</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span><span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="o">&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlDocument</span> <span class="o">*</span> <span class="n">fromScratch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlDocument</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;Address&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">recipient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;Recipient&quot;</span> <span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">address</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">recipient</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Recipient</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// LlinkEndChild causes memory managed object to be owned by the parent object</span>
 </span><span class='line'><span class="c1">// and destroyed by the parent when destroyed</span>
-</span><span class='line'><span class="n">recipient</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">recipient</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">Malcolm</span> <span class="n">Reynolds</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">recipient</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">house</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;House&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">house</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">house</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">House</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">house</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="mi">3</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">house</span><span class="p">);</span>
-</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">street</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;Street&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">street</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">street</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Street</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">street</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Serenity</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">street</span><span class="p">);</span>
-</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">town</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;Town&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">town</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">town</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Town</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">town</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Space</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">town</span><span class="p">);</span>
-</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">postCode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;PostCode&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">postCode</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">postCode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">PostCode</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">postCode</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">DE18</span> <span class="mi">5</span><span class="n">HI</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">postCode</span><span class="p">);</span>
-</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">country</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="s">&quot;Country&quot;</span> <span class="p">);</span>
-</span><span class='line'><span class="n">country</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">));</span>
+</span><span class='line'><span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">country</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TiXmlElement</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Country</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="p">);</span>
+</span><span class='line'><span class="n">country</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="k">new</span> <span class="n">TiXmlText</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">UK</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
 </span><span class='line'><span class="n">address</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span><span class="n">country</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">fromScratch</span><span class="o">-&gt;</span><span class="n">LinkEndChild</span><span class="p">(</span> <span class="n">address</span> <span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">fromScratch</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">fromScratch</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span><span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="o">&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from string ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from string &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
 </span><span class='line'><span class="n">ss</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">*</span><span class="n">fromScratch</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
@@ -1068,11 +1055,11 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">parsedFromString</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">ss</span><span class="p">.</span><span class="n">str</span><span class="p">().</span><span class="n">c_str</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromString</span><span class="p">.</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromString</span><span class="p">.</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span><span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="o">&gt;</span><span class="n">ToElement</span><span class="p">());</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- output to file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; output to file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">parsedFromString</span><span class="p">.</span><span class="n">SaveFile</span><span class="p">(</span><span class="s">&quot;test.xml&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">parsedFromString</span><span class="p">.</span><span class="n">SaveFile</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">test</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// destroying everything above that has been dynaimcally allocated by</span>
 </span><span class='line'><span class="c1">// destorying the root node</span>
@@ -1081,8 +1068,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>tinyxml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1122,8 +1108,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>pugixml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1180,11 +1165,11 @@
 <span class='line-number'>55</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">parsedFromFile</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pugi</span><span class="o">::</span><span class="n">xml_parse_result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">parsedFromFile</span><span class="p">.</span><span class="n">load_file</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pugi</span><span class="o">::</span><span class="n">xml_parse_result</span> <span class="n">result</span> <span class="o">=</span> <span class="n">parsedFromFile</span><span class="p">.</span><span class="n">load_file</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">address</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="k">if</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
@@ -1194,22 +1179,22 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">fromScratch</span><span class="p">;</span>
-</span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span> <span class="n">address</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span> <span class="n">address</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Recipient</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">Malcolm</span> <span class="n">Reynolds</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">House</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="mi">3</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Street</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Serenity</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Town</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Space</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">PostCode</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">DE18</span> <span class="mi">5</span><span class="n">HI</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">County</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Solar</span> <span class="n">System</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Country</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">UK</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">address</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from stream ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from stream &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// output document as xml to stream</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
@@ -1235,8 +1220,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>pugixml.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1278,8 +1262,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>boost.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1341,7 +1324,7 @@
 <span class='line-number'>60</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// every elelment is a ptree</span>
 </span><span class='line'><span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">ptree</span> <span class="n">parsedFromFile</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
@@ -1364,24 +1347,24 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">ptree</span> <span class="n">fromScratch</span><span class="p">;</span>
 </span><span class='line'><span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">ptree</span> <span class="n">address</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// replace put with add if element key is not guaranteed to be unique</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">,</span> <span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">,</span> <span class="s">&quot;UK&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">put_child</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">,</span> <span class="n">address</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Recipient</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Mr</span><span class="p">.</span> <span class="n">Malcolm</span> <span class="n">Reynolds</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">House</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="mi">3</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Street</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Serenity</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Town</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Space</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">PostCode</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">DE18</span> <span class="mi">5</span><span class="n">HI</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">County</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Solar</span> <span class="n">System</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Country</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">UK</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">put_child</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">Address</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">address</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from stream ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from stream &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// write and read methods can take paths to filenames and streams as parameters</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">stringstream</span> <span class="n">ss</span><span class="p">;</span>
@@ -1393,16 +1376,15 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromStream</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- output to file ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; output to file &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">fout</span><span class="p">(</span><span class="s">&quot;test.xml&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">fout</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">test</span><span class="p">.</span><span class="n">xml</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
 </span><span class='line'><span class="n">write_xml</span><span class="p">(</span><span class="n">fout</span><span class="p">,</span> <span class="n">parsedFromStream</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>boost.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1484,8 +1466,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>jsoncpp.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1524,16 +1505,16 @@
 <span class='line-number'>37</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">fromScratch</span><span class="p">;</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">array</span><span class="p">;</span>
-</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="s">&quot;number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="s">&quot;array&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="s">&quot;object&quot;</span><span class="p">][</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">number</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">array</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="n">array</span><span class="p">;</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">object</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">output</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -1541,7 +1522,7 @@
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">StyledWriter</span> <span class="n">styledWriter</span><span class="p">;</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">styledWriter</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from string ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from string &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// write in a compact way</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">FastWriter</span> <span class="n">fastWriter</span><span class="p">;</span>
@@ -1561,8 +1542,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>jsoncpp.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1604,8 +1584,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>rapidjson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1652,7 +1631,7 @@
 <span class='line-number'>45</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// document is the root of a json message</span>
 </span><span class='line'><span class="n">rapidjson</span><span class="o">::</span><span class="n">Document</span> <span class="n">fromScratch</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
@@ -1667,21 +1646,21 @@
 </span><span class='line'><span class="n">rapidjson</span><span class="o">::</span><span class="n">Document</span><span class="o">::</span><span class="n">AllocatorType</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="n">allocator</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">GetAllocator</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// chain methods as rapidjson provides a fluent interface when modifying its objects</span>
-</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">PushBack</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="n">allocator</span><span class="p">).</span><span class="n">PushBack</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">array</span><span class="p">.</span><span class="n">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">allocator</span><span class="p">).</span><span class="n">PushBack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">allocator</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">&quot;number&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">&quot;array&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">allocator</span><span class="p">);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">number</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">array</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">array</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// create a rapidjson object type</span>
 </span><span class='line'><span class="n">rapidjson</span><span class="o">::</span><span class="n">Value</span> <span class="n">object</span><span class="p">(</span><span class="n">rapidjson</span><span class="o">::</span><span class="n">kObjectType</span><span class="p">);</span>
-</span><span class='line'><span class="n">object</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="s">&quot;object&quot;</span><span class="p">,</span> <span class="n">object</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
-</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="s">&quot;object&quot;</span><span class="p">][</span><span class="s">&quot;hello&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;world&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">object</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">allocator</span><span class="p">);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">.</span><span class="n">AddMember</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">object</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">object</span><span class="p">,</span> <span class="n">allocator</span><span class="p">);</span>
+</span><span class='line'><span class="n">fromScratch</span><span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">object</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;][</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">output</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from string ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from string &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// Convert JSON document to string</span>
 </span><span class='line'><span class="n">rapidjson</span><span class="o">::</span><span class="n">StringBuffer</span> <span class="n">strbuf</span><span class="p">;</span>
@@ -1697,8 +1676,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1752,8 +1730,7 @@
 </ul>
 
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1813,30 +1790,30 @@
 <span class='line-number'>58</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- create from scratch ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; create from scratch &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// create json &quot;objects&quot; and use the json_t pointer to point to them</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// create json &amp;ldquo;objects&amp;rdquo; and use the json_t pointer to point to them</span>
 </span><span class='line'><span class="n">json_t</span> <span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">fromScratch</span> <span class="o">=</span> <span class="n">json_object</span><span class="p">();</span>
 </span><span class='line'><span class="n">json_t</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">array</span> <span class="o">=</span> <span class="n">json_array</span><span class="p">();</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// use the new version of the method to aboud have to call json_decref on each json object</span>
 </span><span class='line'><span class="c1">// must encompass values in their respective methods</span>
-</span><span class='line'><span class="n">json_array_append_new</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">json_string</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-</span><span class='line'><span class="n">json_array_append_new</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">json_string</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">json_array_append_new</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">json_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
+</span><span class='line'><span class="n">json_array_append_new</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">json_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="n">json_string</span><span class="p">(</span><span class="s">&quot;world&quot;</span><span class="p">));</span>
-</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="s">&quot;number&quot;</span><span class="p">,</span> <span class="n">json_integer</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="s">&quot;array&quot;</span><span class="p">,</span> <span class="n">array</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">json_string</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span>
+</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">number</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">json_integer</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">array</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">array</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// json pack provies an easy to use api to create json structures using a</span>
 </span><span class='line'><span class="c1">// special string syntax as the first argument</span>
-</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="s">&quot;object&quot;</span><span class="p">,</span> <span class="n">json_pack</span><span class="p">(</span><span class="s">&quot;{ss}&quot;</span><span class="p">,</span> <span class="s">&quot;hello&quot;</span><span class="p">,</span> <span class="s">&quot;world&quot;</span><span class="p">));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">json_object_set_new</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">object</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">json_pack</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;{</span><span class="n">ss</span><span class="p">}</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">world</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;));</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">output</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// ---- parse from string ----&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// &amp;mdash;&amp;mdash; parse from string &amp;mdash;&amp;mdash;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// use json_dumps to output raw json from the json &quot;objects&quot;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// use json_dumps to output raw json from the json &amp;ldquo;objects&amp;rdquo;</span>
 </span><span class='line'><span class="kt">char</span> <span class="o">*</span> <span class="n">jsonOutput</span> <span class="o">=</span> <span class="n">json_dumps</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// can use special flags to make the json more human readible</span>
@@ -1847,7 +1824,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// parse the json and</span>
 </span><span class='line'><span class="n">json_t</span> <span class="o">*</span><span class="n">parsedFromString</span> <span class="o">=</span> <span class="n">json_loads</span><span class="p">(</span><span class="n">jsonOutput</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">error</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// memory management for the json &quot;objects&quot;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// memory management for the json &amp;ldquo;objects&amp;rdquo;</span>
 </span><span class='line'><span class="n">free</span><span class="p">(</span><span class="n">jsonOutput</span><span class="p">);</span>
 </span><span class='line'><span class="n">json_decref</span><span class="p">(</span><span class="n">fromScratch</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
@@ -1871,8 +1848,7 @@
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>jansson.cpp  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1978,7 +1954,7 @@
 
 <h2>Conslusion</h2>
 
-<p>I think the choice is very much dependent on what your use case is. If you would like a very simple api and do not rely too heavily on being super fast then the obvious choice is jsoncpp, especially if there is a package available on your distribution that you can link against. If you require super fast json encoding and decoding or are working on a system where a header-only library is an attractive option then choose rapidjson. Since we're talking about c++ here, I don't think there should be a situation in which you should choose jansson over the others.</p>
+<p>I think the choice is very much dependent on what your use case is. If you would like a very simple api and do not rely too heavily on being super fast then the obvious choice is jsoncpp, especially if there is a package available on your distribution that you can link against. If you require super fast json encoding and decoding or are working on a system where a header-only library is an attractive option then choose rapidjson. Since we&rsquo;re talking about c++ here, I don&rsquo;t think there should be a situation in which you should choose jansson over the others.</p>
 ]]></content>
   </entry>
   
@@ -1994,7 +1970,7 @@
 
 <h2>Text Formats</h2>
 
-<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it's very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I'll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
+<p>Lets first of all split these messaging formats up into two subcategories. First of all we have human readable format. These have the advantage that it&rsquo;s very easy to debug and understand what is being sent over the wire, although obviously the size of data is quite a bit larger than it needs to be. The obvious contenders here are Json, XML and YAML. Json seems to be the most used as it is very dynamic, simple and works really well with javascript where a lot of restful web services are used. XML used the be the most popular and is still very popular, but it is slightly more complicated to use than json. I&rsquo;ll only discuss json and xml below as I think these are the most widely used text based messaging formats and there are quite a few competing c++ libraries for each.</p>
 
 <h3>Json</h3>
 
@@ -2002,8 +1978,7 @@
 
 <p>Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>example.json  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2027,22 +2002,22 @@
 </pre></td><td class='code'><pre><code class='json'><span class='line'><span class="err">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span><span class="p">{</span>
-</span><span class='line'>  <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;array&quot;</span><span class="p">:</span> <span class="p">[</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;hello&amp;rdquo;:</span> <span class="err">&amp;ldquo;world&amp;rdquo;,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;array&amp;rdquo;:</span> <span class="err">[&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span>
-</span><span class='line'><span class="s2">&quot;world&quot;</span>
+</span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span><span class="nt">&quot;hello&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="nt">&quot;world&quot;</span>
 </span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">],</span>
-</span><span class='line'>  <span class="nt">&quot;number&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-</span><span class='line'>  <span class="nt">&quot;object&quot;</span><span class="p">:</span> <span class="p">{</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="err">]</span><span class="p">,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;number&amp;rdquo;:</span> <span class="err">0,</span>
+</span><span class='line'>  <span class="err">&amp;ldquo;object&amp;rdquo;:</span> <span class="err">{&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;pre&gt;&lt;code&gt;</span>  <span class="nt">&quot;hello&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span>
 </span><span class='line'><span class="err">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span>  <span class="p">}</span>
-</span><span class='line'><span class="p">}</span><span class="err">&lt;/p&gt;</span>
+</span><span class='line'><span class="err">}&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="err">&lt;p&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
@@ -2053,8 +2028,7 @@
 
 <p>Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema definition languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>address.xsd  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2089,9 +2063,9 @@
 <span class='line-number'>33</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-</span><span class='line'><span class="ni">&amp;lt;</span>xs:schema elementFormDefault=&quot;qualified&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
-</span><span class='line'>  <span class="ni">&amp;lt;</span>xs:element name=&quot;Address&quot;&gt;<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>utf-8<span class="ni">&amp;rdquo;</span>?&gt;
+</span><span class='line'><span class="ni">&amp;lt;</span>xs:schema elementFormDefault=<span class="ni">&amp;ldquo;</span>qualified<span class="ni">&amp;rdquo;</span> xmlns:xs=<span class="ni">&amp;ldquo;</span><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span><span class="nt">&gt;</span>http://www.w3.org/2001/XMLSchema<span class="nt">&lt;/a&gt;</span><span class="ni">&amp;rdquo;</span>&gt;
+</span><span class='line'>  <span class="ni">&amp;lt;</span>xs:element name=<span class="ni">&amp;ldquo;</span>Address<span class="ni">&amp;rdquo;</span>&gt;<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>xs:complexType<span class="ni">&amp;gt;</span>
 </span><span class='line'>  <span class="ni">&amp;lt;</span>xs:sequence<span class="ni">&amp;gt;</span>
@@ -2124,8 +2098,7 @@
 
 <p>With an example of an xml message conforming to the above schema being.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>address.xml  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2143,7 +2116,7 @@
 <span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=<span class="ni">&amp;ldquo;</span>1.0<span class="ni">&amp;rdquo;</span> encoding=<span class="ni">&amp;ldquo;</span>utf-8<span class="ni">&amp;rdquo;</span>?&gt;<span class="nt">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="nt">&lt;Address</span> <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
 </span><span class='line'>    <span class="na">xsi:noNamespaceSchemaLocation=</span><span class="s">&quot;address.xsd&quot;</span><span class="nt">&gt;</span>
@@ -2163,14 +2136,13 @@
 
 <p><a href="/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
 
-<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of "protocol buffers". The two mainly used ones are Google's protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
+<p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &ldquo;protocol buffers&rdquo;. The two mainly used ones are Google&rsquo;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
 
 <h2>Protobuf</h2>
 
 <p>Protobuf requires a schema to keep data consistent and at least in c++ uses this schema to generate optimised code. This gives you methods, depending on the datatypes defined in the schema, to access and set any value you defined. You can not add any value into a protobuf message that is not defined in the schema nor one that has an incorrect type. An example of a schema taken from the protobuf documentation is:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>protobuf proto file  </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2242,7 +2214,7 @@
 
 <h4>Varints</h4>
 
-<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two's complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
+<p>Protobuf heavily uses varints which are a way to represent numbers with a varying amount of memory. In the case of protobufs it does this by setting the first bit to 1 in every byte if there are further bytes to come. The other 7 bits of each byte are used to store the two&rsquo;s complement representation of the number in groups of 7 bits using the <strong>least significant group first</strong> i.e. you need to reverse the groups of 7 bits. Below is an example of working from the binary representation of a varint to a negative decimal number:</p>
 
 <pre><code>1011 1000 0011 1100
 </code></pre>
@@ -2257,7 +2229,7 @@
 <pre><code>111 1100 111 0000
 </code></pre>
 
-<p>Then finally convert the two's compliment binary number into a decimal.</p>
+<p>Then finally convert the two&rsquo;s compliment binary number into a decimal.</p>
 
 <pre><code>-400
 </code></pre>
@@ -2273,7 +2245,7 @@
 
 <p>i.e. the last three bits of the number specify the type, these values are hard coded and defined in the protobuf documentation.</p>
 
-<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc...) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
+<p>The possible value types are pretty much just a combination of varints, fixed-length values and length-delimited values. With length-delimited values (string, bytes, etc&hellip;) the following field is just a varint defining the length in bytes of the value and then the actual value.</p>
 
 <h2>Msgpack</h2>
 
@@ -2285,11 +2257,11 @@
 
 <h2>Summary</h2>
 
-<p>I think with the modern day responsive websites mostly utilising restful web api's that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
+<p>I think with the modern day responsive websites mostly utilising restful web api&rsquo;s that json is here to stay and xml will slowly fade away. Even xml configuration files (a very popular use of xml) are slowly moving to json equivalents.</p>
 
-<p>I see no real reason to replace restful json api's with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
+<p>I see no real reason to replace restful json api&rsquo;s with binary protocol buffers considering with json it is very quick to convert into javascript objects and since with gzipping the api response the size of json can be greatly reduced. However, in other multi-platform architectures, especially real-time systems or systems dealing with very large data volumes, I believe that there is tremendous value in using a binary representation across the wire.</p>
 
-<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack's dynamic features.</p>
+<p>Which binary representation to use depends heavily on the particular use case. But as my examples in c++ show. I strongly feel that using msgpack in a statically typed language greatly reduces the impressiveness of msgpack&rsquo;s dynamic features.</p>
 ]]></content>
   </entry>
   
@@ -2298,26 +2270,26 @@
     <link href="http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
     <updated>2011-01-27T20:55:41+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
-    <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I'd share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
+    <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&rsquo;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
 
 <!-- more -->
 
 
-<p>One thing I found when using signals and slots was that I had trouble connecting signals and slots when they there was a widget inside a widget inside a widget, lets call them A, B and C respectively. Setting up a connection between A and C was impossible, what I had to do was create an intermediate slot inside B that emitted a signal from B, to keep the signal going. This was pretty annoying as I had to create the new slot function and there was a simple solution that I didn't get for a while. Connections can be made between a signal and a signal, so that when the first emitted so is the other signal, now this may not be a huge improvement in code, but it looks so much neater and when working on a larger project it is so much easier to follow. A simple example, not sure it's really needed, but anyway here it is:</p>
+<p>One thing I found when using signals and slots was that I had trouble connecting signals and slots when they there was a widget inside a widget inside a widget, lets call them A, B and C respectively. Setting up a connection between A and C was impossible, what I had to do was create an intermediate slot inside B that emitted a signal from B, to keep the signal going. This was pretty annoying as I had to create the new slot function and there was a simple solution that I didn&rsquo;t get for a while. Connections can be made between a signal and a signal, so that when the first emitted so is the other signal, now this may not be a huge improvement in code, but it looks so much neater and when working on a larger project it is so much easier to follow. A simple example, not sure it&rsquo;s really needed, but anyway here it is:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="n">connect</span><span class="p">(</span><span class="n">myButton</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">clicked</span><span class="p">()),</span> <span class="k">this</span><span class="p">,</span> <span class="n">SIGNAL</span><span class="p">(</span><span class="n">buttonClicked</span><span class="p">()));</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Another problem I had with signals and slots was that sometimes I'd like to quickly take control of my connection and stop it for a while and then reconnect it, and this was fine I could use the</p>
+<p>Another problem I had with signals and slots was that sometimes I&rsquo;d like to quickly take control of my connection and stop it for a while and then reconnect it, and this was fine I could use the</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">disconnect</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>method to explicitly remove the connection and then reattach it in the normal way. This gets a bit complicated when you are dealing with an important QObject and there a lot of connections that need to be disconnected, half your code would be establishing and disconnecting connections. There's a handy method in the QObject toolbox that solves this problem called</p>
+<p>method to explicitly remove the connection and then reattach it in the normal way. This gets a bit complicated when you are dealing with an important QObject and there a lot of connections that need to be disconnected, half your code would be establishing and disconnecting connections. There&rsquo;s a handy method in the QObject toolbox that solves this problem called</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="nl">QObject:</span><span class="n">blockSignals</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
@@ -2327,9 +2299,9 @@
 
 <p>A lot of questions I see paraded around in regards to Qt is about which containers classes to use. Now I have pretty much been brought up on the STL, and know them pretty well but I am a big believer that when using a particular framework that you use the more integrated containers. Not only that but the documentation for the Qt containers insdie the Qt Creator IDE is impressive, press F1 and I have every single meber function and there are a lot of them. Not only that but reading some of the documentation surrounding Qt containers brought me to an underlying methodology called implicitly shared. Which pretty much means that within any Qt container class it will make your code more efficient by reducing the copying with that container, vist the <a href="http://doc.qt.nokia.com/latest/implicit-sharing.html#implicitly-shared">website</a> for more details. Also lots of outputs of other functions within Qt generate the Qt generic classes so the amount of code needed to convert and reconvert would be a bit excessive.</p>
 
-<p>Another thing I liked about Qt was how easy it was to access external applicationsand give input arguemnts and easily receive standard outputs (mainly command line). This has been really useful when making wrappers for some of my commonly used command line applications (a task I try to do whenever learning a new gui framework) this meant I didn't have to worry too much about looking through a lot of code and the only way to proceed when using a closed source application. A simple example:</p>
+<p>Another thing I liked about Qt was how easy it was to access external applicationsand give input arguemnts and easily receive standard outputs (mainly command line). This has been really useful when making wrappers for some of my commonly used command line applications (a task I try to do whenever learning a new gui framework) this meant I didn&rsquo;t have to worry too much about looking through a lot of code and the only way to proceed when using a closed source application. A simple example:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2346,16 +2318,16 @@
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// define command line arguments</span>
 </span><span class='line'><span class="n">QStringList</span> <span class="n">args</span><span class="p">;</span>
-</span><span class='line'><span class="n">args</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;e&quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">file</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;/ad&quot;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s">&quot;/y&quot;</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">args</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">file</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">/</span><span class="n">ad</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">/</span><span class="n">y</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// run external application</span>
-</span><span class='line'><span class="n">extraction</span><span class="o">-&gt;</span><span class="n">execute</span><span class="p">(</span><span class="s">&quot;C:/Program Files/WinRAR/unRAR&quot;</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="n">extraction</span><span class="o">-&gt;</span><span class="n">execute</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="nl">C:</span><span class="o">/</span><span class="n">Program</span> <span class="n">Files</span><span class="o">/</span><span class="n">WinRAR</span><span class="o">/</span><span class="n">unRAR</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">args</span><span class="p">);</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// get the output from the application</span>
 </span><span class='line'><span class="n">QByteArray</span> <span class="n">output</span> <span class="o">=</span> <span class="n">extraction</span><span class="o">-&gt;</span><span class="n">readAllStandardOutput</span><span class="p">();</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>I hope this has been at least slightly helpful to anyone who has read it, and for anyone who has yet to make the leap into the Qt framework I say go for it, you won't regret it.</p>
+<p>I hope this has been at least slightly helpful to anyone who has read it, and for anyone who has yet to make the leap into the Qt framework I say go for it, you won&rsquo;t regret it.</p>
 ]]></content>
   </entry>
   

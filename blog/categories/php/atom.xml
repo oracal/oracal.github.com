@@ -4,7 +4,7 @@
   <title><![CDATA[Category: PHP | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-07-05T19:54:23+01:00</updated>
+  <updated>2013-12-15T20:51:42+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -18,14 +18,14 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
-    <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you'll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
+    <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&rsquo;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
 
 
-<p>So now onto single.php, this is the code to display how a single post is shown. First we'll look at the code to insert the post.</p>
+<p>So now onto single.php, this is the code to display how a single post is shown. First we&rsquo;ll look at the code to insert the post.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -95,39 +95,39 @@
 
 <p>We first set up the loop that checks for the current post using the following code:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php if (have_posts()) : while (have_posts()) : the_post(); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We then extract the required information for the post using wordpress functions, the following commands are the most commonly used:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php the_title(); // echo&#39;s the post title ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_author(); // echo&#39;s the post author ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_content(); // echo&#39;s the post content ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_time(); // echo&#39;s the date/time of the post ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_category(); // echo&#39;s the category of the post as well as a link to the respective category page ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_tags(); // echo&#39;s the tags of the post as well as a link to the respective tag page ?&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post title ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_author</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post author ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post content ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_time</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the date/time of the post ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_category</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the category of the post as well as a link to the respective category page ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_tags</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the tags of the post as well as a link to the respective tag page ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Now the only other functions which we need to include in the single.php file and which we haven't seen already is the worpdress function which pulls in the comments.php file and the functions for linking to the next and previous posts:</p>
+<p>Now the only other functions which we need to include in the single.php file and which we haven&rsquo;t seen already is the worpdress function which pulls in the comments.php file and the functions for linking to the next and previous posts:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php comments_template(); ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php previous_post_link(&#39;%link&#39;, &#39;&amp;laquo; Previous Post&#39;); ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php next_post_link(&#39;%link&#39;, &#39;Next Post &amp;raquo;&#39;) ?&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">comments_template</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&amp;lt;?php previous_post_link(&amp;lsquo;%link&amp;rsquo;, &amp;lsquo;&amp;laquo; Previous Post&amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php next_post_link(&amp;lsquo;%link&amp;rsquo;, &amp;lsquo;Next Post &amp;raquo;&amp;rsquo;) ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>The entire single.php follows a very similar pattern to the index.php so you should have no real problem following it, the comments.php file is slightly more complicated and probably the most complicated part of the wordpress system, but they still manage to make it quite simple for us. I'm going to split the file comments.php up into managable chucks and explain each chunk, heres the first:</p>
+<p>The entire single.php follows a very similar pattern to the index.php so you should have no real problem following it, the comments.php file is slightly more complicated and probably the most complicated part of the wordpress system, but they still manage to make it quite simple for us. I&rsquo;m going to split the file comments.php up into managable chucks and explain each chunk, heres the first:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -142,13 +142,13 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php // Do not delete these lines</span>
-</span><span class='line'><span class="x">if (!empty($&lt;em&gt;SERVER[&#39;SCRIPT_FILENAME&#39;]) &amp;amp;&amp;amp; &#39;comments.php&#39; == basename($&lt;/em&gt;SERVER[&#39;SCRIPT_FILENAME&#39;]))&lt;/p&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="c1">// Do not delete these lines</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;])</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">comments</span><span class="o">.</span><span class="nx">php</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">==</span> <span class="nb">basename</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;/</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]))</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;die (&#39;Please do not load this page directly. Thanks!&#39;);</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">die</span> <span class="p">(</span><span class="s1">&#39;Please do not load this page directly. Thanks!&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;if ( post_password_required() ) { ?&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">if</span> <span class="p">(</span> <span class="nx">post_password_required</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This post is password protected. Enter the password to view comments.&amp;lt;/p&amp;gt;</span>
 </span><span class='line'><span class="x">&amp;lt;?php</span>
@@ -159,9 +159,9 @@
 </span><span class='line'><span class="x">?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>This is wordpress's own code, do not touch this. It pretty much stops people from accessing the page directly and checks to see if you need a password to view comments, not really something we should worry about, but make sure you include it.</p>
+<p>This is wordpress&rsquo;s own code, do not touch this. It pretty much stops people from accessing the page directly and checks to see if you need a password to view comments, not really something we should worry about, but make sure you include it.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -193,21 +193,21 @@
 </span><span class='line'><span class="x">&lt;p&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>This chunk of code tests whether there are comments in the wordpress query, and if there is, then the code first of all uses <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php comments_number(&#39;No Responses&#39;, &#39;One Response&#39;, &#39;% Responses&#39; );?&gt;</span>
+<p>This chunk of code tests whether there are comments in the wordpress query, and if there is, then the code first of all uses <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">comments_number</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">No</span> <span class="nx">Responses</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">One</span> <span class="nx">Response</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">%</span> <span class="nx">Responses</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure></notextile></div> to print out a statement depending on how many comments there are, the parameters given to the function show quite nicely exactly what the function does and what each parameter does.</p>
 
 <p>Next we provide a link to pages of comments for when pagination is used and then we output the comments using this handy WordPress function:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php wp_list_comments(&#39;avatar_size=48&#39;); ?&gt;</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">wp_list_comments</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">avatar_size</span><span class="o">=</span><span class="mi">48</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>The parameter given here tells us what sixe to put the avatar images on the site, there are a few other parameters and you should probably check out on the wordpress codex, but for our simple blog we don't need it.</p>
+<p>The parameter given here tells us what sixe to put the avatar images on the site, there are a few other parameters and you should probably check out on the wordpress codex, but for our simple blog we don&rsquo;t need it.</p>
 
 <p>Next we have the chunk of code that will generally just display nothing, but you might want to put in a message saying that there are no comments or something like that here.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -231,13 +231,13 @@
 
 <p>This chunk outputs the form where comments are inputted, its quite long because it displays a slightly different form if the user is already logged in. Which is easily checked using:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php if ( is_user_logged_in()) : ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The rest of the code is pretty easy to follow:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -329,13 +329,13 @@
 
 <p>The only thing you might not understand is the final function:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php do_action(&#39;comment_form&#39;, $post-&gt;ID); ?&gt;</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">do_action</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">comment_form</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;,</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>which pretty much tells the form what to do with the information. And so there we have it the most simple comments implementaation in the wordpress framework. One last bit to go over is the nice search functionality wordpress has. This is implemented using a theme's search.php file. I'm not going to go too much in depth into this as it is very similar to index.php but I thought I would show you the code just to round off this article, so here you go:</p>
+<p>which pretty much tells the form what to do with the information. And so there we have it the most simple comments implementaation in the wordpress framework. One last bit to go over is the nice search functionality wordpress has. This is implemented using a theme&rsquo;s search.php file. I&rsquo;m not going to go too much in depth into this as it is very similar to index.php but I thought I would show you the code just to round off this article, so here you go:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -374,10 +374,10 @@
 <span class='line-number'>37</span>
 <span class='line-number'>38</span>
 <span class='line-number'>39</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php get_header(); ?&gt;&lt;/p&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;&lt;form method=&quot;get&quot; id=&quot;searchform&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&quot;&gt;</span>
-</span><span class='line'><span class="x">&lt;input type=&quot;text&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_search_query</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot; name=&quot;s&quot; id=&quot;s&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;&lt;form method=&quot;get&quot; id=&quot;searchform&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&amp;ldquo;&gt;</span>
+</span><span class='line'><span class="x">&lt;input type=&quot;text&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_search_query</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&amp;rdquo; name=&amp;ldquo;s&amp;rdquo; id=&amp;ldquo;s&amp;rdquo; /&gt;</span>
 </span><span class='line'><span class="x">&lt;input type=&quot;submit&quot; id=&quot;searchsubmit&quot; value=&quot;Search&quot; /&gt;</span>
 </span><span class='line'><span class="x">&lt;/form&gt;&lt;/p&gt;</span>
 </span><span class='line'>
@@ -424,12 +424,12 @@
     <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
     <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
-    <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here's my guide for setting up a really simple blog.</p>
+    <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&rsquo;s my guide for setting up a really simple blog.</p>
 
 <!-- more -->
 
 
-<p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you'd like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
+<p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&rsquo;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
 
 <p>[css]
 /<em>
@@ -438,16 +438,16 @@ Theme URI:
 Description: A Starter Theme
 Version: 0.1
 Author: Thomas Whitton
-Author URI: http://www.thomaswhitton.com
+Author URI: <a href="http://www.thomaswhitton.com">http://www.thomaswhitton.com</a>
 Tags: simple, clean, single column
 </em>/
 [/css]</p>
 
-<p>We're not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
+<p>We&rsquo;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
 
-<p>Then we'll add the index.php, the glue that holds the rest of the files together. First of all we'll create the main Wordpress loop, as this is the most important part of the design. This is the main part of your site, generally on the front page, that displays a selection of your posts.</p>
+<p>Then we&rsquo;ll add the index.php, the glue that holds the rest of the files together. First of all we&rsquo;ll create the main Wordpress loop, as this is the most important part of the design. This is the main part of your site, generally on the front page, that displays a selection of your posts.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -477,59 +477,59 @@ Tags: simple, clean, single column
 
 <p>Now this code is just checking if any posts exist and then looping through all the posts in reverse chronilogical order. Now inside the loop nothing is happening so whats the point? Well now we can add some special wordpress functions that will extract the information from each post that we loop through. The code also supplies an error message if there are no posts to display.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php the_permalink() ?&gt; // Returns the url of the permalink to the post</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"> // Returns the url of the permalink to the post</span>
 </span><span class='line'><span class="x">&amp;lt;?php the_title(); ?&gt; // Returns the title of the post</span>
 </span><span class='line'><span class="x">&amp;lt;?php the_author(); ?&gt; // Returns the author of the post</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_content(&#39;Read the rest of this entry &amp;raquo;&#39;); ?&gt; // Returns the content of the post</span>
+</span><span class='line'><span class="x">&amp;lt;?php the_content(&amp;lsquo;Read the rest of this entry &amp;raquo;&amp;rsquo;); ?&gt; // Returns the content of the post</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>These functions are simple enough and are easily used within the loop shown previously, the only slight different is with the_content() function which takes a string as a parameter, this just provides the words for the more text link.</p>
 
 <p>For showing how many comments a post has, still inside the loop, we have a slightly more complicated bit of code. First we have to check certain conditions:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">//would normal include different styles for comment closed/open status here</span>
-</span><span class='line'><span class="x">&amp;lt;?php if (&#39;closed&#39; == $post-&gt;comment_status) : ?&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">//would normal include different styles for comment closed/open status here</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">closed</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">==</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">comment_status</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">&amp;lt;?php else : ?&gt;</span>
 </span><span class='line'><span class="x">&amp;lt;?php endif; ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php comments_popup_link(&#39;leave a comment&#39;, &#39;1 comment&#39;, &#39;% comments&#39;, &#39;&#39;, &#39;comments closed&#39;); ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php comments_popup_link(&amp;lsquo;leave a comment&amp;rsquo;, &amp;lsquo;1 comment&amp;rsquo;, &amp;lsquo;% comments&amp;rsquo;, &amp;lsquo;&amp;rsquo;, &amp;lsquo;comments closed&amp;rsquo;); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we'd like to show for each case particular case of comment status. It's pretty easy to work out what each parameter corresponds to from the example given above.</p>
+<p>Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we&rsquo;d like to show for each case particular case of comment status. It&rsquo;s pretty easy to work out what each parameter corresponds to from the example given above.</p>
 
 <p>So thats it for the loop, we obviously have to add a bit more divs and css styling to get everything formatted in the correct way but that goes beyond the scope of this tutorial.</p>
 
 <p>One further bit of code to add after the end of the loop but still inside the if(have_post()) function is the code for pagination. Again wordpress makes this simple and is just a matter of adding:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php next_posts_link(&#39;&amp;laquo; Older&#39;) ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php previous_posts_link(&#39;Newer &amp;raquo;&#39;) ?&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">next_posts_link</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">laquo</span><span class="p">;</span> <span class="nx">Older</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;)</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&amp;lt;?php previous_posts_link(&amp;lsquo;Newer &amp;raquo;&amp;rsquo;) ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>We then have to include the header, sidebar and footer pages which we'll quickly create in a minute. This is easily done using the built in Wordpress functions as follows. Adding this function to the top of the index.php file:</p>
+<p>We then have to include the header, sidebar and footer pages which we&rsquo;ll quickly create in a minute. This is easily done using the built in Wordpress functions as follows. Adding this function to the top of the index.php file:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php get_header(); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>And then to the bottom of index.php:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php get_sidebar(); ?&gt;</span>
 </span><span class='line'><span class="x">&amp;lt;?php get_footer(); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we'll create these files now. First we'll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
+<p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&rsquo;ll create these files now. First we&rsquo;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
 
 <p>[html]
 &lt;?php wp_footer(); ?>
@@ -539,7 +539,7 @@ Tags: simple, clean, single column
 
 <p>The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.</p>
 
-<p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We'll check to see if the their are any widgets loaded in the primary widget area and if not we'll put our own in. Then we'll add a secondry widget area for less important widgets.</p>
+<p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&rsquo;ll check to see if the their are any widgets loaded in the primary widget area and if not we&rsquo;ll put our own in. Then we&rsquo;ll add a secondry widget area for less important widgets.</p>
 
 <p>[html]</p>
 
@@ -571,7 +571,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </ul>
 
 
-<p>&lt;?php if(is_active_sidebar('secondary-widget-area')) : ?></p>
+<p>&lt;?php if(is_active_sidebar(&lsquo;secondary-widget-area&rsquo;)) : ?></p>
 
 <pre><code>&lt;ul&gt;
 &lt;?php dynamic_sidebar('secondary-widget-area'); ?&gt;
@@ -584,16 +584,16 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 <p>Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.</p>
 
 <p>[html]
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>></p>
 
 <p><head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo('charset'); ?>" />
-<title>&lt;?php wp_title(':', true, 'right'); ?> &lt;?php bloginfo('name'); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" charset="utf-8" />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="&lt;?php bloginfo('rss2_url'); ?>" />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="&lt;?php bloginfo('atom_url'); ?>" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&lsquo;charset&rsquo;); ?>&ldquo; />
+<title>&lt;?php wp_title(&lsquo;:&rsquo;, true, &lsquo;right&rsquo;); ?> &lt;?php bloginfo(&lsquo;name&rsquo;); ?></title>
+<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&rdquo; type=&ldquo;text/css&rdquo; media=&ldquo;screen&rdquo; charset=&ldquo;utf-8&rdquo; />
+<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href=&ldquo;&lt;?php bloginfo(&lsquo;rss2_url&rsquo;); ?>&rdquo; />
+<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href=&ldquo;&lt;?php bloginfo(&lsquo;atom_url&rsquo;); ?>&rdquo; />
+<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&ldquo; />
 &lt;?php wp_head(); ?>
 </head></p>
 
@@ -606,7 +606,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 
-<p>Now as long as you have customized the look and format of your blog using some div's and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.</p>
+<p>Now as long as you have customized the look and format of your blog using some div&rsquo;s and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.</p>
 
 <p>Please head on over to <a href="http://www.thomaswhitton.com/thomaswhitton/2011/03/06/the-simplest-wordpress-blog-part-2/">Part 2</a>.</p>
 ]]></content>
