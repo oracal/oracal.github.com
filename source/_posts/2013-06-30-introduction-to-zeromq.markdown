@@ -12,7 +12,7 @@ tags:
 - Networking
 ---
 
-In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll our own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).
+In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll their own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).
 
 <!-- more -->
 
@@ -39,15 +39,15 @@ A couple of c++ implementation details to note is that all data that zeromq pass
 Request Reply
 -------------
 
-The client below starts by generating some msgpack data, then it creates a zeromq context, this is required for an application to use zeromq and starts off all the asyncrounous fun that zeromq uses behind the scenes. The number argument that you pass to this context is the amount of threads that zeromq will use in the background and should obviously be optimised for your application/hardware. Next we create a zmq sockets, that has a very similar api to a normal socket, however pass to it an ENUM which describes the scenario that we would like zeromq to use, in this case the request part of a request-reply scenario. There are quite a few scenarios and I will go over a few of them in this post.
+The client below starts by generating some msgpack data, then it creates a zeromq context, this is required for an application to use zeromq and starts off all the asyncrounous fun that zeromq uses behind the scenes. The number argument that you pass to this context is the amount of threads that zeromq will use in the background and should obviously be optimised for your application/hardware. Next we create a zmq socket that has a very similar api to a normal socket, however we pass to it an ENUM which describes the scenario that we would like zeromq to use, in this case the request part of a request-reply scenario. There are quite a few scenarios and I will go over a few of them in this post.
 
 Once the socket has been created it needs to be connected to an end point. In this case the server application that will be shown below. It is important to note that the server doesn't neccesarily need to be started first for the client to connect to it. Due to the way way zeromq buffers messages either one can be started first.
 
-For each piece of data that we send via to socket we are required to create a zmq::message\_t object which we can populate with any data cast to a void \* pointer. When we create a zmq message we must pass into it the amount of bytes that message will be in the constructor. We can then memcpy the data over to it.
+For each piece of data that we send to the socket we are required to create a zmq::message\_t object which we can populate with any data cast to a void \* pointer. When we create a zmq message we must pass into it the amount of bytes that message will be in the constructor. We can then memcpy the data over to it.
 
 Then it's just a matter of sending over the message and receiving a reply message.
 
-{% codeblock client.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // the vector that is going to be sent
 std::vector<std::string> vec;
@@ -83,7 +83,7 @@ Now for the server, it sets things up in a very similar way to the client, excep
 
 This time we create a zmq::message\_t object to receive the incoming message. We do not pass a number to the constructor of the message object this time since obviously we don't know yet what that is and also since when we pass it into the socket.recv() method the size will be populated with the incoming message size. In the example we then decode the msgpack message and turn it into a static type object and then send a reply back, all very easy stuff.
 
-{% codeblock server.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 //  Prepare our context and socket
 zmq::context_t context(1);
@@ -131,7 +131,7 @@ Below is an example of a weather server sending out important weather informatio
 
 One extra detail in this example is that there is an envelope message which is supposed to define the type of message being sent, this uses two separate zeromq messages but uses the ZMQ\_SNDMORE argument to the send method (part of the zeromq api). This means that the message will only be sent the next time a send without ZMQ\_SNDMORE argument is called. This allows you to combine separate zeromq messages into single "real messages". In this example it is used to filter out certain messages from the publisher.
 
-{% codeblock server.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 #define within(num) (int) ((float) num * random () / (RAND_MAX + 1.0))
 
@@ -180,7 +180,7 @@ while(1)
 
 The client example below is very similar to the client in the request reply example above.
 
-{% codeblock client.cpp lang:cpp %}
+{% codeblock lang:cpp %}
 
 // set up jsoncpp objects
 Json::Value v;
