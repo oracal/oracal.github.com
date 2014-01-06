@@ -210,7 +210,9 @@ for(update_nbr = 0; update_nbr < 100; update_nbr++)
     // receive the json message and actually do soemthing with it
     subscriber.recv(&update);
     // convert non null terminating cstring into a string
-    std::string response = std::string(static_cast<const char*>(update.data()), update.size());
+    std::string response = std::string(
+            static_cast<const char*>(update.data()),
+            update.size());
 
     // parse json data
     bool parsingSuccessful = reader.parse(response, v);

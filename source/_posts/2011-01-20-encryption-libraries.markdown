@@ -33,7 +33,12 @@ if(!QCA::isSupported("aes128-cbc-pkcs7"))
 else
 {
 	// create the cipher defintion
-	QCA::Cipher cipher(QString("aes256"), QCA::Cipher::CBC, QCA::Cipher::DefaultPadding, QCA::Encode, key, iv);
+  QCA::Cipher cipher(
+          QString("aes256"),
+          QCA::Cipher::CBC,
+          QCA::Cipher::DefaultPadding,
+          QCA::Encode, key, iv);
+
 	// start encryption process
 	QCA::SecureArray u = cipher.update(arg);
 
@@ -64,8 +69,14 @@ std::string ciphertext;
 CryptoPP::AES::Encryption aesEncryption(key, CryptoPP::AES::DEFAULT_KEYLENGTH);
 CryptoPP::CBC_Mode_ExternalCipher::Encryption cbcEncryption( aesEncryption, iv );
 
-CryptoPP::StreamTransformationFilter stfEncryptor(cbcEncryption, new CryptoPP::StringSink( ciphertext ) );
-stfEncryptor.Put( reinterpret_cast<const unsigned char*> ( plaintext.data() ), plaintext.length() + 1 );
+CryptoPP::StreamTransformationFilter stfEncryptor(
+        cbcEncryption,
+        new CryptoPP::StringSink( ciphertext ) );
+
+stfEncryptor.Put(
+        reinterpret_cast<const unsigned char*> ( plaintext.data() ),
+        plaintext.length() + 1 );
+
 stfEncryptor.MessageEnd();
 
 // convert to QString

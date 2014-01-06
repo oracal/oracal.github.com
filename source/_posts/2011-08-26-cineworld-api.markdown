@@ -34,7 +34,7 @@ CW().film_search('some movie here')
 I'd like to mention that the cineworld API doesn't have a way to search using film titles so I had to make my own using their list of films. But before I get into explaining that I would like to go through some of the easy functions that just directly link to the API.
 
 {% codeblock lang:python %}
-#base function for connecting to API
+# base function for connecting to API
 def get_list(self, datatype, url, **kwargs):
     search_url = [url, '?']
     kwargs.update({'key': self.api_key})
@@ -42,24 +42,28 @@ def get_list(self, datatype, url, **kwargs):
     data = json.loads(urlopen(''.join(search_url)).read())
     return data[datatype]
 
-#gets a list of all cineworld cinemas and allows further customization of the list using arguments located in the API documentation
+# gets a list of all cineworld cinemas and allows further customization
+# of the list using arguments located in the API documentation
 def get_cinemas(self, **kwargs):
 	return self.get_list('cinemas', self.cinemas_url, **kwargs)
 
-#gets a list of all films currently playing in cineworld cinemas and allows further customization of the list using arguments located in the API documentation
+# gets a list of all films currently playing in cineworld cinemas and allows
+# further customization of the list using arguments located in the API documentation
 def get_films(self, **kwargs):
 	return self.get_list('films', self.films_url, **kwargs)
 
-#cache the result of the list of films in case of multiple searching on the same object
+# cache the result of the list of films in case of
+# multiple searching on the same object
 def get_film_list(self):
     self.film_list = self.get_films()
     return self.film_list
 
-#gets a list of all dates when films are playing at cineworld cinemas and allows further customization of the list using arguments located in the API documentation
+# gets a list of all dates when films are playing at cineworld cinemas and allows
+# further customization of the list using arguments located in the API documentation
 def get_dates(self, **kwargs):
 	return self.get_list('dates', self.dates_url, **kwargs)
 
-#not well documented but I assume it's for more specialized performances i.e. not films
+# not well documented but I assume it's for more specialized performances i.e. not films
 def get_performances(self, **kwargs):
 	return self.get_list('performances', self.performances_url, **kwargs)
 {% endcodeblock %}
@@ -78,16 +82,16 @@ from operator import itemgetter
 
 def film_search(self, title):
 	films = []
-	#check for cache or update
+	# check for cache or update
 	if not hasattr(self, 'film_list'):
 		self.get_film_list()
-	#iterate over films and check for fuzzy string match
+	# iterate over films and check for fuzzy string match
 	for film in self.film_list:
 		strength = WRatio(title, film['title'])
 		if  strength > 80:
 			film.update({u'strength':strength})
 			films.append(film)
-	#sort films by the strength of the fuzzy string match
+	# sort films by the strength of the fuzzy string match
 	films_sorted = sorted(films, key=itemgetter('strength'), reverse = True)
 	return films_sorted
 {% endcodeblock %}
@@ -97,10 +101,12 @@ So this function will return a list of films ordered by the strength of the fuzz
 I needed a way to get the current box office films to place on a site, unfortunately Cineworld have quite a few unorthodox films that play sometimes, like kids cartoons on Saturday morning and Bollywood films on a Thursday. Not that those films aren't important but I wouldn't say they were really Box Office films. Wednesday on the other hand, being Orange Wednesdays, generally had all of the Box Office films playing. Also, the way the Cineworld site seemed to work was that looking forward to Wednesday was a good way to get the most up to date films. So I made a function that would look forward to the next Wednesday and return a list of films playing that night. Also, I picked a single cinema which was likely to have quite a large amount of films due to its size, the O2 in Greenwich. Finally I made sure that I wouldn't get both the 3D and the 2D version of the film and it would only return the film name once using a simple filter to remove any 3D films and then removing the 2D text at the beginning of the string.
 
 {% codeblock lang:python %}
-#uses a certain cinema (O2) and a certain day when non specialist films show (Wednesday) to get a list of the latest box office films
+# uses a certain cinema (O2) and a certain day when non specialist films
+# show (Wednesday) to get a list of the latest box office films
 def get_box_office_films(self):
 	today = datetime.date.today()
-	next_wednesday = (today + datetime.timedelta((2 - today.weekday()) % 7)).strftime('%Y%m%d')
+	next_wednesday = (today + datetime.timedelta((2 - today.weekday()) % 7))
+  .strftime('%Y%m%d')
 	films = self.get_films(cinema=79, date = next_wednesday)
 
 	films = filter(lambda x: '3D' not in x['title'], films)

@@ -245,7 +245,9 @@ public:
         return string_;
     };
     Root(){};
-    Root(const std::vector<int> &ints, const std::string &string): ints_(ints), string_(string){};
+    Root(const std::vector<int> &ints, const std::string &string):
+        ints_(ints),
+        string_(string){};
 
     // msgpack macro to define what to serialize in custom classes
     MSGPACK_DEFINE(ints_, string_);

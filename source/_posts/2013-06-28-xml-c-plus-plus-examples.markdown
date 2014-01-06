@@ -100,7 +100,8 @@ void outputAddress(const Address& address)
 
 // ---- parse from file and stream ----
 
-// need to convert file and stream to cstring before parsing as rapidxml needs a null terminated cstring for parsing
+// need to convert file and stream to cstring before parsing
+// as rapidxml needs a null terminated cstring for parsing
 
 // file to string
 std::ifstream fin("address.xml");
@@ -138,13 +139,19 @@ catch(const rapidxml::parse_error &e)
 
 // ---- create from scratch ----
 
+rapidxml::xml_node<> *addressNode =
+    fromScratch.allocate_node(rapidxml::node_element, "Address");
+rapidxml::xml_node<> *recipientNode =
+    fromScratch.allocate_node(rapidxml::node_element, "Recipient", "Mr Malcolm Reynolds");
+rapidxml::xml_node<> *houseNode =
+    fromScratch.allocate_node(rapidxml::node_element, "House", "3");
+rapidxml::xml_node<> *streetNode =
+    fromScratch.allocate_node(rapidxml::node_element, "Street", "Serenity");
+rapidxml::xml_node<> *townNode =
+    fromScratch.allocate_node(rapidxml::node_element, "Town", "Space");
+rapidxml::xml_node<> *postCodeNode =
+    fromScratch.allocate_node(rapidxml::node_element, "PostCode", "DE18 5HI");
 rapidxml::xml_document<> fromScratch;
-rapidxml::xml_node<> *addressNode = fromScratch.allocate_node(rapidxml::node_element, "Address");
-rapidxml::xml_node<> *recipientNode = fromScratch.allocate_node(rapidxml::node_element, "Recipient", "Mr. Malcolm Reynolds");
-rapidxml::xml_node<> *houseNode = fromScratch.allocate_node(rapidxml::node_element, "House", "3");
-rapidxml::xml_node<> *streetNode = fromScratch.allocate_node(rapidxml::node_element, "Street", "Serenity");
-rapidxml::xml_node<> *townNode = fromScratch.allocate_node(rapidxml::node_element, "Town", "Space");
-rapidxml::xml_node<> *postCodeNode = fromScratch.allocate_node(rapidxml::node_element, "PostCode", "DE18 5HI");
 
 addressNode->append_node(recipientNode);
 addressNode->append_node(houseNode);
@@ -168,7 +175,8 @@ fout << fromScratch;
 void outputAddress(const rapidxml::xml_node<> &addressNode)
 {
     std::cout << addressNode.first_node("Recipient")->value() << std::endl;
-    std::cout << addressNode.first_node("House")->value() << " " << addressNode.first_node("Street")->value() << std::endl;
+    std::cout << addressNode.first_node("House")->value()
+        << " " << addressNode.first_node("Street")->value() << std::endl;
     std::cout << addressNode.first_node("Town")->value() << std::endl;
     std::cout << addressNode.first_node("PostCode")->value() << std::endl;
     std::cout << addressNode.first_node("Country")->value() << std::endl;
@@ -248,11 +256,17 @@ delete fromScratch;
 
 void outputAddress(const TiXmlElement * address)
 {
-    std::cout << address->FirstChildElement("Recipient")->FirstChild()->Value() << std::endl;
-    std::cout << address->FirstChildElement("House")->FirstChild()->Value() << " " << address->FirstChildElement("Street")->FirstChild()->Value() << std::endl;
-    std::cout << address->FirstChildElement("Town")->FirstChild()->Value() << std::endl;
-    std::cout << address->FirstChildElement("PostCode")->FirstChild()->Value() << std::endl;
-    std::cout << address->FirstChildElement("Country")->FirstChild()->Value() << std::endl;
+    std::cout << address->FirstChildElement("Recipient")->FirstChild()->Value()
+        << std::endl;
+    std::cout << address->FirstChildElement("House")->FirstChild()->Value()
+        << " " << address->FirstChildElement("Street")->FirstChild()->Value()
+        << std::endl;
+    std::cout << address->FirstChildElement("Town")->FirstChild()->Value()
+        << std::endl;
+    std::cout << address->FirstChildElement("PostCode")->FirstChild()->Value()
+        << std::endl;
+    std::cout << address->FirstChildElement("Country")->FirstChild()->Value()
+        << std::endl;
 }
 
 {% endcodeblock %}
@@ -280,13 +294,20 @@ if(result)
 pugi::xml_document fromScratch;
 pugi::xml_node address = fromScratch.append_child("Address");
 
-address.append_child("Recipient").append_child(pugi::node_pcdata).set_value("Mr. Malcolm Reynolds");
-address.append_child("House").append_child(pugi::node_pcdata).set_value("3");
-address.append_child("Street").append_child(pugi::node_pcdata).set_value("Serenity");
-address.append_child("Town").append_child(pugi::node_pcdata).set_value("Space");
-address.append_child("PostCode").append_child(pugi::node_pcdata).set_value("DE18 5HI");
-address.append_child("County").append_child(pugi::node_pcdata).set_value("Solar System");
-address.append_child("Country").append_child(pugi::node_pcdata).set_value("UK");
+address.append_child("Recipient").append_child(pugi::node_pcdata)
+    .set_value("Mr. Malcolm Reynolds");
+address.append_child("House").append_child(pugi::node_pcdata)
+    .set_value("3");
+address.append_child("Street").append_child(pugi::node_pcdata)
+    .set_value("Serenity");
+address.append_child("Town").append_child(pugi::node_pcdata)
+    .set_value("Space");
+address.append_child("PostCode").append_child(pugi::node_pcdata)
+    .set_value("DE18 5HI");
+address.append_child("County").append_child(pugi::node_pcdata)
+    .set_value("Solar System");
+address.append_child("Country").append_child(pugi::node_pcdata)
+    .set_value("UK");
 
 outputAddress(address);
 
@@ -317,7 +338,8 @@ if(streamResult)
 void outputAddress(const pugi::xml_node& address)
 {
     std::cout << address.child_value("Recipient") << std::endl;
-    std::cout << address.child_value("House") << " " << address.child_value("Street") << std::endl;
+    std::cout << address.child_value("House")
+        << " " << address.child_value("Street") << std::endl;
     std::cout << address.child_value("Town") << std::endl;
     std::cout << address.child_value("PostCode") << std::endl;
     std::cout << address.child_value("Country") << std::endl;
@@ -341,8 +363,10 @@ boost::property_tree::ptree parsedFromFile;
 
 try
 {
-    // use trim whitespace to remove any whitespace due to pretty formatting of xml structure
-    read_xml("address.xml", parsedFromFile, boost::property_tree::xml_parser::trim_whitespace);
+    // use trim whitespace to remove any whitespace
+    // due to pretty formatting of xml structure
+    read_xml("address.xml", parsedFromFile,
+        boost::property_tree::xml_parser::trim_whitespace);
 
     outputAddress(parsedFromFile);
 
@@ -397,7 +421,8 @@ void outputAddress(const boost::property_tree::ptree &pt)
     try
     {
         ss << pt.get<std::string>("Address.Recipient") << std::endl;
-        ss << pt.get<std::string>("Address.House") << " " << pt.get<std::string>("Address.Street") << std::endl;
+        ss << pt.get<std::string>("Address.House")
+            << " " << pt.get<std::string>("Address.Street") << std::endl;
         ss << pt.get<std::string>("Address.Town") << std::endl;
         ss << pt.get<std::string>("Address.PostCode") << std::endl;
         ss << pt.get<std::string>("Address.Country") << std::endl;

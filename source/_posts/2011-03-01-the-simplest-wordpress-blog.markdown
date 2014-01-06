@@ -18,17 +18,17 @@ So I like to start all my Wordpress theme designs with a very simplistic Wordpre
 
 First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you'd like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:
 
-[css]
+{% codeblock lang:css %}
 /*
-Theme Name: Basic
-Theme URI:
-Description: A Starter Theme
-Version: 0.1
-Author: Thomas Whitton
-Author URI: http://www.thomaswhitton.com
-Tags: simple, clean, single column
+theme name: basic
+theme uri:
+description: a starter theme
+version: 0.1
+author: thomas whitton
+author uri: http://www.thomaswhitton.com
+tags: simple, clean, single column
 */
-[/css]
+{% endcodeblock %}
 
 We're not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).
 
@@ -50,7 +50,8 @@ Now this code is just checking if any posts exist and then looping through all t
 <?php the_permalink() ?> // Returns the url of the permalink to the post
 <?php the_title(); ?> // Returns the title of the post
 <?php the_author(); ?> // Returns the author of the post
-<?php the_content('Read the rest of this entry &raquo;'); ?> // Returns the content of the post
+<?php // Returns the content of the post ?>
+<?php the_content('Read the rest of this entry &raquo;'); ?>
 {% endcodeblock %}
 
 These functions are simple enough and are easily used within the loop shown previously, the only slight different is with the_content() function which takes a string as a parameter, this just provides the words for the more text link.
@@ -62,7 +63,8 @@ For showing how many comments a post has, still inside the loop, we have a sligh
 <?php if ('closed' == $post->comment_status) : ?>
 <?php else : ?>
 <?php endif; ?>
-<?php comments_popup_link('leave a comment', '1 comment', '% comments', '', 'comments closed'); ?>
+<?php comments_popup_link('leave a comment',
+'1 comment', '% comments', '', 'comments closed'); ?>
 {% endcodeblock %}
 
 Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we'd like to show for each case particular case of comment status. It's pretty easy to work out what each parameter corresponds to from the example given above.
@@ -91,17 +93,17 @@ And then to the bottom of index.php:
 
 These functions pull in the the header.php, sidebar.php and footer.php repectively, and we'll create these files now. First we'll create the footer.php as it is simpler. All we need to do is add this code to the file:
 
-[html]
+{% codeblock lang:php %}
 <?php wp_footer(); ?>
 </body>
 </html>
-[/html]
+{% endcodeblock %}
 
 The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.
 
 The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We'll check to see if the their are any widgets loaded in the primary widget area and if not we'll put our own in. Then we'll add a secondry widget area for less important widgets.
 
-[html]
+{% codeblock lang:php %}
 <ul>
 <?php
 if (!dynamic_sidebar('primary-widget-area')) : ?>
@@ -136,28 +138,41 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 	</ul>
 
 <?php endif; ?>
-[/html]
+{% endcodeblock %}
 
 Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.
 
-[html]
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% codeblock lang:php %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-<title><?php wp_title(':', true, 'right'); ?> <?php bloginfo('name'); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" charset="utf-8" />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+<meta http-equiv="Content-Type" content="
+<?php bloginfo('html_type'); ?>; charset=
+<?php bloginfo('charset'); ?>" />
+<title>
+<?php wp_title(':', true, 'right'); ?> <?php bloginfo('name'); ?>
+</title>
+<link rel="stylesheet" href="
+<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" charset="utf-8" />
+<link rel="alternate" type="application/rss+xml" title="
+<?php bloginfo('name'); ?> RSS Feed" href="
+<?php bloginfo('rss2_url'); ?>" />
+<link rel="alternate" type="application/atom+xml" title="
+<?php bloginfo('name'); ?> Atom Feed" href="
+<?php bloginfo('atom_url'); ?>" />
+<link rel="pingback" href="
+<?php bloginfo('pingback_url'); ?>" />
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
-<h1><a href="<?php echo get_option('home'); ?>/" title="Home"><?php bloginfo('name');?></a></h1>
-[/html]
+<h1><a href="
+<?php echo get_option('home'); ?>/" title="Home">
+<?php bloginfo('name');?></a></h1>
+{% endcodeblock %}
 
 The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.
 
