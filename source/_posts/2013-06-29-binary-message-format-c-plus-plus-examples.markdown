@@ -2,24 +2,22 @@
 layout: post
 title: "Binary Message Format C++ Examples"
 slug: "binary-message-format-c++-examples"
-date: 2013-06-29 15:44
+date: 2013-07-03 15:44
 comments: true
 categories:
 - c++
 - msgpack
 - protobuf
-tags:
-- c++
-- msgpack
-- protobuf
 ---
+
+One of the main reasons c++ is chosen to as a language is its ability to squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network's latency. A lot of the time we have no control over each end of the network and therefore our only control over this performance factor is what we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples of using binary message formats in c++.
+
+<!-- more -->
 
 Protobuf C++ Example
 --------------------
 
 Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the "generated" directory: protoc AddressBook.proto --cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.
-
-<!-- more -->
 
 {% codeblock lang:cpp %}
 

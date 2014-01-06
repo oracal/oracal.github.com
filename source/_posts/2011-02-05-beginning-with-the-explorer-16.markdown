@@ -4,13 +4,10 @@ date: 2011-02-05 21:22:48
 layout: post
 slug: beginning-with-the-explorer-16
 title: Beginning with the Explorer 16
-wordpress_id: 27
 categories:
-- Microcontroller Programming
-tags:
-- Microchip
-- Microcontroller Programming
-- PIC
+- microcontroller programming
+- microchip
+- pic
 ---
 
 So I've found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here's my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I'm just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:

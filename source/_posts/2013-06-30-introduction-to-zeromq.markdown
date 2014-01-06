@@ -2,14 +2,11 @@
 layout: post
 title: "Introduction to Zeromq"
 slug: "introduction-to-zeromq"
-date: 2013-06-30 06:43
+date: 2013-12-20 11:43
 comments: true
 categories:
 - c++
-- Networking
-tags:
-- c++
-- Networking
+- networking
 ---
 
 In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll their own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).

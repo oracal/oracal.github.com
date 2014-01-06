@@ -2,12 +2,9 @@
 layout: post
 title: "Xml C++ Examples"
 slug: "xml-c++-examples"
-date: 2013-06-28 06:55
+date: 2013-07-01 18:55
 comments: true
 categories:
-- c++
-- xml
-tags:
 - c++
 - xml
 ---

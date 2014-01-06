@@ -4,14 +4,9 @@ date: 2011-03-06 21:07:32
 layout: post
 slug: the-simplest-wordpress-blog-part-2
 title: The Simplest Wordpress Blog, Part 2
-wordpress_id: 139
 categories:
-- PHP
-post_format:
-- Standard
-tags:
-- PHP
-- Wordpress
+- php
+- wordpress
 ---
 
 This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you'll have a completely unstylized functioning blog, which you can add all the styling you want.

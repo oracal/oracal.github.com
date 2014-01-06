@@ -4,13 +4,10 @@ date: 2011-02-13 00:06:12
 layout: post
 slug: explorer-16-lcd
 title: Explorer 16 LCD
-wordpress_id: 55
 categories:
-- Microcontroller Programming
-tags:
-- Microchip
-- Microcontroller Programming
-- PIC
+- microcontroller programming
+- microchip
+- pic
 ---
 
 As a follow up to my previous article on the Explorer 16 board we'll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we're going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn't require a  connection to a computer, which is handy.

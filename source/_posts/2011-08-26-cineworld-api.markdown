@@ -4,9 +4,8 @@ date: 2011-08-26 21:19:42
 layout: post
 slug: cineworld-api
 title: Cineworld API
-wordpress_id: 249
 categories:
-- Python
+- python
 ---
 
 So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven't had too much time for this, but when I found out my favorite cinema had their own API I couldn't resist making a wrapper for it.

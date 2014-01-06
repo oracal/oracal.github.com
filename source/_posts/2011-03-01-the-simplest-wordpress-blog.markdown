@@ -4,11 +4,9 @@ date: 2011-03-01 21:28:14
 layout: post
 slug: the-simplest-wordpress-blog
 title: The Simplest WordPress Blog
-wordpress_id: 111
 categories:
-- PHP
-tags:
-- Wordpress PHP
+- php
+- wordpress
 ---
 
 So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here's my guide for setting up a really simple blog.

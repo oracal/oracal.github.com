@@ -10,12 +10,6 @@ categories:
 - xml
 - msgpack
 - protobuf
-tags:
-- c++
-- json
-- xml
-- msgpack
-- protobuf
 ---
 
 With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It usually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and disadvantages, including my opinions, and links to some other blog posts with examples of using them with c++.

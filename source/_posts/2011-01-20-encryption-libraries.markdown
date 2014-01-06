@@ -4,13 +4,10 @@ date: 2011-01-20 20:44:29
 layout: post
 slug: encryption-libraries
 title: Encryption Libraries
-wordpress_id: 1
 categories:
 - c++
-tags:
-- c++
-- Encryption
-- Qt
+- encryption
+- qt
 ---
 
 Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I'd prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).

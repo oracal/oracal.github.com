@@ -5,9 +5,9 @@ slug: "scripting-packet-analysis"
 date: 2013-01-10 22:16
 comments: true
 categories:
-- Python
-- Ruby
-- Networking
+- python
+- ruby
+- networking
 ---
 
 Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can't do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.

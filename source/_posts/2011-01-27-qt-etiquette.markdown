@@ -4,12 +4,9 @@ date: 2011-01-27 20:55:41
 layout: post
 slug: qt-etiquette
 title: Qt Etiquette
-wordpress_id: 20
 categories:
 - c++
-tags:
-- c++
-- Qt
+- qt
 ---
 
 So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I'd share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.

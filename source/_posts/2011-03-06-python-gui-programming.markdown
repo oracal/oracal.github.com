@@ -4,16 +4,13 @@ date: 2011-03-06 21:28:00
 layout: post
 slug: python-gui-programming
 title: Python GUI Programming
-wordpress_id: 110
 categories:
-- Python
-tags:
-- GUI
-- PyGTK
-- PyQt
-- PySide
-- Python
-- wxPython
+- python
+- gui
+- pygtk
+- pyqt
+- pyside
+- wxpython
 ---
 
 There are many options for GUI programming with Python. I'll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren't really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I'll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.

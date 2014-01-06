@@ -4,8 +4,8 @@ title: "Django by Example"
 date: 2012-10-25 21:50
 comments: true
 categories:
-- Python
-- Django
+- python
+- django
 ---
 
 I work in a development team that is very heavily invested in ruby on rails for their webapps and that's where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project [repowatcher](http://www.repowatcher.com) as an example for some Django code, and hopefully get more people excited about Python and Django, plus it's always useful to see how abother language/framework does things differently.
