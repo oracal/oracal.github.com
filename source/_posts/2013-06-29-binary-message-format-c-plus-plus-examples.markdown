@@ -10,7 +10,7 @@ categories:
 - protobuf
 ---
 
-One of the main reasons c++ is chosen to as a language is its ability to squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network's latency. A lot of the time we have no control over each end of the network and therefore our only control over this performance factor is what we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples of using binary message formats in c++.
+One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network's performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.
 
 <!-- more -->
 
