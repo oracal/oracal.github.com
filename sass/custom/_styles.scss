@@ -1,29 +1,41 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-
-// have made most of the backgrounds simply white
-figure.code
-{
+figure.code, .gist-highlight{
+  // have made most of the backgrounds simply white
   background: #fff;
+	.c {
+		font-style: normal !important;
+	}
+	/* Comment */
+	.cm {
+		font-style: normal !important;
+	}
+	/* Comment.Multiline */
+	.cp {
+		font-style: normal !important;
+	}
+	/* Comment.Preproc */
+	.c1 {
+		font-style: normal !important;
+	}
+	/* Comment.Single */
+	.cs {
+		font-style: normal !important;
+	}
 }
 
-table
+table, pre, input[type="text"]:focus
 {
   background:#fff !important;
 }
 
-pre
+blockquote
 {
-  background:#fff !important;
+  border-left: 5px #f8f8f8 !important;
 }
 
-input[type="text"]
+blockquote, input[type="text"]
 {
   background: #f8f8f8 !important;
-}
-
-input[type="text"]:focus
-{
-  background: #fff !important;
 }
