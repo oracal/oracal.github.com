@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Coursera Course Reviews"
-date: 2014-01-06 00:01:34 +0000
+date: 2014-01-26 19:55:34 +0000
 comments: true
 categories:
 - coursera
