@@ -4,7 +4,7 @@
   <title><![CDATA[Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-12-15T23:03:50+00:00</updated>
+  <updated>2014-01-26T19:46:08+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -14,10 +14,86 @@
 
   
   <entry>
+    <title type="html"><![CDATA[My Perfect Programming Language From Scratch]]></title>
+    <link href="http://www.thomaswhitton.com/blog/2014/01/07/my-perfect-programming-language-from-scratch/"/>
+    <updated>2014-01-07T01:27:57+00:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2014/01/07/my-perfect-programming-language-from-scratch</id>
+    <content type="html"><![CDATA[<p>After taking the Programming Languages Course from Courser and learning a couple of new languages recently I&rsquo;ve found myself really looking at the beauty of programming languages and wanted to spend a little time coming up with my own perfect language from scratch. To start off I will not worry about implementation details, this will allow me to concentrate on the language itself rather than coding challenges. Eventually I hope to create a minimal implementation to try out my new language.</p>
+
+<!-- more -->
+
+
+<h2>Paradigms</h2>
+
+<p>I think it will be good to start with some simple paradigms of the language, which I will go through now with some basic reasoning behind each.</p>
+
+<p>Having a <strong>statically typed</strong> language is very helpful in catching bugs that would otherwise be missed in a dynamic language. It also allows much better tooling to be created around that language such as code analysers. The only problem with it is the amount of verbosity that comes with writing the code, this can be heavily offset with a <strong>global type inference</strong> system that means that most type declarations are no longer needed (but can be optionally added for readability). In fact it should be possible to only ever use a type declaration when creating a class, this includes a very useful and comprehensive set of type literals.</p>
+
+<p>It has been shown in pretty much every other language (especially in functional, as per the name) to be able to pass functions around as if they were like variables, including functions that have already had some of their arguments passed in. To this end all language will provide <strong>first class functions</strong>. To accomplish this with minimal specialising of the language for functions, the functions will be made to be an object and in fact the language will take the <strong>object orientated</strong> approach of everything is an object.</p>
+
+<p>I really enjoy programming in c++, and being in control of the system as much as possible, however, I still will use smart pointers as much as I can to avoid worrying about memory. I think nowadays any implementation of a language should be smart enough to be able to efficiently deal with memory, and allow the programmer to worry about more important things, and as such this language will have <strong>managed memory</strong>.</p>
+
+<p>I won&rsquo;t bother reiterating the countless posts and discussions about how allowing mutability of variables leads to problems within a language. But I will mention that I believe having <strong>immutability by default</strong> can make some pretty interesting efficient data structures. I also understand the need for being able to have mutable variables occasionally, but I agree with with SML approach for this, and that is that you have to <strong>explicitly declare a mutable variable</strong> and that <strong>only allow the reference to be mutable and it will just be able to point to an entirely different object</strong>.</p>
+
+<p>Lastly just a few little additions that I have found very useful, and that is having <strong>if statements as expressions</strong> which allows for some very neat code, <strong>tail call optimization</strong>, and <strong>lexicographically scoped</strong>.</p>
+
+<h2>General Syntax</h2>
+
+<p>After recently learning and programming in my first lisp/scheme, I really loved the simplicity of the syntax, however, I felt like it went slightly too far, and made it harder for programmers to understand at a glance what was happening. To that end I believe that having as <strong>minimal syntax</strong> as possible, and therefore a <strong>minimal set of keywords</strong> without decreasing the readability of code is a worthwhile goal.</p>
+
+<ul>
+<li>C like.</li>
+<li>Semicolons separate expressions.</li>
+<li>White space doesn&rsquo;t matter, except that new lines can separate expressions rather than using semicolons.</li>
+<li>Scope using curly brackets.</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Coursera Course Reviews]]></title>
+    <link href="http://www.thomaswhitton.com/blog/2014/01/06/coursera-course-reviews/"/>
+    <updated>2014-01-06T00:01:34+00:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2014/01/06/coursera-course-reviews</id>
+    <content type="html"><![CDATA[<p>Lately I have been really interested in participating in some of the programming related massive open online courses (MOOCs) offered by <a href="https://www.coursera.org/">Coursera</a>. Coursera offers a really great platform for learning; providing multiple ways to test students&#8217; understanding of the material and also most importantly a large community of like minded people in the Coursera discussion forums providing invaluable help to others.</p>
+
+<!-- more -->
+
+
+<h2><a href="https://www.coursera.org/course/progfun">Functional Programming Principles in Scala</a></h2>
+
+<p>This course was my first introduction to functional programming apart from the useful functional helper methods and various other techniques that have seeped into most high-level languages. This was also my first time using Scala, which I had been meaning to try out for a while now. I really enjoyed the Scala language, but a lot of the course involved learning some of the basics of the language rather than learning functional programming. The course was very similar to the amazing Structure and Interpretation of Computer Programs (SICP) book, used in many university courses, but using Scala instead of Scheme. I found the course material very useful and it has actually given me the desire to work with Scala in the future.</p>
+
+<p>I found the material easy to grasp and the exercises were relatively simple, the one thing that I did take a little bit more time was that I was trying to make my answers to the exercises into beautiful one line solutions (once you go functional&hellip;).</p>
+
+<h2><a href="https://www.coursera.org/course/proglang">Programming Languages</a></h2>
+
+<p>This course covers a lot of different material in programming language theory: static functional (using SML), dynamic functional (using racket, a scheme) and dynamic object orientation (using ruby). The functional part was a very good introduction to functional programming, SML was such a simple language that we could spend most of the time learning about functional programming rather than quirks of the language. In the next section I really liked learning about the simplicity of a scheme. Personally though I feel that it is too hard for a programmer to quickly understand code with so many brackets. As someone who has done a lot of object orientated programming (OOP) previously, I found the OOP part of the course to be a lot easier than the rest. But obviously if I were to come into the course with no experience of OOP then I probably would have found it the same level of difficulty as the rest of the course. The entire course was very interesting and has made me much more interested in programming language design, and to learn many more programming paradigms in other languages.</p>
+
+<p>I found the assignments quite challenging, especially towards the end of the course. The grading policy was also quite strict, giving you an average of your first two submissions. One different aspect to the course compared to most other courses was that there was a peer review section, I found this particularly useful as I believe it made me more deeply understand the common problems that occur and also it provided a sample solution which was very useful in checking if you had completed assignments correctly.</p>
+
+<h2><a href="https://www.coursera.org/course/ml">Machine Learning</a></h2>
+
+<p>This is the fundamental machine learning course that has been provided openly by Standford for a while now, and was one of the first available courses on Coursera. It taught many of the essential techniques for machine learning, which I found quite easy to grasp, as most of the ideas were common sense converted into maths and computational algorithms. I think this course has given me a better grasp on what machine learning actually is, as well as all the terminology associated with it. Also how I can use pretty simple techniques to actually analyze large sets of data very quickly and to great effect. With this information under my belt I believe I can handle a complex machine learning project, that uses techniques well beyond that of the course, with only a little bit of googling.</p>
+
+<p>Octave was used for the programming language and I can understand why, as it made the programming exercises very easy to accomplish and meant that you only had to worry about the machine learning techniques rather than the code.</p>
+
+<h2><a href="https://www.coursera.org/course/reactive">Principles of Reactive Programming</a></h2>
+
+<p>This was a brand new course offered by Coursera as a sequel to the very popular &ldquo;Functional Programming Principles in Scala&rdquo; course mentioned previously, although it was not as polished as its predecessor. However, I really enjoyed learning about some of the advanced techniques in reactive programming. I thought the discussion on monads was very good and I really liked learning about the actor model and I think it was very easy to grasp from the lectures. Especially being able to use it with <a href="http://akka.io/">akka</a>, which is a very mature actor framework for the JVM. I found a lot of the Future/Promises lectures slightly too theoretical, it was fine once I actually used it in the programming exercises, however, a lot of it blew my mind a little bit during the videos.</p>
+
+<p>I found the exercises very rewarding, as they really delved deep into modern reactive frameworks at the cutting edge of programming. Not only that but being able to write more complicated scala considerably deepened my interest in the language. I feel that with a few more iterations of the course, and taking into account the comments from students, that this course will become as popular and fundamental as its predecessor.</p>
+
+<p>For the new year I am taking <a href="https://www.coursera.org/course/comnetworks">Computer Networks</a>, <a href="https://www.coursera.org/course/crypto">Cryptography 1</a> and <a href="https://www.coursera.org/course/android">Programming Mobile Applications for Android Handheld Systems</a>, which all look to be interesting and useful courses. I encourage you to use Coursera to develop your abilities, as I believe that as programmers we should never stop learning.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Introduction to Zeromq]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/"/>
-    <updated>2013-06-30T06:43:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq</id>
+    <link href="http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/"/>
+    <updated>2013-12-20T11:43:00+00:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq</id>
     <content type="html"><![CDATA[<p>In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll their own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).</p>
 
 <!-- more -->
@@ -317,6 +393,8 @@
 <span class='line-number'>35</span>
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// set up jsoncpp objects</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">v</span><span class="p">;</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Reader</span> <span class="n">reader</span><span class="p">;</span>
@@ -345,7 +423,9 @@
 </span><span class='line'>    <span class="c1">// receive the json message and actually do soemthing with it</span>
 </span><span class='line'>    <span class="n">subscriber</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">update</span><span class="p">);</span>
 </span><span class='line'>    <span class="c1">// convert non null terminating cstring into a string</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">update</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">update</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">update</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span>
+</span><span class='line'>            <span class="n">update</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// parse json data</span>
 </span><span class='line'>    <span class="kt">bool</span> <span class="n">parsingSuccessful</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
@@ -365,17 +445,17 @@
   
   <entry>
     <title type="html"><![CDATA[Binary Message Format C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/"/>
-    <updated>2013-06-29T15:44:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples</id>
-    <content type="html"><![CDATA[<h2>Protobuf C++ Example</h2>
-
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+    <link href="http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
+    <updated>2013-07-03T15:44:00+01:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
+    <content type="html"><![CDATA[<p>One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network&rsquo;s performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.</p>
 
 <!-- more -->
 
 
+<h2>Protobuf C++ Example</h2>
 
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -750,6 +830,8 @@
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// define custom msgpack serialisation for class</span>
 </span><span class='line'><span class="k">class</span> <span class="nc">Root</span>
 </span><span class='line'><span class="p">{</span>
@@ -766,7 +848,9 @@
 </span><span class='line'>        <span class="k">return</span> <span class="n">string_</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">};</span>
 </span><span class='line'>    <span class="n">Root</span><span class="p">(){};</span>
-</span><span class='line'>    <span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span> <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span> <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
+</span><span class='line'>    <span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span>
+</span><span class='line'>        <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// msgpack macro to define what to serialize in custom classes</span>
 </span><span class='line'>    <span class="n">MSGPACK_DEFINE</span><span class="p">(</span><span class="n">ints_</span><span class="p">,</span> <span class="n">string_</span><span class="p">);</span>
@@ -837,9 +921,9 @@
   
   <entry>
     <title type="html"><![CDATA[Xml C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/"/>
-    <updated>2013-06-28T06:55:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples</id>
+    <link href="http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/"/>
+    <updated>2013-07-01T18:55:00+01:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have used the address example from the previous article as an example xml file to be read in and parsed (as is common with xml, especially configuration files), create an xml message from scratch, query the xml message and also output as xml to a stream or file. I have separated out the querying into an outputAddress function that will be used throughout the example.</p>
 
 <!-- more -->
@@ -1046,9 +1130,17 @@
 <span class='line-number'>60</span>
 <span class='line-number'>61</span>
 <span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file and stream ----</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">// need to convert file and stream to cstring before parsing as rapidxml needs a null terminated cstring for parsing</span>
+</span><span class='line'><span class="c1">// need to convert file and stream to cstring before parsing</span>
+</span><span class='line'><span class="c1">// as rapidxml needs a null terminated cstring for parsing</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// file to string</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">);</span>
@@ -1086,13 +1178,19 @@
 </span><span class='line'>
 </span><span class='line'><span class="c1">// ---- create from scratch ----</span>
 </span><span class='line'>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">addressNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Address&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">recipientNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr Malcolm Reynolds&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">houseNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">streetNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">townNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">postCodeNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_document</span><span class="o">&lt;&gt;</span> <span class="n">fromScratch</span><span class="p">;</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">addressNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Address&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">recipientNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">houseNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">streetNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">townNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">postCodeNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">recipientNode</span><span class="p">);</span>
 </span><span class='line'><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">houseNode</span><span class="p">);</span>
@@ -1122,10 +1220,12 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">&amp;</span><span class="n">addressNode</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -1269,13 +1369,25 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">address</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1333,6 +1445,13 @@
 <span class='line-number'>43</span>
 <span class='line-number'>44</span>
 <span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file ----</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">parsedFromFile</span><span class="p">;</span>
@@ -1349,13 +1468,20 @@
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">fromScratch</span><span class="p">;</span>
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span> <span class="n">address</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">outputAddress</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
 </span><span class='line'>
@@ -1391,10 +1517,12 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span> <span class="n">address</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -1463,6 +1591,8 @@
 <span class='line-number'>49</span>
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file ----</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// every elelment is a ptree</span>
@@ -1470,8 +1600,10 @@
 </span><span class='line'>
 </span><span class='line'><span class="k">try</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// use trim whitespace to remove any whitespace due to pretty formatting of xml structure</span>
-</span><span class='line'>    <span class="n">read_xml</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">,</span> <span class="n">parsedFromFile</span><span class="p">,</span> <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">xml_parser</span><span class="o">::</span><span class="n">trim_whitespace</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// use trim whitespace to remove any whitespace</span>
+</span><span class='line'>    <span class="c1">// due to pretty formatting of xml structure</span>
+</span><span class='line'>    <span class="n">read_xml</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">,</span> <span class="n">parsedFromFile</span><span class="p">,</span>
+</span><span class='line'>        <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">xml_parser</span><span class="o">::</span><span class="n">trim_whitespace</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromFile</span><span class="p">);</span>
 </span><span class='line'>
@@ -1537,6 +1669,7 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
+<span class='line-number'>19</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">ptree</span> <span class="o">&amp;</span><span class="n">pt</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="c1">// can use dotted notation to specify element path</span>
@@ -1544,7 +1677,8 @@
 </span><span class='line'>    <span class="k">try</span>
 </span><span class='line'>    <span class="p">{</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Recipient&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.House&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.House&quot;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Town&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.PostCode&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Country&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -1570,9 +1704,9 @@
   
   <entry>
     <title type="html"><![CDATA[Json C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples/"/>
-    <updated>2013-06-27T06:54:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples</id>
+    <link href="http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples/"/>
+    <updated>2013-06-28T19:54:00+01:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have tried to show you most of the different aspects of using json, i.e. creating json messages from scratch, outputting json, parsing json and querying json objects. The example json message used contains most of the features that a json message could contain. Querying the json object has been extracted into an output function which is used multiple times in each example to show that everything is working correctly.</p>
 
 <!-- more -->
@@ -2347,7 +2481,11 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#base function for connecting to API</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># base function for connecting to API</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>    <span class="n">search_url</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span><span class="p">,</span> <span class="s">&#39;?&#39;</span><span class="p">]</span>
 </span><span class='line'>    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
@@ -2355,24 +2493,28 @@
 </span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">search_url</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">datatype</span><span class="p">]</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all cineworld cinemas and allows further customization</span>
+</span><span class='line'><span class="c"># of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_cinemas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;cinemas&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cinemas_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all films currently playing in cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all films currently playing in cineworld cinemas and allows</span>
+</span><span class='line'><span class="c"># further customization of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_films</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;films&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">films_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#cache the result of the list of films in case of multiple searching on the same object</span>
+</span><span class='line'><span class="c"># cache the result of the list of films in case of</span>
+</span><span class='line'><span class="c"># multiple searching on the same object</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_film_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_films</span><span class="p">()</span>
 </span><span class='line'>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all dates when films are playing at cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all dates when films are playing at cineworld cinemas and allows</span>
+</span><span class='line'><span class="c"># further customization of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;dates&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#not well documented but I assume it&#39;s for more specialized performances i.e. not films</span>
+</span><span class='line'><span class="c"># not well documented but I assume it&#39;s for more specialized performances i.e. not films</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_performances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;performances&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">performances_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -2408,16 +2550,16 @@
 </span><span class='line'>
 </span><span class='line'><span class="k">def</span> <span class="nf">film_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class='line'>  <span class="c">#check for cache or update</span>
+</span><span class='line'>  <span class="c"># check for cache or update</span>
 </span><span class='line'>  <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;film_list&#39;</span><span class="p">):</span>
 </span><span class='line'>      <span class="bp">self</span><span class="o">.</span><span class="n">get_film_list</span><span class="p">()</span>
-</span><span class='line'>  <span class="c">#iterate over films and check for fuzzy string match</span>
+</span><span class='line'>  <span class="c"># iterate over films and check for fuzzy string match</span>
 </span><span class='line'>  <span class="k">for</span> <span class="n">film</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span><span class="p">:</span>
 </span><span class='line'>      <span class="n">strength</span> <span class="o">=</span> <span class="n">WRatio</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">film</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">])</span>
 </span><span class='line'>      <span class="k">if</span>  <span class="n">strength</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
 </span><span class='line'>          <span class="n">film</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">u&#39;strength&#39;</span><span class="p">:</span><span class="n">strength</span><span class="p">})</span>
 </span><span class='line'>          <span class="n">films</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">film</span><span class="p">)</span>
-</span><span class='line'>  <span class="c">#sort films by the strength of the fuzzy string match</span>
+</span><span class='line'>  <span class="c"># sort films by the strength of the fuzzy string match</span>
 </span><span class='line'>  <span class="n">films_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">films</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;strength&#39;</span><span class="p">),</span> <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">return</span> <span class="n">films_sorted</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -2438,10 +2580,14 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#uses a certain cinema (O2) and a certain day when non specialist films show (Wednesday) to get a list of the latest box office films</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># uses a certain cinema (O2) and a certain day when non specialist films</span>
+</span><span class='line'><span class="c"># show (Wednesday) to get a list of the latest box office films</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_box_office_films</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span class='line'>  <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-</span><span class='line'>  <span class="n">next_wednesday</span> <span class="o">=</span> <span class="p">(</span><span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">%</span> <span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y%m</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">next_wednesday</span> <span class="o">=</span> <span class="p">(</span><span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">%</span> <span class="mi">7</span><span class="p">))</span>
+</span><span class='line'>  <span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y%m</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_films</span><span class="p">(</span><span class="n">cinema</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="n">next_wednesday</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">&#39;3D&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">],</span> <span class="n">films</span><span class="p">)</span>
@@ -2916,6 +3062,7 @@
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -2930,7 +3077,8 @@
 </span><span class='line'>  <span class="nv">$day</span> <span class="o">=</span> <span class="nx">get_the_time</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">);</span>
 </span><span class='line'>  <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">  Published: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_day_link</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$year</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$month</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">$day</span><span class="s2">&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_time</span><span class="p">(</span><span class="s1">&#39;F j, Y&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;</span>
+</span><span class='line'><span class="x">  Published: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_day_link</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$year</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$month</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">$day</span><span class="s2">&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">the_time</span><span class="p">(</span><span class="s1">&#39;F j, Y&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;</span>
 </span><span class='line'><span class="x">  Filed Under: </span><span class="cp">&lt;?php</span> <span class="nx">the_category</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">the_tags</span><span class="p">(</span><span class="s1">&#39;Tags: &#39;</span><span class="p">,</span> <span class="s1">&#39; : &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
@@ -2965,12 +3113,16 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="c1">// echo&#39;s the post title ?&gt;</span>
 </span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_author</span><span class="p">();</span> <span class="c1">// echo&#39;s the post author ?&gt;</span>
 </span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="c1">// echo&#39;s the post content ?&gt;</span>
 </span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_time</span><span class="p">();</span> <span class="c1">// echo&#39;s the date/time of the post ?&gt;</span>
-</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_category</span><span class="p">();</span> <span class="c1">// echo&#39;s the category of the post as well as a link to the respective category page ?&gt;</span>
-</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_tags</span><span class="p">();</span> <span class="c1">// echo&#39;s the tags of the post as well as a link to the respective tag page ?&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="c1">// echo&#39;s the category of the post as well as a link to the category page ?&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_category</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="c1">// echo&#39;s the tags of the post as well as a link to the tag page ?&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_tags</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -2997,8 +3149,10 @@
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
+<span class='line-number'>11</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="c1">// Do not delete these lines</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;comments.php&#39;</span> <span class="o">==</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">]))</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">])</span>
+</span><span class='line'><span class="o">&amp;&amp;</span> <span class="s1">&#39;comments.php&#39;</span> <span class="o">==</span> <span class="nb">basename</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;SCRIPT_FILENAME&#39;</span><span class="p">]))</span>
 </span><span class='line'>  <span class="k">die</span> <span class="p">(</span><span class="s1">&#39;Please do not load this page directly. Thanks!&#39;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="p">(</span> <span class="nx">post_password_required</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -3023,8 +3177,10 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
+<span class='line-number'>12</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">have_comments</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
-</span><span class='line'><span class="x">  &lt;h3&gt;</span><span class="cp">&lt;?php</span> <span class="nx">comments_number</span><span class="p">(</span><span class="s1">&#39;No Responses&#39;</span><span class="p">,</span> <span class="s1">&#39;One Response&#39;</span><span class="p">,</span> <span class="s1">&#39;% Responses&#39;</span> <span class="p">);</span><span class="cp">?&gt;</span><span class="x"> to &quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;h3&gt;</span><span class="cp">&lt;?php</span> <span class="nx">comments_number</span><span class="p">(</span><span class="s1">&#39;No Responses&#39;</span><span class="p">,</span> <span class="s1">&#39;One Response&#39;</span><span class="p">,</span> <span class="s1">&#39;% Responses&#39;</span> <span class="p">);</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  to &quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&lt;/h3&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">previous_comments_link</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">next_comments_link</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -3069,7 +3225,7 @@
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">comments_open</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">       </span><span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">     </span><span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -3128,45 +3284,83 @@
 <span class='line-number'>41</span>
 <span class='line-number'>42</span>
 <span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">comments_open</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;comment_registration&#39;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">is_user_logged_in</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">  &lt;p&gt;You must be &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-login.php?redirect_to=</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;logged in&lt;/a&gt; to post a comment.&lt;/p&gt;</span>
+</span><span class='line'><span class="x">  &lt;p&gt;You must be &lt;a href=&quot;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-login.php?redirect_to=</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;logged in&lt;/a&gt; to post a comment.&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-comments-post.php&quot; method=&quot;post&quot;&gt;</span>
+</span><span class='line'><span class="x">    &lt;form action=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    /wp-comments-post.php&quot; method=&quot;post&quot;&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;fieldset&gt;</span>
-</span><span class='line'><span class="x">          &lt;legend&gt;</span><span class="cp">&lt;?php</span> <span class="nx">comment_form_title</span><span class="p">(</span><span class="s1">&#39;Leave a Comment&#39;</span><span class="p">,</span><span class="s1">&#39;Leave a Reply to %s&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/legend&gt;</span>
+</span><span class='line'><span class="x">    &lt;fieldset&gt;</span>
+</span><span class='line'><span class="x">    &lt;legend&gt;</span><span class="cp">&lt;?php</span> <span class="nx">comment_form_title</span><span class="p">(</span><span class="s1">&#39;Leave a Comment&#39;</span><span class="p">,</span>
+</span><span class='line'>    <span class="s1">&#39;Leave a Reply to %s&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/legend&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">is_user_logged_in</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">is_user_logged_in</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          Logged in as &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-admin/profile.php&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user_identity</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;. &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-login.php?action=logout&quot; title=&quot;Log out of this account&quot;&gt;Logout &amp;raquo;&lt;/a&gt;</span>
+</span><span class='line'><span class="x">      Logged in as &lt;a href=&quot;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-admin/profile.php&quot;&gt;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$user_identity</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;. &lt;a href=&quot;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-login.php?action=logout&quot;</span>
+</span><span class='line'><span class="x">      title=&quot;Log out of this account&quot;&gt;Logout &amp;raquo;&lt;/a&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;label&gt;Comment: &lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;</span>
+</span><span class='line'><span class="x">      &lt;label&gt;Comment:</span>
+</span><span class='line'><span class="x">      &lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&gt;</span>
+</span><span class='line'><span class="x">      &lt;/textarea&gt;&lt;/label&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">is_user_logged_in</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
-</span><span class='line'><span class="x">          &lt;label&gt;Name: &lt;em&gt;Required&lt;/em&gt; &lt;input type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;&lt;/label&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">is_user_logged_in</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">      &lt;label&gt;Name: &lt;em&gt;Required&lt;/em&gt;</span>
+</span><span class='line'><span class="x">      &lt;input type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; value=&quot;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;&lt;/label&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;label&gt;Email: &lt;em&gt;Required, not published&lt;/em&gt; &lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author_email</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;/&gt;&lt;/label&gt;</span>
+</span><span class='line'><span class="x">      &lt;label&gt;Email: &lt;em&gt;Required, not published&lt;/em&gt;</span>
+</span><span class='line'><span class="x">      &lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author_email</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot;/&gt;&lt;/label&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;label&gt;Homepage: &lt;input type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author_url</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;&lt;/label&gt;</span>
+</span><span class='line'><span class="x">      &lt;label&gt;Homepage: &lt;input type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; value=&quot;</span>
+</span><span class='line'><span class="x">      </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$comment_author_url</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;&lt;/label&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;label&gt;Comment: &lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&gt;&lt;/textarea&gt;&lt;/label&gt;</span>
+</span><span class='line'><span class="x">      &lt;label&gt;Comment:</span>
+</span><span class='line'><span class="x">      &lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&gt;</span>
+</span><span class='line'><span class="x">      &lt;/textarea&gt;&lt;/label&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&gt; &lt;input type=&quot;hidden&quot; name=&quot;comment_post_ID&quot; value=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$id</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">    &lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&gt;</span>
+</span><span class='line'><span class="x">    &lt;input type=&quot;hidden&quot; name=&quot;comment_post_ID&quot; value=&quot;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nv">$id</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;/fieldset&gt;</span>
+</span><span class='line'><span class="x">    &lt;/fieldset&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span><span class="s1">&#39;comment_form&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">do_action</span><span class="p">(</span><span class="s1">&#39;comment_form&#39;</span><span class="p">,</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;/form&gt;</span>
+</span><span class='line'><span class="x">    &lt;/form&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
@@ -3218,6 +3412,7 @@
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
 <span class='line-number'>35</span>
+<span class='line-number'>36</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;form method=&quot;get&quot; id=&quot;searchform&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&quot;&gt;</span>
@@ -3230,7 +3425,7 @@
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">while</span> <span class="p">(</span><span class="nx">have_posts</span><span class="p">())</span> <span class="o">:</span> <span class="nx">the_post</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
-</span><span class='line'><span class="x">      &lt;h3&gt;&lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&quot; rel=&quot;bookmark&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">    &lt;h3&gt;&lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x">&quot; rel=&quot;bookmark&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h3&gt;</span>
 </span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="nx">the_excerpt</span><span class="p">(</span><span class="s1">&#39;Read the rest of this entry &amp;raquo;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span>
 </span><span class='line'>          <span class="nv">$year</span> <span class="o">=</span> <span class="nx">get_the_time</span><span class="p">(</span><span class="s1">&#39;Y&#39;</span><span class="p">);</span>
@@ -3238,7 +3433,8 @@
 </span><span class='line'>          <span class="nv">$day</span> <span class="o">=</span> <span class="nx">get_the_time</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">);</span>
 </span><span class='line'>          <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'>
-</span><span class='line'><span class="x">          &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_day_link</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$year</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$month</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$day</span><span class="s2">&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span><span class="cp">&lt;?php</span> <span class="nx">the_time</span><span class="p">(</span><span class="s1">&#39;F j, Y&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;</span>
+</span><span class='line'><span class="x">          &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_day_link</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$year</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$month</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$day</span><span class="s2">&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot;&gt;</span>
+</span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="nx">the_time</span><span class="p">(</span><span class="s1">&#39;F j, Y&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&lt;/a&gt;</span>
 </span><span class='line'><span class="x">          Filed Under: </span><span class="cp">&lt;?php</span> <span class="nx">the_category</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">          </span><span class="cp">&lt;?php</span> <span class="nx">the_tags</span><span class="p">(</span><span class="s1">&#39;Tags:&#39;</span><span class="p">,</span> <span class="s1">&#39; : &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">endwhile</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
@@ -3272,17 +3468,26 @@
 
 <p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&rsquo;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
 
-<p>[css]
-/<em>
-Theme Name: Basic
-Theme URI:
-Description: A Starter Theme
-Version: 0.1
-Author: Thomas Whitton
-Author URI: <a href="http://www.thomaswhitton.com">http://www.thomaswhitton.com</a>
-Tags: simple, clean, single column
-</em>/
-[/css]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="c">/*</span>
+</span><span class='line'><span class="c">theme name: basic</span>
+</span><span class='line'><span class="c">theme uri:</span>
+</span><span class='line'><span class="c">description: a starter theme</span>
+</span><span class='line'><span class="c">version: 0.1</span>
+</span><span class='line'><span class="c">author: thomas whitton</span>
+</span><span class='line'><span class="c">author uri: http://www.thomaswhitton.com</span>
+</span><span class='line'><span class="c">tags: simple, clean, single column</span>
+</span><span class='line'><span class="c">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>We&rsquo;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
 
@@ -3311,10 +3516,12 @@ Tags: simple, clean, single column
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"> // Returns the url of the permalink to the post</span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> // Returns the title of the post</span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_author</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> // Returns the author of the post</span>
-</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">(</span><span class="s1">&#39;Read the rest of this entry &amp;raquo;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> // Returns the content of the post</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="c1">// Returns the content of the post ?&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_content</span><span class="p">(</span><span class="s1">&#39;Read the rest of this entry &amp;raquo;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -3327,11 +3534,13 @@ Tags: simple, clean, single column
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">//would normal include different styles for comment closed/open status here</span>
 </span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;closed&#39;</span> <span class="o">==</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">comment_status</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_popup_link</span><span class="p">(</span><span class="s1">&#39;leave a comment&#39;</span><span class="p">,</span> <span class="s1">&#39;1 comment&#39;</span><span class="p">,</span> <span class="s1">&#39;% comments&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;comments closed&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_popup_link</span><span class="p">(</span><span class="s1">&#39;leave a comment&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="s1">&#39;1 comment&#39;</span><span class="p">,</span> <span class="s1">&#39;% comments&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;comments closed&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -3366,78 +3575,152 @@ Tags: simple, clean, single column
 
 <p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&rsquo;ll create these files now. First we&rsquo;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
 
-<p>[html]
-&lt;?php wp_footer(); ?>
-</body>
-</html>
-[/html]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.</p>
 
 <p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&rsquo;ll check to see if the their are any widgets loaded in the primary widget area and if not we&rsquo;ll put our own in. Then we&rsquo;ll add a secondry widget area for less important widgets.</p>
 
-<p>[html]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;primary-widget-area&#39;</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">get_search_form</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  &lt;h3&gt;Archives&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_get_archives</span><span class="p">(</span><span class="s1">&#39;type=monthly&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  &lt;h3&gt;Meta&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_register</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;li&gt;</span><span class="cp">&lt;?php</span> <span class="nx">wp_loginout</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/li&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_meta</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nx">is_active_sidebar</span><span class="p">(</span><span class="s1">&#39;secondary-widget-area&#39;</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;secondary-widget-area&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
 
-<ul>
-<?php
-if (!dynamic_sidebar('primary-widget-area')) : ?>
-
-    <li>
-    <?php get_search_form(); ?>
-    </li>
-
-    <li>
-    <h3>Archives</h3>
-    <ul>
-    <?php wp_get_archives('type=monthly'); ?>
-    </ul>
-    </li>
-
-    <li>
-    <h3>Meta</h3>
-    <ul>
-    <?php wp_register(); ?>
-    <li><?php wp_loginout(); ?></li>
-    <?php wp_meta(); ?>
-    </ul>
-    </li>
-
-<?php endif;?>
-</ul>
-
-
-<p>&lt;?php if(is_active_sidebar(&lsquo;secondary-widget-area&rsquo;)) : ?></p>
-
-<pre><code>&lt;ul&gt;
-&lt;?php dynamic_sidebar('secondary-widget-area'); ?&gt;
-&lt;/ul&gt;
-</code></pre>
-
-<p>&lt;?php endif; ?>
-[/html]</p>
 
 <p>Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.</p>
 
-<p>[html]
-&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span> <span class="k">PUBLIC</span> <span class="s2">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+</span><span class='line'><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">language_attributes</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;head&gt;</span>
+</span><span class='line'><span class="x">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;html_type&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">; charset=</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;charset&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;title&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">wp_title</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> </span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;stylesheet_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;screen&quot; charset=&quot;utf-8&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> RSS Feed&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;rss2_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> Atom Feed&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;atom_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;pingback&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;pingback_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">wp_head</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;body </span><span class="cp">&lt;?php</span> <span class="nx">body_class</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;h1&gt;&lt;a href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&quot; title=&quot;Home&quot;&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h1&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p><head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&lsquo;charset&rsquo;); ?>&ldquo; />
-<title>&lt;?php wp_title(&lsquo;:&rsquo;, true, &lsquo;right&rsquo;); ?> &lt;?php bloginfo(&lsquo;name&rsquo;); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&rdquo; type=&ldquo;text/css&rdquo; media=&ldquo;screen&rdquo; charset=&ldquo;utf-8&rdquo; />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;rss2_url&rsquo;); ?>&rdquo; />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;atom_url&rsquo;); ?>&rdquo; />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&ldquo; />
-&lt;?php wp_head(); ?>
-</head></p>
-
-<p><body <?php body_class(); ?>></p>
-
-<h1><a href="<?php echo get_option('home'); ?>/&#8221; title=&#8221;Home&#8221;><?php bloginfo('name');?></a></h1>
-
-
-<p>[/html]</p>
 
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 
@@ -4199,6 +4482,11 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// setup the encryption library</span>
 </span><span class='line'><span class="n">QCA</span><span class="o">::</span><span class="n">Initializer</span> <span class="n">init</span><span class="p">;</span>
 </span><span class='line'><span class="c1">// define the message to be encrypted</span>
@@ -4214,7 +4502,12 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span><span class='line'><span class="k">else</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>  <span class="c1">// create the cipher defintion</span>
-</span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span> <span class="n">cipher</span><span class="p">(</span><span class="n">QString</span><span class="p">(</span><span class="s">&quot;aes256&quot;</span><span class="p">),</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">CBC</span><span class="p">,</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">DefaultPadding</span><span class="p">,</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Encode</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span> <span class="n">cipher</span><span class="p">(</span>
+</span><span class='line'>          <span class="n">QString</span><span class="p">(</span><span class="s">&quot;aes256&quot;</span><span class="p">),</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">CBC</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">DefaultPadding</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Encode</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">);</span>
+</span><span class='line'>
 </span><span class='line'>  <span class="c1">// start encryption process</span>
 </span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">SecureArray</span> <span class="n">u</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
 </span><span class='line'>
@@ -4250,6 +4543,12 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// key and IV setup</span>
 </span><span class='line'><span class="n">byte</span> <span class="n">key</span><span class="p">[</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span> <span class="p">],</span> <span class="n">iv</span><span class="p">[</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">BLOCKSIZE</span> <span class="p">];</span>
 </span><span class='line'><span class="n">memset</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span> <span class="p">);</span>
@@ -4263,8 +4562,14 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">Encryption</span> <span class="n">aesEncryption</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span><span class="p">);</span>
 </span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">CBC_Mode_ExternalCipher</span><span class="o">::</span><span class="n">Encryption</span> <span class="n">cbcEncryption</span><span class="p">(</span> <span class="n">aesEncryption</span><span class="p">,</span> <span class="n">iv</span> <span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">StreamTransformationFilter</span> <span class="n">stfEncryptor</span><span class="p">(</span><span class="n">cbcEncryption</span><span class="p">,</span> <span class="k">new</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">StringSink</span><span class="p">(</span> <span class="n">ciphertext</span> <span class="p">)</span> <span class="p">);</span>
-</span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="p">(</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">StreamTransformationFilter</span> <span class="n">stfEncryptor</span><span class="p">(</span>
+</span><span class='line'>        <span class="n">cbcEncryption</span><span class="p">,</span>
+</span><span class='line'>        <span class="k">new</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">StringSink</span><span class="p">(</span> <span class="n">ciphertext</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span>
+</span><span class='line'>        <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="p">(</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span>
+</span><span class='line'>        <span class="n">plaintext</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'>
 </span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">MessageEnd</span><span class="p">();</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// convert to QString</span>

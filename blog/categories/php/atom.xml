@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: PHP | Thomas Whitton]]></title>
+  <title><![CDATA[Category: php | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-12-15T23:03:50+00:00</updated>
+  <updated>2014-01-26T19:46:08+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -57,35 +57,33 @@
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
 <span class='line-number'>32</span>
-<span class='line-number'>33</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php if (have_posts()) : while (have_posts()) : the_post(); ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;h3&amp;gt;&amp;lt;?php the_title(); ?&amp;gt;&amp;lt;/h3&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;h4&amp;gt;&amp;lt;?php the_author(); ?&amp;gt;&amp;lt;/h4&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_content(); ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &lt;h3&gt;&amp;lt;?php the_title(); ?&gt;&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;h4&gt;&amp;lt;?php the_author(); ?&gt;&lt;/h4&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php the_content(); ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php</span>
-</span><span class='line'><span class="x">$year = get_the_time(&#39;Y&#39;);</span>
-</span><span class='line'><span class="x">$month = get_the_time(&#39;m&#39;);</span>
-</span><span class='line'><span class="x">$day = get_the_time(&#39;d&#39;);</span>
-</span><span class='line'><span class="x">?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php</span>
+</span><span class='line'><span class="x">  $year = get_the_time(&amp;lsquo;Y&amp;rsquo;);</span>
+</span><span class='line'><span class="x">  $month = get_the_time(&amp;rsquo;m&#39;);</span>
+</span><span class='line'><span class="x">  $day = get_the_time(&amp;rsquo;d&#39;);</span>
+</span><span class='line'><span class="x">  ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">Published: &amp;lt;a href=&quot;&amp;lt;?php echo get_day_link(&quot;$year&quot;, &quot;$month&quot;,&quot;$day&quot;); ?&amp;gt;&quot;&amp;gt;&amp;lt;?php the_time(&#39;F j, Y&#39;); ?&amp;gt;&amp;lt;/a&amp;gt;</span>
-</span><span class='line'><span class="x">Filed Under: &amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_tags(&#39;Tags: &#39;, &#39; : &#39;, &#39;&#39;); ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  Published: &lt;a href=&quot;</span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_day_link</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">$year</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">$month</span><span class="s2">&quot;</span><span class="p">,</span><span class="s2">&quot;</span><span class="si">$day</span><span class="s2">&quot;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&amp;ldquo;&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php the_time(&amp;lsquo;F j, Y&amp;rsquo;); ?&gt;&lt;/a&gt;</span>
+</span><span class='line'><span class="x">  Filed Under: &amp;lt;?php the_category(&amp;lsquo;, &amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php the_tags(&amp;lsquo;Tags: &amp;rsquo;, &amp;lsquo; : &amp;rsquo;, &amp;lsquo;&amp;rsquo;); ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php comments_template(); ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php comments_template(); ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php previous_post_link(&#39;%link&#39;, &#39;&amp;amp;laquo; Previous Post&#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php next_post_link(&#39;%link&#39;, &#39;Next Post &amp;amp;raquo;&#39;) ?&amp;gt;</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php previous_post_link(&amp;lsquo;%link&amp;rsquo;, &amp;lsquo;&amp;laquo; Previous Post&amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php next_post_link(&amp;lsquo;%link&amp;rsquo;, &amp;lsquo;Next Post &amp;raquo;&amp;rsquo;) ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endwhile; else: ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Sorry, no posts matched your criteria.&amp;lt;/p&amp;gt;</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &lt;p&gt;Sorry, no posts matched your criteria.&lt;/p&gt;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endif; ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
@@ -107,12 +105,16 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post title ?&gt;</span>
 </span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_author</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post author ?&gt;</span>
 </span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_content</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the post content ?&gt;</span>
 </span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_time</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the date/time of the post ?&gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_category</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the category of the post as well as a link to the respective category page ?&gt;</span>
-</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_tags</span><span class="p">();</span> <span class="c1">// echo&amp;rsquo;s the tags of the post as well as a link to the respective tag page ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="c1">// echo&amp;rsquo;s the category of the post as well as a link to the category page ?&gt;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_category</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&amp;lt;?php // echo&amp;rsquo;s the tags of the post as well as a link to the tag page ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php the_tags(); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now the only other functions which we need to include in the single.php file and which we haven&rsquo;t seen already is the worpdress function which pulls in the comments.php file and the functions for linking to the next and previous posts:</p>
@@ -138,24 +140,16 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="c1">// Do not delete these lines</span>
-</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;])</span> <span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">comments</span><span class="o">.</span><span class="nx">php</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">==</span> <span class="nb">basename</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;/</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]))</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;])</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span> <span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">comments</span><span class="o">.</span><span class="nx">php</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">==</span> <span class="nb">basename</span><span class="p">(</span><span class="err">$</span><span class="o">&lt;/</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">SERVER</span><span class="p">[</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">SCRIPT_FILENAME</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;]))</span>
+</span><span class='line'>  <span class="k">die</span> <span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">Please</span> <span class="k">do</span> <span class="k">not</span> <span class="nx">load</span> <span class="k">this</span> <span class="nx">page</span> <span class="nx">directly</span><span class="o">.</span> <span class="nx">Thanks</span><span class="o">!&amp;</span><span class="nx">rsquo</span><span class="p">;);</span><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">die</span> <span class="p">(</span><span class="s1">&#39;Please do not load this page directly. Thanks!&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="nx">code</span><span class="o">&gt;&lt;/</span><span class="nx">pre</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">if</span> <span class="p">(</span> <span class="nx">post_password_required</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This post is password protected. Enter the password to view comments.&amp;lt;/p&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php</span>
-</span><span class='line'><span class="x">return;</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;}</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="k">if</span> <span class="p">(</span> <span class="nx">post_password_required</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;p&gt;This post is password protected. Enter the password to view comments.&lt;/p&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php</span>
+</span><span class='line'><span class="x">  return;</span>
+</span><span class='line'><span class="x">}</span>
 </span><span class='line'><span class="x">?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
@@ -173,24 +167,18 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">have_comments</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">have_comments</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;h3&gt;&amp;lt;?php comments_number(&amp;lsquo;No Responses&amp;rsquo;, &amp;lsquo;One Response&amp;rsquo;, &amp;lsquo;% Responses&amp;rsquo; );?&gt;</span>
+</span><span class='line'><span class="x">  to &amp;ldquo;&amp;lt;?php the_title(); ?&gt;&amp;rdquo;&lt;/h3&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;h3&amp;gt;&amp;lt;?php comments_number(&#39;No Responses&#39;, &#39;One Response&#39;, &#39;% Responses&#39; );?&amp;gt; to &quot;&amp;lt;?php the_title(); ?&amp;gt;&quot;&amp;lt;/h3&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php previous_comments_link() ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php next_comments_link() ?&gt;</span>
+</span><span class='line'><span class="x">  &lt;ol&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php wp_list_comments(&amp;lsquo;avatar_size=48&amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">  &lt;/ol&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php previous_comments_link() ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php next_comments_link() ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;ol&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php wp_list_comments(&#39;avatar_size=48&#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;/ol&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php previous_comments_link() ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php next_comments_link() ?&amp;gt;</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php previous_comments_link() ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php next_comments_link() ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This chunk of code tests whether there are comments in the wordpress query, and if there is, then the code first of all uses <div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -216,17 +204,15 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;?php if ( comments_open() ) : ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php if ( comments_open() ) : ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x"> &amp;lt;?php else : ?&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php endif; ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt; &amp;lt;?php else : ?&amp;gt;</span>
 </span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endif; ?&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php endif; ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php endif; ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>This chunk outputs the form where comments are inputted, its quite long because it displays a slightly different form if the user is already logged in. Which is easily checked using:</p>
@@ -281,48 +267,86 @@
 <span class='line-number'>42</span>
 <span class='line-number'>43</span>
 <span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span> <span class="nx">comments_open</span><span class="p">()</span> <span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;?php if ( get_option(&#39;comment_registration&#39;) &amp;amp;&amp;amp; !is_user_logged_in() ) : ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php if ( get_option(&amp;lsquo;comment_registration&amp;rsquo;) &amp;amp;&amp;amp; !is_user_logged_in() ) : ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;p&amp;gt;You must be &amp;lt;a href=&quot;&amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-login.php?redirect_to=&amp;lt;?php the_permalink(); ?&amp;gt;&quot;&amp;gt;logged in&amp;lt;/a&amp;gt; to post a comment.&amp;lt;/p&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &lt;p&gt;You must be &lt;a href=&quot;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;siteurl&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/wp-login.php?redirect_to=</span>
+</span><span class='line'><span class="x">  &amp;lt;?php the_permalink(); ?&gt;&amp;ldquo;&gt;logged in&lt;/a&gt; to post a comment.&lt;/p&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php else : ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php else : ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;form action=&quot;&amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-comments-post.php&quot; method=&quot;post&quot;&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;form action=&quot;&amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;</span>
+</span><span class='line'><span class="x">/wp-comments-post.php&quot; method=&quot;post&quot;&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;fieldset&amp;gt;</span>
-</span><span class='line'><span class="x">        &amp;lt;legend&amp;gt;&amp;lt;?php comment_form_title(&#39;Leave a Comment&#39;,&#39;Leave a Reply to %s&#39;); ?&amp;gt;&amp;lt;/legend&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;fieldset&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;legend&amp;gt;&amp;lt;?php comment_form_title(&#39;Leave a Comment&#39;,</span>
+</span><span class='line'><span class="x">&#39;Leave a Reply to %s&#39;); ?&amp;gt;&amp;lt;/legend&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;?php if ( is_user_logged_in() ) : ?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php if ( is_user_logged_in() ) : ?&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        Logged in as &amp;lt;a href=&quot;&amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-admin/profile.php&quot;&amp;gt;&amp;lt;?php echo $user_identity; ?&amp;gt;&amp;lt;/a&amp;gt;. &amp;lt;a href=&quot;&amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-login.php?action=logout&quot; title=&quot;Log out of this account&quot;&amp;gt;Logout &amp;amp;raquo;&amp;lt;/a&amp;gt;</span>
+</span><span class='line'><span class="x">  Logged in as &amp;lt;a href=&quot;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-admin/profile.php&quot;&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo $user_identity; ?&amp;gt;&amp;lt;/a&amp;gt;. &amp;lt;a href=&quot;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo get_option(&#39;siteurl&#39;); ?&amp;gt;/wp-login.php?action=logout&quot;</span>
+</span><span class='line'><span class="x">  title=&quot;Log out of this account&quot;&amp;gt;Logout &amp;amp;raquo;&amp;lt;/a&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;label&amp;gt;Comment: &amp;lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&amp;gt;&amp;lt;/textarea&amp;gt;&amp;lt;/label&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;label&amp;gt;Comment:</span>
+</span><span class='line'><span class="x">  &amp;lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;/textarea&amp;gt;&amp;lt;/label&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">    &amp;lt;?php endif; ?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php endif; ?&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;?php if ( !is_user_logged_in() ) : ?&amp;gt;</span>
-</span><span class='line'><span class="x">        &amp;lt;label&amp;gt;Name: &amp;lt;em&amp;gt;Required&amp;lt;/em&amp;gt; &amp;lt;input type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; value=&quot;&amp;lt;?php echo $comment_author; ?&amp;gt;&quot; /&amp;gt;&amp;lt;/label&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php if ( !is_user_logged_in() ) : ?&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;label&amp;gt;Name: &amp;lt;em&amp;gt;Required&amp;lt;/em&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;input type=&quot;text&quot; name=&quot;author&quot; id=&quot;author&quot; value=&quot;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo $comment_author; ?&amp;gt;&quot; /&amp;gt;&amp;lt;/label&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;label&amp;gt;Email: &amp;lt;em&amp;gt;Required, not published&amp;lt;/em&amp;gt; &amp;lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;&amp;lt;?php echo $comment_author_email; ?&amp;gt;&quot;/&amp;gt;&amp;lt;/label&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;label&amp;gt;Email: &amp;lt;em&amp;gt;Required, not published&amp;lt;/em&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;input type=&quot;text&quot; name=&quot;email&quot; id=&quot;email&quot; value=&quot;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo $comment_author_email; ?&amp;gt;&quot;/&amp;gt;&amp;lt;/label&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;label&amp;gt;Homepage: &amp;lt;input type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; value=&quot;&amp;lt;?php echo $comment_author_url; ?&amp;gt;&quot; /&amp;gt;&amp;lt;/label&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;label&amp;gt;Homepage: &amp;lt;input type=&quot;text&quot; name=&quot;url&quot; id=&quot;url&quot; value=&quot;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php echo $comment_author_url; ?&amp;gt;&quot; /&amp;gt;&amp;lt;/label&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;label&amp;gt;Comment: &amp;lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&amp;gt;&amp;lt;/textarea&amp;gt;&amp;lt;/label&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;label&amp;gt;Comment:</span>
+</span><span class='line'><span class="x">  &amp;lt;textarea name=&quot;comment&quot; id=&quot;comment&quot; cols=&quot;50&quot; rows=&quot;20&quot;&amp;gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;/textarea&amp;gt;&amp;lt;/label&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;?php endif; ?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php endif; ?&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&amp;gt; &amp;lt;input type=&quot;hidden&quot; name=&quot;comment_post_ID&quot; value=&quot;&amp;lt;?php echo $id; ?&amp;gt;&quot; /&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;input type=&quot;hidden&quot; name=&quot;comment_post_ID&quot; value=&quot;</span>
+</span><span class='line'><span class="x">&amp;lt;?php echo $id; ?&amp;gt;&quot; /&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;/fieldset&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;/fieldset&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;?php do_action(&#39;comment_form&#39;, $post-&amp;gt;ID); ?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php do_action(&#39;comment_form&#39;, $post-&amp;gt;ID); ?&amp;gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;/form&amp;gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="x">&amp;lt;?php endif;?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;/form&amp;gt;</span>
 </span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php endif;?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endif; // if you delete this the sky will fall on your head ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
@@ -374,6 +398,7 @@
 <span class='line-number'>37</span>
 <span class='line-number'>38</span>
 <span class='line-number'>39</span>
+<span class='line-number'>40</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">get_header</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&lt;form method=&quot;get&quot; id=&quot;searchform&quot; action=&quot;</span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&amp;ldquo;&gt;</span>
@@ -386,28 +411,29 @@
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php if (have_posts()) : ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;?php while (have_posts()) : the_post(); ?&amp;gt;</span>
-</span><span class='line'><span class="x">    &amp;lt;h3&amp;gt;&amp;lt;a href=&quot;&amp;lt;?php the_permalink() ?&amp;gt;&quot; rel=&quot;bookmark&quot;&amp;gt;&amp;lt;?php the_title(); ?&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;</span>
-</span><span class='line'><span class="x">        &amp;lt;?php the_excerpt(&#39;Read the rest of this entry &amp;amp;raquo;&#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">        &amp;lt;?php</span>
-</span><span class='line'><span class="x">        $year = get_the_time(&#39;Y&#39;);</span>
-</span><span class='line'><span class="x">        $month = get_the_time(&#39;m&#39;);</span>
-</span><span class='line'><span class="x">        $day = get_the_time(&#39;d&#39;);</span>
-</span><span class='line'><span class="x">        ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php while (have_posts()) : the_post(); ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">        &amp;lt;a href=&quot;&amp;lt;?php echo get_day_link(&quot;$year&quot;, &quot;$month&quot;, &quot;$day&quot;); ?&amp;gt;&quot;&amp;gt;&amp;lt;?php the_time(&#39;F j, Y&#39;); ?&amp;gt;&amp;lt;/a&amp;gt;</span>
-</span><span class='line'><span class="x">        Filed Under: &amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">        &amp;lt;?php the_tags(&#39;Tags:&#39;, &#39; : &#39;, &#39;&#39;); ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php endwhile; ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php next_posts_link(&#39;&amp;amp;laquo; Older&#39;) ?&amp;gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php previous_posts_link(&#39;Newer &amp;amp;raquo;&#39;) ?&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;h3&amp;gt;&amp;lt;a href=&quot;&amp;lt;?php the_permalink() ?&amp;gt;&quot; rel=&quot;bookmark&quot;&amp;gt;&amp;lt;?php the_title(); ?&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;</span>
+</span><span class='line'><span class="x">      &amp;lt;?php the_excerpt(&#39;Read the rest of this entry &amp;amp;raquo;&#39;); ?&amp;gt;</span>
+</span><span class='line'><span class="x">      &amp;lt;?php</span>
+</span><span class='line'><span class="x">      $year = get_the_time(&#39;Y&#39;);</span>
+</span><span class='line'><span class="x">      $month = get_the_time(&#39;m&#39;);</span>
+</span><span class='line'><span class="x">      $day = get_the_time(&#39;d&#39;);</span>
+</span><span class='line'><span class="x">      ?&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">      &amp;lt;a href=&quot;&amp;lt;?php echo get_day_link(&quot;$year&quot;, &quot;$month&quot;, &quot;$day&quot;); ?&amp;gt;&quot;&amp;gt;</span>
+</span><span class='line'><span class="x">      &amp;lt;?php the_time(&#39;F j, Y&#39;); ?&amp;gt;&amp;lt;/a&amp;gt;</span>
+</span><span class='line'><span class="x">      Filed Under: &amp;lt;?php the_category(&#39;, &#39;); ?&amp;gt;</span>
+</span><span class='line'><span class="x">      &amp;lt;?php the_tags(&#39;Tags:&#39;, &#39; : &#39;, &#39;&#39;); ?&amp;gt;</span>
 </span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php else : ?&gt;&lt;/p&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;  &amp;lt;?php endwhile; ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php next_posts_link(&amp;lsquo;&amp;laquo; Older&amp;rsquo;) ?&gt;</span>
+</span><span class='line'><span class="x">  &amp;lt;?php previous_posts_link(&amp;lsquo;Newer &amp;raquo;&amp;rsquo;) ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;Not Found</span>
-</span><span class='line'><span class="x">&amp;lt;p&amp;gt;Sorry, but you are looking for something that isn&#39;t here.&amp;lt;/p&amp;gt;</span>
-</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php else : ?&gt;</span>
+</span><span class='line'><span class="x">  Not Found</span>
+</span><span class='line'><span class="x">  &lt;p&gt;Sorry, but you are looking for something that isn&amp;rsquo;t here.&lt;/p&gt;&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endif; ?&gt;&lt;/p&gt;</span>
 </span><span class='line'>
@@ -431,17 +457,25 @@
 
 <p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&rsquo;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
 
-<p>[css]
-/<em>
-Theme Name: Basic
-Theme URI:
-Description: A Starter Theme
-Version: 0.1
-Author: Thomas Whitton
-Author URI: <a href="http://www.thomaswhitton.com">http://www.thomaswhitton.com</a>
-Tags: simple, clean, single column
-</em>/
-[/css]</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="o">/&lt;</span><span class="nt">em</span><span class="o">&gt;</span>
+</span><span class='line'><span class="nt">theme</span> <span class="nt">name</span><span class="o">:</span> <span class="nt">basic</span>
+</span><span class='line'><span class="nt">theme</span> <span class="nt">uri</span><span class="o">:</span>
+</span><span class='line'><span class="nt">description</span><span class="o">:</span> <span class="nt">a</span> <span class="nt">starter</span> <span class="nt">theme</span>
+</span><span class='line'><span class="nt">version</span><span class="o">:</span> <span class="nt">0</span><span class="nc">.1</span>
+</span><span class='line'><span class="nt">author</span><span class="o">:</span> <span class="nt">thomas</span> <span class="nt">whitton</span>
+</span><span class='line'><span class="nt">author</span> <span class="nt">uri</span><span class="o">:</span> <span class="o">&lt;</span><span class="nt">a</span> <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;http://www.thomaswhitton.com&quot;</span><span class="o">&gt;</span><span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="nc">.thomaswhitton.com</span><span class="o">&lt;/</span><span class="nt">a</span><span class="o">&gt;</span>
+</span><span class='line'><span class="nt">tags</span><span class="o">:</span> <span class="nt">simple</span><span class="o">,</span> <span class="nt">clean</span><span class="o">,</span> <span class="nt">single</span> <span class="nt">column</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;/</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>We&rsquo;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
 
@@ -481,10 +515,12 @@ Tags: simple, clean, single column
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"> // Returns the url of the permalink to the post</span>
 </span><span class='line'><span class="x">&amp;lt;?php the_title(); ?&gt; // Returns the title of the post</span>
 </span><span class='line'><span class="x">&amp;lt;?php the_author(); ?&gt; // Returns the author of the post</span>
-</span><span class='line'><span class="x">&amp;lt;?php the_content(&amp;lsquo;Read the rest of this entry &amp;raquo;&amp;rsquo;); ?&gt; // Returns the content of the post</span>
+</span><span class='line'><span class="x">&amp;lt;?php // Returns the content of the post ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php the_content(&amp;lsquo;Read the rest of this entry &amp;raquo;&amp;rsquo;); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>These functions are simple enough and are easily used within the loop shown previously, the only slight different is with the_content() function which takes a string as a parameter, this just provides the words for the more text link.</p>
@@ -496,11 +532,13 @@ Tags: simple, clean, single column
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">//would normal include different styles for comment closed/open status here</span>
 </span><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="o">&amp;</span><span class="nx">lsquo</span><span class="p">;</span><span class="nx">closed</span><span class="o">&amp;</span><span class="nx">rsquo</span><span class="p">;</span> <span class="o">==</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">comment_status</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="x">&amp;lt;?php else : ?&gt;</span>
 </span><span class='line'><span class="x">&amp;lt;?php endif; ?&gt;</span>
-</span><span class='line'><span class="x">&amp;lt;?php comments_popup_link(&amp;lsquo;leave a comment&amp;rsquo;, &amp;lsquo;1 comment&amp;rsquo;, &amp;lsquo;% comments&amp;rsquo;, &amp;lsquo;&amp;rsquo;, &amp;lsquo;comments closed&amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php comments_popup_link(&amp;lsquo;leave a comment&amp;rsquo;,</span>
+</span><span class='line'><span class="x">&amp;lsquo;1 comment&amp;rsquo;, &amp;lsquo;% comments&amp;rsquo;, &amp;lsquo;&amp;rsquo;, &amp;lsquo;comments closed&amp;rsquo;); ?&gt;</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Here we check if the post allows for comments first, create a div for each case and then use the comments_popup_link() function with parameters showing what words we&rsquo;d like to show for each case particular case of comment status. It&rsquo;s pretty easy to work out what each parameter corresponds to from the example given above.</p>
@@ -531,78 +569,163 @@ Tags: simple, clean, single column
 
 <p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&rsquo;ll create these files now. First we&rsquo;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
 
-<p>[html]
-&lt;?php wp_footer(); ?>
-</body>
-</html>
-[/html]</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">?</span><span class="nx">php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.</p>
 
 <p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&rsquo;ll check to see if the their are any widgets loaded in the primary widget area and if not we&rsquo;ll put our own in. Then we&rsquo;ll add a secondry widget area for less important widgets.</p>
 
-<p>[html]</p>
-
-<ul>
-<?php
-if (!dynamic_sidebar('primary-widget-area')) : ?>
-
-    <li>
-    <?php get_search_form(); ?>
-    </li>
-
-    <li>
-    <h3>Archives</h3>
-    <ul>
-    <?php wp_get_archives('type=monthly'); ?>
-    </ul>
-    </li>
-
-    <li>
-    <h3>Meta</h3>
-    <ul>
-    <?php wp_register(); ?>
-    <li><?php wp_loginout(); ?></li>
-    <?php wp_meta(); ?>
-    </ul>
-    </li>
-
-<?php endif;?>
-</ul>
-
-
-<p>&lt;?php if(is_active_sidebar(&lsquo;secondary-widget-area&rsquo;)) : ?></p>
-
-<pre><code>&lt;ul&gt;
-&lt;?php dynamic_sidebar('secondary-widget-area'); ?&gt;
-&lt;/ul&gt;
-</code></pre>
-
-<p>&lt;?php endif; ?>
-[/html]</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;primary-widget-area&#39;</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">    &lt;li&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">get_search_form</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">    &lt;li&gt;</span>
+</span><span class='line'><span class="x">    &lt;h3&gt;Archives&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">    &lt;ul&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">wp_get_archives</span><span class="p">(</span><span class="s1">&#39;type=monthly&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">    &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">    &lt;li&gt;</span>
+</span><span class='line'><span class="x">    &lt;h3&gt;Meta&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">    &lt;ul&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">wp_register</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;li&gt;</span><span class="cp">&lt;?php</span> <span class="nx">wp_loginout</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/li&gt;</span>
+</span><span class='line'><span class="x">    </span><span class="cp">&lt;?php</span> <span class="nx">wp_meta</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">    &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">    &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php if(is_active_sidebar(&amp;lsquo;secondary-widget-area&amp;rsquo;)) : ?&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;&amp;lt;ul&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php dynamic_sidebar(&#39;secondary-widget-area&#39;); ?&amp;gt;</span>
+</span><span class='line'><span class="x">&amp;lt;/ul&amp;gt;</span>
+</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&amp;lt;?php endif; ?&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.</p>
 
-<p>[html]
-&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>></p>
-
-<p><head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&lsquo;charset&rsquo;); ?>&ldquo; />
-<title>&lt;?php wp_title(&lsquo;:&rsquo;, true, &lsquo;right&rsquo;); ?> &lt;?php bloginfo(&lsquo;name&rsquo;); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&rdquo; type=&ldquo;text/css&rdquo; media=&ldquo;screen&rdquo; charset=&ldquo;utf-8&rdquo; />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href=&ldquo;&lt;?php bloginfo(&lsquo;rss2_url&rsquo;); ?>&rdquo; />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href=&ldquo;&lt;?php bloginfo(&lsquo;atom_url&rsquo;); ?>&rdquo; />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&ldquo; />
-&lt;?php wp_head(); ?>
-</head></p>
-
-<p><body <?php body_class(); ?>></p>
-
-<h1><a href="<?php echo get_option('home'); ?>/" title="Home"><?php bloginfo('name');?></a></h1>
-
-
-<p>[/html]</p>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&amp;</span><span class="nx">lt</span><span class="p">;</span><span class="o">!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span> <span class="k">PUBLIC</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="o">&amp;</span><span class="nx">ndash</span><span class="p">;</span><span class="c1">//W3C//DTD XHTML 1.0 Transitional//EN&amp;rdquo;</span>
+</span><span class='line'><span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="o">&gt;</span><span class="nx">http</span><span class="o">://</span><span class="nx">www</span><span class="o">.</span><span class="nx">w3</span><span class="o">.</span><span class="nx">org</span><span class="o">/</span><span class="nx">TR</span><span class="o">/</span><span class="nx">xhtml1</span><span class="o">/</span><span class="nx">DTD</span><span class="o">/</span><span class="nx">xhtml1</span><span class="o">-</span><span class="nx">transitional</span><span class="o">.</span><span class="nx">dtd</span><span class="o">&lt;/</span><span class="nx">a</span><span class="o">&gt;&amp;</span><span class="nx">rdquo</span><span class="p">;</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">language_attributes</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&lt;head&gt;</span>
+</span><span class='line'><span class="x">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;html_type&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">; charset=</span>
+</span><span class='line'><span class="x">&amp;lt;?php bloginfo(&amp;lsquo;charset&amp;rsquo;); ?&gt;&amp;ldquo; /&gt;</span>
+</span><span class='line'><span class="x">&lt;title&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php wp_title(&amp;lsquo;:&amp;rsquo;, true, &amp;lsquo;right&amp;rsquo;); ?&gt; &amp;lt;?php bloginfo(&amp;lsquo;name&amp;rsquo;); ?&gt;</span>
+</span><span class='line'><span class="x">&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;stylesheet_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&amp;rdquo; type=&amp;ldquo;text/css&amp;rdquo; media=&amp;ldquo;screen&amp;rdquo; charset=&amp;ldquo;utf-8&amp;rdquo; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> RSS Feed&quot; href=&amp;ldquo;</span>
+</span><span class='line'><span class="x">&amp;lt;?php bloginfo(&amp;lsquo;rss2_url&amp;rsquo;); ?&gt;&amp;rdquo; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> Atom Feed&quot; href=&amp;ldquo;</span>
+</span><span class='line'><span class="x">&amp;lt;?php bloginfo(&amp;lsquo;atom_url&amp;rsquo;); ?&gt;&amp;rdquo; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;pingback&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;pingback_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&amp;ldquo; /&gt;</span>
+</span><span class='line'><span class="x">&amp;lt;?php wp_head(); ?&gt;</span>
+</span><span class='line'><span class="x">&lt;/head&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;&lt;body </span><span class="cp">&lt;?php</span> <span class="nx">body_class</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;h1&gt;&lt;a href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&quot; title=&quot;Home&quot;&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 

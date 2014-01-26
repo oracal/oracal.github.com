@@ -7,7 +7,7 @@
 	<meta name="author" content="Thomas Whitton">
 
 	
-	<meta name="description" content="Protobuf C++ Example Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this &hellip;">
+	<meta name="description" content="One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. &hellip;">
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -83,14 +85,14 @@
 	
 	<div id="content" class="inner"><article class="post">
 	<h2 class="title">Binary Message Format C++ Examples</h2>
-	<div class="entry-content"><h2>Protobuf C++ Example</h2>
-
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+	<div class="entry-content"><p>One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network&rsquo;s performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.</p>
 
 <!-- more -->
 
 
+<h2>Protobuf C++ Example</h2>
 
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -465,6 +467,8 @@
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// define custom msgpack serialisation for class</span>
 </span><span class='line'><span class="k">class</span> <span class="nc">Root</span>
 </span><span class='line'><span class="p">{</span>
@@ -481,7 +485,9 @@
 </span><span class='line'>        <span class="k">return</span> <span class="n">string_</span><span class="p">;</span>
 </span><span class='line'>    <span class="p">};</span>
 </span><span class='line'>    <span class="n">Root</span><span class="p">(){};</span>
-</span><span class='line'>    <span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span> <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span> <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
+</span><span class='line'>    <span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span>
+</span><span class='line'>        <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// msgpack macro to define what to serialize in custom classes</span>
 </span><span class='line'>    <span class="n">MSGPACK_DEFINE</span><span class="p">(</span><span class="n">ints_</span><span class="p">,</span> <span class="n">string_</span><span class="p">);</span>
@@ -563,7 +569,7 @@
   
 
 
-<time datetime="2013-06-29T15:44:00+01:00" pubdate data-updated="true">Jun 29<span>th</span>, 2013</time></div>
+<time datetime="2013-07-03T15:44:00+01:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time></div>
 	<div class="tags">
 
 
@@ -601,7 +607,7 @@
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 
@@ -614,8 +620,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/';
-        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/';
+        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/';
+        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/';
         var disqus_script = 'embed.js';
       
     (function () {

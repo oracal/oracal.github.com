@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -289,9 +291,17 @@
 <span class='line-number'>60</span>
 <span class='line-number'>61</span>
 <span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file and stream ----</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">// need to convert file and stream to cstring before parsing as rapidxml needs a null terminated cstring for parsing</span>
+</span><span class='line'><span class="c1">// need to convert file and stream to cstring before parsing</span>
+</span><span class='line'><span class="c1">// as rapidxml needs a null terminated cstring for parsing</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// file to string</span>
 </span><span class='line'><span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">fin</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">);</span>
@@ -329,13 +339,19 @@
 </span><span class='line'>
 </span><span class='line'><span class="c1">// ---- create from scratch ----</span>
 </span><span class='line'>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">addressNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Address&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">recipientNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr Malcolm Reynolds&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">houseNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">streetNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">townNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">postCodeNode</span> <span class="o">=</span>
+</span><span class='line'>    <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
 </span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_document</span><span class="o">&lt;&gt;</span> <span class="n">fromScratch</span><span class="p">;</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">addressNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Address&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">recipientNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Recipient&quot;</span><span class="p">,</span> <span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">houseNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;House&quot;</span><span class="p">,</span> <span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">streetNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Street&quot;</span><span class="p">,</span> <span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">townNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;Town&quot;</span><span class="p">,</span> <span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">*</span><span class="n">postCodeNode</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">allocate_node</span><span class="p">(</span><span class="n">rapidxml</span><span class="o">::</span><span class="n">node_element</span><span class="p">,</span> <span class="s">&quot;PostCode&quot;</span><span class="p">,</span> <span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">recipientNode</span><span class="p">);</span>
 </span><span class='line'><span class="n">addressNode</span><span class="o">-&gt;</span><span class="n">append_node</span><span class="p">(</span><span class="n">houseNode</span><span class="p">);</span>
@@ -365,10 +381,12 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
+<span class='line-number'>10</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">rapidxml</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&lt;&gt;</span> <span class="o">&amp;</span><span class="n">addressNode</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">addressNode</span><span class="p">.</span><span class="n">first_node</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -512,13 +530,25 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">TiXmlElement</span> <span class="o">*</span> <span class="n">address</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="o">-&gt;</span><span class="n">FirstChildElement</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">FirstChild</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Value</span><span class="p">()</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -576,6 +606,13 @@
 <span class='line-number'>43</span>
 <span class='line-number'>44</span>
 <span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file ----</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">parsedFromFile</span><span class="p">;</span>
@@ -592,13 +629,20 @@
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_document</span> <span class="n">fromScratch</span><span class="p">;</span>
 </span><span class='line'><span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span> <span class="n">address</span> <span class="o">=</span> <span class="n">fromScratch</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Address&quot;</span><span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
-</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">).</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Mr. Malcolm Reynolds&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;3&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Serenity&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Space&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;DE18 5HI&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;County&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;Solar System&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="n">address</span><span class="p">.</span><span class="n">append_child</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">).</span><span class="n">append_child</span><span class="p">(</span><span class="n">pugi</span><span class="o">::</span><span class="n">node_pcdata</span><span class="p">)</span>
+</span><span class='line'>    <span class="p">.</span><span class="n">set_value</span><span class="p">(</span><span class="s">&quot;UK&quot;</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">outputAddress</span><span class="p">(</span><span class="n">address</span><span class="p">);</span>
 </span><span class='line'>
@@ -634,10 +678,12 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
+<span class='line-number'>9</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">pugi</span><span class="o">::</span><span class="n">xml_node</span><span class="o">&amp;</span> <span class="n">address</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Recipient&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;House&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Town&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;PostCode&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">address</span><span class="p">.</span><span class="n">child_value</span><span class="p">(</span><span class="s">&quot;Country&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -706,6 +752,8 @@
 <span class='line-number'>49</span>
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// ---- parse from file ----</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// every elelment is a ptree</span>
@@ -713,8 +761,10 @@
 </span><span class='line'>
 </span><span class='line'><span class="k">try</span>
 </span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="c1">// use trim whitespace to remove any whitespace due to pretty formatting of xml structure</span>
-</span><span class='line'>    <span class="n">read_xml</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">,</span> <span class="n">parsedFromFile</span><span class="p">,</span> <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">xml_parser</span><span class="o">::</span><span class="n">trim_whitespace</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// use trim whitespace to remove any whitespace</span>
+</span><span class='line'>    <span class="c1">// due to pretty formatting of xml structure</span>
+</span><span class='line'>    <span class="n">read_xml</span><span class="p">(</span><span class="s">&quot;address.xml&quot;</span><span class="p">,</span> <span class="n">parsedFromFile</span><span class="p">,</span>
+</span><span class='line'>        <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">xml_parser</span><span class="o">::</span><span class="n">trim_whitespace</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="n">outputAddress</span><span class="p">(</span><span class="n">parsedFromFile</span><span class="p">);</span>
 </span><span class='line'>
@@ -780,6 +830,7 @@
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
+<span class='line-number'>19</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="kt">void</span> <span class="n">outputAddress</span><span class="p">(</span><span class="k">const</span> <span class="n">boost</span><span class="o">::</span><span class="n">property_tree</span><span class="o">::</span><span class="n">ptree</span> <span class="o">&amp;</span><span class="n">pt</span><span class="p">)</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>    <span class="c1">// can use dotted notation to specify element path</span>
@@ -787,7 +838,8 @@
 </span><span class='line'>    <span class="k">try</span>
 </span><span class='line'>    <span class="p">{</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Recipient&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.House&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.House&quot;</span><span class="p">)</span>
+</span><span class='line'>            <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Street&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Town&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.PostCode&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </span><span class='line'>        <span class="n">ss</span> <span class="o">&lt;&lt;</span> <span class="n">pt</span><span class="p">.</span><span class="n">get</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Address.Country&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -824,7 +876,7 @@
   
 
 
-<time datetime="2013-06-28T06:55:00+01:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time></div>
+<time datetime="2013-07-01T18:55:00+01:00" pubdate data-updated="true">Jul 1<span>st</span>, 2013</time></div>
 	<div class="tags">
 
 
@@ -862,7 +914,7 @@
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 
@@ -875,8 +927,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/';
-        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/';
+        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/';
+        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/';
         var disqus_script = 'embed.js';
       
     (function () {

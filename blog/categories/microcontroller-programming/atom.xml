@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Microcontroller Programming | Thomas Whitton]]></title>
+  <title><![CDATA[Category: microcontroller programming | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/microcontroller-programming/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-12-15T23:03:50+00:00</updated>
+  <updated>2014-01-26T19:46:08+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>

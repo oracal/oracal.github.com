@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -140,7 +142,11 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#base function for connecting to API</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># base function for connecting to API</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>    <span class="n">search_url</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span><span class="p">,</span> <span class="s">&#39;?&#39;</span><span class="p">]</span>
 </span><span class='line'>    <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">&#39;key&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
@@ -148,24 +154,28 @@
 </span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">urlopen</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">search_url</span><span class="p">))</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </span><span class='line'>    <span class="k">return</span> <span class="n">data</span><span class="p">[</span><span class="n">datatype</span><span class="p">]</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all cineworld cinemas and allows further customization</span>
+</span><span class='line'><span class="c"># of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_cinemas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;cinemas&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cinemas_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all films currently playing in cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all films currently playing in cineworld cinemas and allows</span>
+</span><span class='line'><span class="c"># further customization of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_films</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;films&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">films_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#cache the result of the list of films in case of multiple searching on the same object</span>
+</span><span class='line'><span class="c"># cache the result of the list of films in case of</span>
+</span><span class='line'><span class="c"># multiple searching on the same object</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_film_list</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span class='line'>    <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_films</span><span class="p">()</span>
 </span><span class='line'>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#gets a list of all dates when films are playing at cineworld cinemas and allows further customization of the list using arguments located in the API documentation</span>
+</span><span class='line'><span class="c"># gets a list of all dates when films are playing at cineworld cinemas and allows</span>
+</span><span class='line'><span class="c"># further customization of the list using arguments located in the API documentation</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_dates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;dates&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dates_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'><span class="c">#not well documented but I assume it&#39;s for more specialized performances i.e. not films</span>
+</span><span class='line'><span class="c"># not well documented but I assume it&#39;s for more specialized performances i.e. not films</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_performances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 </span><span class='line'>  <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_list</span><span class="p">(</span><span class="s">&#39;performances&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">performances_url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -201,16 +211,16 @@
 </span><span class='line'>
 </span><span class='line'><span class="k">def</span> <span class="nf">film_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="p">[]</span>
-</span><span class='line'>  <span class="c">#check for cache or update</span>
+</span><span class='line'>  <span class="c"># check for cache or update</span>
 </span><span class='line'>  <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s">&#39;film_list&#39;</span><span class="p">):</span>
 </span><span class='line'>      <span class="bp">self</span><span class="o">.</span><span class="n">get_film_list</span><span class="p">()</span>
-</span><span class='line'>  <span class="c">#iterate over films and check for fuzzy string match</span>
+</span><span class='line'>  <span class="c"># iterate over films and check for fuzzy string match</span>
 </span><span class='line'>  <span class="k">for</span> <span class="n">film</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">film_list</span><span class="p">:</span>
 </span><span class='line'>      <span class="n">strength</span> <span class="o">=</span> <span class="n">WRatio</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">film</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">])</span>
 </span><span class='line'>      <span class="k">if</span>  <span class="n">strength</span> <span class="o">&gt;</span> <span class="mi">80</span><span class="p">:</span>
 </span><span class='line'>          <span class="n">film</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s">u&#39;strength&#39;</span><span class="p">:</span><span class="n">strength</span><span class="p">})</span>
 </span><span class='line'>          <span class="n">films</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">film</span><span class="p">)</span>
-</span><span class='line'>  <span class="c">#sort films by the strength of the fuzzy string match</span>
+</span><span class='line'>  <span class="c"># sort films by the strength of the fuzzy string match</span>
 </span><span class='line'>  <span class="n">films_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">films</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">itemgetter</span><span class="p">(</span><span class="s">&#39;strength&#39;</span><span class="p">),</span> <span class="n">reverse</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">return</span> <span class="n">films_sorted</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -231,10 +241,14 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c">#uses a certain cinema (O2) and a certain day when non specialist films show (Wednesday) to get a list of the latest box office films</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="c"># uses a certain cinema (O2) and a certain day when non specialist films</span>
+</span><span class='line'><span class="c"># show (Wednesday) to get a list of the latest box office films</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">get_box_office_films</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 </span><span class='line'>  <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
-</span><span class='line'>  <span class="n">next_wednesday</span> <span class="o">=</span> <span class="p">(</span><span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">%</span> <span class="mi">7</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y%m</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">next_wednesday</span> <span class="o">=</span> <span class="p">(</span><span class="n">today</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">today</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span> <span class="o">%</span> <span class="mi">7</span><span class="p">))</span>
+</span><span class='line'>  <span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y%m</span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_films</span><span class="p">(</span><span class="n">cinema</span><span class="o">=</span><span class="mi">79</span><span class="p">,</span> <span class="n">date</span> <span class="o">=</span> <span class="n">next_wednesday</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="n">films</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s">&#39;3D&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="s">&#39;title&#39;</span><span class="p">],</span> <span class="n">films</span><span class="p">)</span>
@@ -266,7 +280,7 @@
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/python/'>Python</a>
+	<a class='category' href='/blog/categories/python/'>python</a>
 
 
 </div>
@@ -300,7 +314,7 @@
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 

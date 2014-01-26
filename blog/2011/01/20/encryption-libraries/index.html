@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -117,6 +119,11 @@
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// setup the encryption library</span>
 </span><span class='line'><span class="n">QCA</span><span class="o">::</span><span class="n">Initializer</span> <span class="n">init</span><span class="p">;</span>
 </span><span class='line'><span class="c1">// define the message to be encrypted</span>
@@ -132,7 +139,12 @@
 </span><span class='line'><span class="k">else</span>
 </span><span class='line'><span class="p">{</span>
 </span><span class='line'>  <span class="c1">// create the cipher defintion</span>
-</span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span> <span class="n">cipher</span><span class="p">(</span><span class="n">QString</span><span class="p">(</span><span class="s">&quot;aes256&quot;</span><span class="p">),</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">CBC</span><span class="p">,</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">DefaultPadding</span><span class="p">,</span> <span class="n">QCA</span><span class="o">::</span><span class="n">Encode</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">);</span>
+</span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span> <span class="n">cipher</span><span class="p">(</span>
+</span><span class='line'>          <span class="n">QString</span><span class="p">(</span><span class="s">&quot;aes256&quot;</span><span class="p">),</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">CBC</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Cipher</span><span class="o">::</span><span class="n">DefaultPadding</span><span class="p">,</span>
+</span><span class='line'>          <span class="n">QCA</span><span class="o">::</span><span class="n">Encode</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">iv</span><span class="p">);</span>
+</span><span class='line'>
 </span><span class='line'>  <span class="c1">// start encryption process</span>
 </span><span class='line'>  <span class="n">QCA</span><span class="o">::</span><span class="n">SecureArray</span> <span class="n">u</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">arg</span><span class="p">);</span>
 </span><span class='line'>
@@ -168,6 +180,12 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// key and IV setup</span>
 </span><span class='line'><span class="n">byte</span> <span class="n">key</span><span class="p">[</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span> <span class="p">],</span> <span class="n">iv</span><span class="p">[</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">BLOCKSIZE</span> <span class="p">];</span>
 </span><span class='line'><span class="n">memset</span><span class="p">(</span> <span class="n">key</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span> <span class="p">);</span>
@@ -181,8 +199,14 @@
 </span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">Encryption</span> <span class="n">aesEncryption</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">AES</span><span class="o">::</span><span class="n">DEFAULT_KEYLENGTH</span><span class="p">);</span>
 </span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">CBC_Mode_ExternalCipher</span><span class="o">::</span><span class="n">Encryption</span> <span class="n">cbcEncryption</span><span class="p">(</span> <span class="n">aesEncryption</span><span class="p">,</span> <span class="n">iv</span> <span class="p">);</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">StreamTransformationFilter</span> <span class="n">stfEncryptor</span><span class="p">(</span><span class="n">cbcEncryption</span><span class="p">,</span> <span class="k">new</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">StringSink</span><span class="p">(</span> <span class="n">ciphertext</span> <span class="p">)</span> <span class="p">);</span>
-</span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="p">(</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'><span class="n">CryptoPP</span><span class="o">::</span><span class="n">StreamTransformationFilter</span> <span class="n">stfEncryptor</span><span class="p">(</span>
+</span><span class='line'>        <span class="n">cbcEncryption</span><span class="p">,</span>
+</span><span class='line'>        <span class="k">new</span> <span class="n">CryptoPP</span><span class="o">::</span><span class="n">StringSink</span><span class="p">(</span> <span class="n">ciphertext</span> <span class="p">)</span> <span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">Put</span><span class="p">(</span>
+</span><span class='line'>        <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">char</span><span class="o">*&gt;</span> <span class="p">(</span> <span class="n">plaintext</span><span class="p">.</span><span class="n">data</span><span class="p">()</span> <span class="p">),</span>
+</span><span class='line'>        <span class="n">plaintext</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">);</span>
+</span><span class='line'>
 </span><span class='line'><span class="n">stfEncryptor</span><span class="p">.</span><span class="n">MessageEnd</span><span class="p">();</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// convert to QString</span>
@@ -264,7 +288,7 @@
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+	<a class='category' href='/blog/categories/c-plus-plus/'>c++</a>, <a class='category' href='/blog/categories/encryption/'>encryption</a>, <a class='category' href='/blog/categories/qt/'>qt</a>
 
 
 </div>
@@ -298,7 +322,7 @@
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 

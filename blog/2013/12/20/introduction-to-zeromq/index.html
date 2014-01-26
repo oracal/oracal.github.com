@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -382,6 +384,8 @@
 <span class='line-number'>35</span>
 <span class='line-number'>36</span>
 <span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="c1">// set up jsoncpp objects</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Value</span> <span class="n">v</span><span class="p">;</span>
 </span><span class='line'><span class="n">Json</span><span class="o">::</span><span class="n">Reader</span> <span class="n">reader</span><span class="p">;</span>
@@ -410,7 +414,9 @@
 </span><span class='line'>    <span class="c1">// receive the json message and actually do soemthing with it</span>
 </span><span class='line'>    <span class="n">subscriber</span><span class="p">.</span><span class="n">recv</span><span class="p">(</span><span class="o">&amp;</span><span class="n">update</span><span class="p">);</span>
 </span><span class='line'>    <span class="c1">// convert non null terminating cstring into a string</span>
-</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">update</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">update</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+</span><span class='line'>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">response</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span>
+</span><span class='line'>            <span class="k">static_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">update</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span>
+</span><span class='line'>            <span class="n">update</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// parse json data</span>
 </span><span class='line'>    <span class="kt">bool</span> <span class="n">parsingSuccessful</span> <span class="o">=</span> <span class="n">reader</span><span class="p">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
@@ -441,11 +447,11 @@
   
 
 
-<time datetime="2013-06-30T06:43:00+01:00" pubdate data-updated="true">Jun 30<span>th</span>, 2013</time></div>
+<time datetime="2013-12-20T11:43:00+00:00" pubdate data-updated="true">Dec 20<span>th</span>, 2013</time></div>
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/networking/'>Networking</a>, <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+	<a class='category' href='/blog/categories/c-plus-plus/'>c++</a>, <a class='category' href='/blog/categories/networking/'>networking</a>
 
 
 </div>
@@ -479,7 +485,7 @@
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 
@@ -492,8 +498,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/';
-        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/';
+        var disqus_identifier = 'http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/';
+        var disqus_url = 'http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/';
         var disqus_script = 'embed.js';
       
     (function () {

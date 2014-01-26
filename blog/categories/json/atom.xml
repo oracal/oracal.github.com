@@ -4,7 +4,7 @@
   <title><![CDATA[Category: json | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/json/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-12-15T23:03:50+00:00</updated>
+  <updated>2014-01-26T19:46:08+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Json C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples/"/>
-    <updated>2013-06-27T06:54:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples</id>
+    <link href="http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples/"/>
+    <updated>2013-06-28T19:54:00+01:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have tried to show you most of the different aspects of using json, i.e. creating json messages from scratch, outputting json, parsing json and querying json objects. The example json message used contains most of the features that a json message could contain. Querying the json object has been extracted into an output function which is used multiple times in each example to show that everything is working correctly.</p>
 
 <!-- more -->

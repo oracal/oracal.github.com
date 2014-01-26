@@ -64,6 +64,8 @@
     
 		
 		
+		<a class="linkedin" href="http://www.linkedin.com/in/thomaswhitton">LinkedIn</a>
+		
 		
 		
 		
@@ -90,17 +92,26 @@
 
 <p>First of all go to your wordpress root and find the folder wp-content/themes/ and create a new folder with the name of the theme you&rsquo;d like. Then set up the meta for the theme. This includes setting up the theme name, description and author, this is done by writing a few details in a new file that you need to create called style.css. At the top of the file put some of the details for your theme, you can replace the details that I have entered for your own:</p>
 
-<p>[css]
-/<em>
-Theme Name: Basic
-Theme URI:
-Description: A Starter Theme
-Version: 0.1
-Author: Thomas Whitton
-Author URI: <a href="http://www.thomaswhitton.com">http://www.thomaswhitton.com</a>
-Tags: simple, clean, single column
-</em>/
-[/css]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='css'><span class='line'><span class="c">/*</span>
+</span><span class='line'><span class="c">theme name: basic</span>
+</span><span class='line'><span class="c">theme uri:</span>
+</span><span class='line'><span class="c">description: a starter theme</span>
+</span><span class='line'><span class="c">version: 0.1</span>
+</span><span class='line'><span class="c">author: thomas whitton</span>
+</span><span class='line'><span class="c">author uri: http://www.thomaswhitton.com</span>
+</span><span class='line'><span class="c">tags: simple, clean, single column</span>
+</span><span class='line'><span class="c">*/</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>We&rsquo;re not going to be putting anything in the css file, but you may want to put in resets for the most commonly used attributes at the beginning, there are loads of these css code segments on the internet and you just need to to pick one and slightly alter it for you particular site, search for style reset in google :).</p>
 
@@ -129,10 +140,12 @@ Tags: simple, clean, single column
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_permalink</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="x"> // Returns the url of the permalink to the post</span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_title</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> // Returns the title of the post</span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_author</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"> // Returns the author of the post</span>
-</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">the_content</span><span class="p">(</span><span class="s1">&#39;Read the rest of this entry &amp;raquo;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> // Returns the content of the post</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="c1">// Returns the content of the post ?&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">the_content</span><span class="p">(</span><span class="s1">&#39;Read the rest of this entry &amp;raquo;&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -145,11 +158,13 @@ Tags: simple, clean, single column
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='php'><span class='line'><span class="c1">//would normal include different styles for comment closed/open status here</span>
 </span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;closed&#39;</span> <span class="o">==</span> <span class="nv">$post</span><span class="o">-&gt;</span><span class="na">comment_status</span><span class="p">)</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">else</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
-</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_popup_link</span><span class="p">(</span><span class="s1">&#39;leave a comment&#39;</span><span class="p">,</span> <span class="s1">&#39;1 comment&#39;</span><span class="p">,</span> <span class="s1">&#39;% comments&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;comments closed&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">comments_popup_link</span><span class="p">(</span><span class="s1">&#39;leave a comment&#39;</span><span class="p">,</span>
+</span><span class='line'><span class="s1">&#39;1 comment&#39;</span><span class="p">,</span> <span class="s1">&#39;% comments&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;comments closed&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -184,78 +199,152 @@ Tags: simple, clean, single column
 
 <p>These functions pull in the the header.php, sidebar.php and footer.php repectively, and we&rsquo;ll create these files now. First we&rsquo;ll create the footer.php as it is simpler. All we need to do is add this code to the file:</p>
 
-<p>[html]
-&lt;?php wp_footer(); ?>
-</body>
-</html>
-[/html]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">wp_footer</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/body&gt;</span>
+</span><span class='line'><span class="x">&lt;/html&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The wp_footer() function provides a hook to the footer of the page which Wordpress and Wordpress plugins can utilize. The rest of the file is just the closing of the html tags: body and html, which we will open shortly in the header.php file.</p>
 
 <p>The sidebar.php gives the code for the sidebar on the site, this is quite a common wordpress blog feature. We&rsquo;ll check to see if the their are any widgets loaded in the primary widget area and if not we&rsquo;ll put our own in. Then we&rsquo;ll add a secondry widget area for less important widgets.</p>
 
-<p>[html]</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;</span><span class="nx">ul</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;?</span><span class="nx">php</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;primary-widget-area&#39;</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">get_search_form</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  &lt;h3&gt;Archives&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_get_archives</span><span class="p">(</span><span class="s1">&#39;type=monthly&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;li&gt;</span>
+</span><span class='line'><span class="x">  &lt;h3&gt;Meta&lt;/h3&gt;</span>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_register</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;li&gt;</span><span class="cp">&lt;?php</span> <span class="nx">wp_loginout</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&lt;/li&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">wp_meta</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'><span class="x">  &lt;/li&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span><span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">if</span><span class="p">(</span><span class="nx">is_active_sidebar</span><span class="p">(</span><span class="s1">&#39;secondary-widget-area&#39;</span><span class="p">))</span> <span class="o">:</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'>
+</span><span class='line'><span class="x">  &lt;ul&gt;</span>
+</span><span class='line'><span class="x">  </span><span class="cp">&lt;?php</span> <span class="nx">dynamic_sidebar</span><span class="p">(</span><span class="s1">&#39;secondary-widget-area&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">  &lt;/ul&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">endif</span><span class="p">;</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span></code></pre></td></tr></table></div></figure>
 
-<ul>
-<?php
-if (!dynamic_sidebar('primary-widget-area')) : ?>
-
-    <li>
-    <?php get_search_form(); ?>
-    </li>
-
-    <li>
-    <h3>Archives</h3>
-    <ul>
-    <?php wp_get_archives('type=monthly'); ?>
-    </ul>
-    </li>
-
-    <li>
-    <h3>Meta</h3>
-    <ul>
-    <?php wp_register(); ?>
-    <li><?php wp_loginout(); ?></li>
-    <?php wp_meta(); ?>
-    </ul>
-    </li>
-
-<?php endif;?>
-</ul>
-
-
-<p>&lt;?php if(is_active_sidebar(&lsquo;secondary-widget-area&rsquo;)) : ?></p>
-
-<pre><code>&lt;ul&gt;
-&lt;?php dynamic_sidebar('secondary-widget-area'); ?&gt;
-&lt;/ul&gt;
-</code></pre>
-
-<p>&lt;?php endif; ?>
-[/html]</p>
 
 <p>Now a lot of what is contained in the header.php file is the standard html head code which contains detailed information about your site, now Wordpress again makes this slightly easier by using specific functions, but really most of it is just a copy and paste job.</p>
 
-<p>[html]
-&lt;!DOCTYPE html PUBLIC &ldquo;&ndash;//W3C//DTD XHTML 1.0 Transitional//EN&rdquo; &ldquo;<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd</a>&rdquo;>
-<html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>></p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span> <span class="k">PUBLIC</span> <span class="s2">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span>
+</span><span class='line'><span class="s2">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">html</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="o">&lt;?</span><span class="nx">php</span> <span class="nx">language_attributes</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;head&gt;</span>
+</span><span class='line'><span class="x">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;html_type&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">; charset=</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;charset&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;title&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">wp_title</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> </span><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/title&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;stylesheet&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;stylesheet_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; type=&quot;text/css&quot; media=&quot;screen&quot; charset=&quot;utf-8&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> RSS Feed&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;rss2_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;alternate&quot; type=&quot;application/atom+xml&quot; title=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x"> Atom Feed&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;atom_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="x">&lt;link rel=&quot;pingback&quot; href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;pingback_url&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">&quot; /&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">wp_head</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x"></span>
+</span><span class='line'><span class="x">&lt;/head&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;body </span><span class="cp">&lt;?php</span> <span class="nx">body_class</span><span class="p">();</span> <span class="cp">?&gt;</span><span class="x">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;h1&gt;&lt;a href=&quot;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="k">echo</span> <span class="nx">get_option</span><span class="p">(</span><span class="s1">&#39;home&#39;</span><span class="p">);</span> <span class="cp">?&gt;</span><span class="x">/&quot; title=&quot;Home&quot;&gt;</span>
+</span><span class='line'><span class="cp">&lt;?php</span> <span class="nx">bloginfo</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span><span class="cp">?&gt;</span><span class="x">&lt;/a&gt;&lt;/h1&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p><head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=&lt;?php bloginfo(&lsquo;charset&rsquo;); ?>&ldquo; />
-<title>&lt;?php wp_title(&lsquo;:&rsquo;, true, &lsquo;right&rsquo;); ?> &lt;?php bloginfo(&lsquo;name&rsquo;); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>&rdquo; type=&ldquo;text/css&rdquo; media=&ldquo;screen&rdquo; charset=&ldquo;utf-8&rdquo; />
-<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;rss2_url&rsquo;); ?>&rdquo; />
-<link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed&#8221; href=&ldquo;&lt;?php bloginfo(&lsquo;atom_url&rsquo;); ?>&rdquo; />
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>&ldquo; />
-&lt;?php wp_head(); ?>
-</head></p>
-
-<p><body <?php body_class(); ?>></p>
-
-<h1><a href="<?php echo get_option('home'); ?>/&#8221; title=&#8221;Home&#8221;><?php bloginfo('name');?></a></h1>
-
-
-<p>[/html]</p>
 
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 
@@ -282,7 +371,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 	<div class="tags">
 
 
-	<a class='category' href='/blog/categories/php/'>PHP</a>
+	<a class='category' href='/blog/categories/php/'>php</a>, <a class='category' href='/blog/categories/wordpress/'>wordpress</a>
 
 
 </div>
@@ -316,7 +405,7 @@ if (!dynamic_sidebar('primary-widget-area')) : ?>
 </div>
 </section>
 </div>
-	<footer id="footer" class="inner">Copyright &copy; 2013
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     Thomas Whitton
 

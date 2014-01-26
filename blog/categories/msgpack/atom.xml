@@ -4,7 +4,7 @@
   <title><![CDATA[Category: msgpack | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/msgpack/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2013-12-15T23:03:50+00:00</updated>
+  <updated>2014-01-26T19:46:08+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -15,15 +15,17 @@
   
   <entry>
     <title type="html"><![CDATA[Binary Message Format C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/"/>
-    <updated>2013-06-29T15:44:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples</id>
-    <content type="html"><![CDATA[<h2>Protobuf C++ Example</h2>
-
-<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
+    <link href="http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
+    <updated>2013-07-03T15:44:00+01:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
+    <content type="html"><![CDATA[<p>One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network&rsquo;s performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.</p>
 
 <!-- more -->
 
+
+<h2>Protobuf C++ Example</h2>
+
+<p>Below is the schema for an address book example, this is used to generate c++ code using the protobuf compiler, using this command to put the generated code into the &ldquo;generated&rdquo; directory: protoc AddressBook.proto &mdash;cpp_out=generated. As you would expect it generates two files, a header and an implementation file. These need to be included and compiled, respectively, with the code using them.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -474,6 +476,8 @@
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
 </pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// define custom msgpack serialisation for class</span>
@@ -496,7 +500,9 @@
 </span><span class='line'>    <span class="k">return</span> <span class="n">string_</span><span class="p">;</span>
 </span><span class='line'><span class="p">};</span>
 </span><span class='line'><span class="n">Root</span><span class="p">(){};</span>
-</span><span class='line'><span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span> <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span> <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
+</span><span class='line'><span class="n">Root</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">ints</span><span class="p">,</span> <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">string</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="n">ints_</span><span class="p">(</span><span class="n">ints</span><span class="p">),</span>
+</span><span class='line'>    <span class="n">string_</span><span class="p">(</span><span class="n">string</span><span class="p">){};</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">// msgpack macro to define what to serialize in custom classes</span>
 </span><span class='line'><span class="n">MSGPACK_DEFINE</span><span class="p">(</span><span class="n">ints_</span><span class="p">,</span> <span class="n">string_</span><span class="p">);</span>

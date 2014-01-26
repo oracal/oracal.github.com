@@ -2,78 +2,88 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>
             http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/
         </loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
-        <loc>http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <loc>http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples/</loc>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
-        <loc>http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <loc>http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/</loc>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
         <loc>
-            http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/
+            http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/
         </loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
     </url>
     <url>
-        <loc>http://www.thomaswhitton.com/blog/2013/06/30/introduction-to-zeromq/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <loc>http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/</loc>
+        <lastmod>2014-01-26T19:45:23+00:00</lastmod>
+    </url>
+    <url>
+        <loc>http://www.thomaswhitton.com/blog/2014/01/06/coursera-course-reviews/</loc>
+        <lastmod>2014-01-26T19:46:08+00:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://www.thomaswhitton.com/blog/2014/01/07/my-perfect-programming-language-from-scratch/
+        </loc>
+        <lastmod>2014-01-08T02:18:41+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:46:08+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/cv/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-06T23:09:22+00:00</lastmod>
     </url>
     <url>
         <loc>http://www.thomaswhitton.com/blog/archives/</loc>
-        <lastmod>2013-12-15T23:01:36+00:00</lastmod>
+        <lastmod>2014-01-26T19:46:08+00:00</lastmod>
     </url>
 </urlset>
