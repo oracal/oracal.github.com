@@ -4,7 +4,7 @@
   <title><![CDATA[Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2014-01-26T19:46:08+00:00</updated>
+  <updated>2014-01-26T19:55:32+00:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -14,48 +14,10 @@
 
   
   <entry>
-    <title type="html"><![CDATA[My Perfect Programming Language From Scratch]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2014/01/07/my-perfect-programming-language-from-scratch/"/>
-    <updated>2014-01-07T01:27:57+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2014/01/07/my-perfect-programming-language-from-scratch</id>
-    <content type="html"><![CDATA[<p>After taking the Programming Languages Course from Courser and learning a couple of new languages recently I&rsquo;ve found myself really looking at the beauty of programming languages and wanted to spend a little time coming up with my own perfect language from scratch. To start off I will not worry about implementation details, this will allow me to concentrate on the language itself rather than coding challenges. Eventually I hope to create a minimal implementation to try out my new language.</p>
-
-<!-- more -->
-
-
-<h2>Paradigms</h2>
-
-<p>I think it will be good to start with some simple paradigms of the language, which I will go through now with some basic reasoning behind each.</p>
-
-<p>Having a <strong>statically typed</strong> language is very helpful in catching bugs that would otherwise be missed in a dynamic language. It also allows much better tooling to be created around that language such as code analysers. The only problem with it is the amount of verbosity that comes with writing the code, this can be heavily offset with a <strong>global type inference</strong> system that means that most type declarations are no longer needed (but can be optionally added for readability). In fact it should be possible to only ever use a type declaration when creating a class, this includes a very useful and comprehensive set of type literals.</p>
-
-<p>It has been shown in pretty much every other language (especially in functional, as per the name) to be able to pass functions around as if they were like variables, including functions that have already had some of their arguments passed in. To this end all language will provide <strong>first class functions</strong>. To accomplish this with minimal specialising of the language for functions, the functions will be made to be an object and in fact the language will take the <strong>object orientated</strong> approach of everything is an object.</p>
-
-<p>I really enjoy programming in c++, and being in control of the system as much as possible, however, I still will use smart pointers as much as I can to avoid worrying about memory. I think nowadays any implementation of a language should be smart enough to be able to efficiently deal with memory, and allow the programmer to worry about more important things, and as such this language will have <strong>managed memory</strong>.</p>
-
-<p>I won&rsquo;t bother reiterating the countless posts and discussions about how allowing mutability of variables leads to problems within a language. But I will mention that I believe having <strong>immutability by default</strong> can make some pretty interesting efficient data structures. I also understand the need for being able to have mutable variables occasionally, but I agree with with SML approach for this, and that is that you have to <strong>explicitly declare a mutable variable</strong> and that <strong>only allow the reference to be mutable and it will just be able to point to an entirely different object</strong>.</p>
-
-<p>Lastly just a few little additions that I have found very useful, and that is having <strong>if statements as expressions</strong> which allows for some very neat code, <strong>tail call optimization</strong>, and <strong>lexicographically scoped</strong>.</p>
-
-<h2>General Syntax</h2>
-
-<p>After recently learning and programming in my first lisp/scheme, I really loved the simplicity of the syntax, however, I felt like it went slightly too far, and made it harder for programmers to understand at a glance what was happening. To that end I believe that having as <strong>minimal syntax</strong> as possible, and therefore a <strong>minimal set of keywords</strong> without decreasing the readability of code is a worthwhile goal.</p>
-
-<ul>
-<li>C like.</li>
-<li>Semicolons separate expressions.</li>
-<li>White space doesn&rsquo;t matter, except that new lines can separate expressions rather than using semicolons.</li>
-<li>Scope using curly brackets.</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Coursera Course Reviews]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2014/01/06/coursera-course-reviews/"/>
-    <updated>2014-01-06T00:01:34+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2014/01/06/coursera-course-reviews</id>
+    <link href="http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews/"/>
+    <updated>2014-01-26T19:55:34+00:00</updated>
+    <id>http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews</id>
     <content type="html"><![CDATA[<p>Lately I have been really interested in participating in some of the programming related massive open online courses (MOOCs) offered by <a href="https://www.coursera.org/">Coursera</a>. Coursera offers a really great platform for learning; providing multiple ways to test students&#8217; understanding of the material and also most importantly a large community of like minded people in the Coursera discussion forums providing invaluable help to others.</p>
 
 <!-- more -->
