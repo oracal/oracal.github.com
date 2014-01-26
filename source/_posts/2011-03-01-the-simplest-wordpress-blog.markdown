@@ -175,5 +175,3 @@ Now a lot of what is contained in the header.php file is the standard html head 
 The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.
 
 Now as long as you have customized the look and format of your blog using some div's and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.
-
-Please head on over to [Part 2](http://www.thomaswhitton.com/thomaswhitton/2011/03/06/the-simplest-wordpress-blog-part-2/).
