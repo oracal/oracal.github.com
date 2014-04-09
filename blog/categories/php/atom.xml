@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Thomas Whitton]]></title>
   <link href="http://www.thomaswhitton.com/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://www.thomaswhitton.com/"/>
-  <updated>2014-01-26T19:55:32+00:00</updated>
+  <updated>2014-04-09T22:39:23+01:00</updated>
   <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
@@ -730,8 +730,6 @@
 <p>The only things to take note of are the rss and atom lines that will automatically generates rss and atom feeds using wordpress functions. Also the final line which creates your blog title and links it to your homepage. Apart from these it is pretty each to tell exacty what each wordpress function is doing.</p>
 
 <p>Now as long as you have customized the look and format of your blog using some div&rsquo;s and css you have yourself a front page that shows off your latest posts. At the moment the hyperlinks associated with each post have not been implemented, this will be covered in the 2nd half of this tutorial where we will be looking at individual post pages, the comments for each post and the comment input form.</p>
-
-<p>Please head on over to <a href="http://www.thomaswhitton.com/thomaswhitton/2011/03/06/the-simplest-wordpress-blog-part-2/">Part 2</a>.</p>
 ]]></content>
   </entry>
   
