@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: python | Thomas Whitton]]></title>
-  <link href="http://www.thomaswhitton.com/blog/categories/python/atom.xml" rel="self"/>
-  <link href="http://www.thomaswhitton.com/"/>
+  <link href="https://www.thomaswhitton.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="https://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>http://www.thomaswhitton.com/</id>
+  <id>https://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Scripting Packet Analysis]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
     <updated>2013-01-10T22:16:00+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
+    <id>https://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
     <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can&rsquo;t do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
 
 <!-- more -->
@@ -25,15 +25,15 @@
 
 <p>As well as troubleshooting problems, these libraries can be used to create useful tools useful in testing, helping developers in one of their most important goal: to automate everything.</p>
 
-<p>Anyway here is the presentation <a href="http://www.thomaswhitton.com/scripting-packet-anaylsis-presentation">Scripting Packet Analysis and Modifcation</a>.</p>
+<p>Anyway here is the presentation <a href="https://www.thomaswhitton.com/scripting-packet-anaylsis-presentation">Scripting Packet Analysis and Modifcation</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Django by Example]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
+    <link href="https://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
     <updated>2012-10-25T21:50:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
+    <id>https://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
     <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&rsquo;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&rsquo;s always useful to see how abother language/framework does things differently.</p>
 
 <!-- more -->
@@ -41,15 +41,15 @@
 
 <p>Repowatcher is a site designed to easily track and organise repositories on github and bitbucket. I show some simple stuff in the presentation but the entire code base can be found <a href="https://github.com/oracal/repowatcher">here</a>.</p>
 
-<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="http://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
+<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="https://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Cineworld API]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
     <updated>2011-08-26T22:19:42+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
+    <id>https://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
     <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&rsquo;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&rsquo;t resist making a wrapper for it.</p>
 
 <p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&rsquo;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
@@ -307,9 +307,9 @@
   
   <entry>
     <title type="html"><![CDATA[Python GUI Programming]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
+    <id>https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
     <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&rsquo;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&rsquo;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&rsquo;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->

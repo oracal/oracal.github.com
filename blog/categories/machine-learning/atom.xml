@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: machine learning | Thomas Whitton]]></title>
-  <link href="http://www.thomaswhitton.com/blog/categories/machine-learning/atom.xml" rel="self"/>
-  <link href="http://www.thomaswhitton.com/"/>
+  <link href="https://www.thomaswhitton.com/blog/categories/machine-learning/atom.xml" rel="self"/>
+  <link href="https://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>http://www.thomaswhitton.com/</id>
+  <id>https://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Coursera Course Reviews]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews/"/>
+    <link href="https://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews/"/>
     <updated>2014-01-26T19:55:34+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews</id>
+    <id>https://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews</id>
     <content type="html"><![CDATA[<p>Lately I have been really interested in participating in some of the programming related massive open online courses (MOOCs) offered by <a href="https://www.coursera.org/">Coursera</a>. Coursera offers a really great platform for learning; providing multiple ways to test students' understanding of the material and also most importantly a large community of like minded people in the Coursera discussion forums providing invaluable help to others.</p>
 
 <!-- more -->

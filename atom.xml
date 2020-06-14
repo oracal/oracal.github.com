@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Thomas Whitton]]></title>
-  <link href="http://www.thomaswhitton.com/atom.xml" rel="self"/>
-  <link href="http://www.thomaswhitton.com/"/>
+  <link href="https://www.thomaswhitton.com/atom.xml" rel="self"/>
+  <link href="https://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>http://www.thomaswhitton.com/</id>
+  <id>https://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Coursera Course Reviews]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews/"/>
+    <link href="https://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews/"/>
     <updated>2014-01-26T19:55:34+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews</id>
+    <id>https://www.thomaswhitton.com/blog/2014/01/26/coursera-course-reviews</id>
     <content type="html"><![CDATA[<p>Lately I have been really interested in participating in some of the programming related massive open online courses (MOOCs) offered by <a href="https://www.coursera.org/">Coursera</a>. Coursera offers a really great platform for learning; providing multiple ways to test students&#8217; understanding of the material and also most importantly a large community of like minded people in the Coursera discussion forums providing invaluable help to others.</p>
 
 <!-- more -->
@@ -53,9 +53,9 @@
   
   <entry>
     <title type="html"><![CDATA[Introduction to Zeromq]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq/"/>
     <updated>2013-12-20T11:43:00+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq</id>
+    <id>https://www.thomaswhitton.com/blog/2013/12/20/introduction-to-zeromq</id>
     <content type="html"><![CDATA[<p>In the modern world there are rarely any stand alone applications anymore. Everything is connected. Whether it be an android application calling a restful api or a webpage connecting to thousands of internet users. When working with large systems there is always a need for communication between connected components. Web services are often a great way to communicate with each other and allow a single restful api to control all componenets. However, sometimes we need faster communication between components. This is needed so often that it seems weird that everytime it is needed people seem to roll their own, ussualy some some awkward messaging format using a custom wrapper around the socket api (more often than not an OS dependent one).</p>
 
 <!-- more -->
@@ -407,9 +407,9 @@
   
   <entry>
     <title type="html"><![CDATA[Binary Message Format C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
     <updated>2013-07-03T15:44:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
+    <id>https://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network&rsquo;s performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.</p>
 
 <!-- more -->
@@ -883,9 +883,9 @@
   
   <entry>
     <title type="html"><![CDATA[Xml C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/"/>
     <updated>2013-07-01T18:55:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples</id>
+    <id>https://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have used the address example from the previous article as an example xml file to be read in and parsed (as is common with xml, especially configuration files), create an xml message from scratch, query the xml message and also output as xml to a stream or file. I have separated out the querying into an outputAddress function that will be used throughout the example.</p>
 
 <!-- more -->
@@ -1666,9 +1666,9 @@
   
   <entry>
     <title type="html"><![CDATA[Json C++ Examples]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples/"/>
     <updated>2013-06-28T19:54:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples</id>
+    <id>https://www.thomaswhitton.com/blog/2013/06/28/json-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have tried to show you most of the different aspects of using json, i.e. creating json messages from scratch, outputting json, parsing json and querying json objects. The example json message used contains most of the features that a json message could contain. Querying the json object has been extracted into an output function which is used multiple times in each example to show that everything is working correctly.</p>
 
 <!-- more -->
@@ -2106,9 +2106,9 @@
   
   <entry>
     <title type="html"><![CDATA[Messaging Formats]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
     <updated>2013-06-26T15:42:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
+    <id>https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
     <content type="html"><![CDATA[<p>With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It usually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and disadvantages, including my opinions, and links to some other blog posts with examples of using them with c++.</p>
 
 <!-- more -->
@@ -2120,7 +2120,7 @@
 
 <h3>Json</h3>
 
-<p><a href="http://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a></p>
+<p><a href="https://www.thomaswhitton.com/blog/2013/06/27/json-c-plus-plus-examples/">Json C++ Examples</a></p>
 
 <p>Json is simply made up of a combination of of arrays and objects (aka dictionaries or maps depending on you programming affiliation), using javascript syntax, where the object keys are strings, and the items in the array and objects values can be arrays, objects, strings, numbers, booleans or null. This is an example of the json format:</p>
 
@@ -2151,7 +2151,7 @@
 
 <h3>Xml</h3>
 
-<p><a href="http://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a></p>
+<p><a href="https://www.thomaswhitton.com/blog/2013/06/28/xml-c-plus-plus-examples/">Xml C++ Examples</a></p>
 
 <p>Xml is made up of a hierarchy of tags and values. Each tag may also have its own properties. Xml is a very mature message structure and as such it has a few very well defined schema definition languages that can be used to make sure xml files conform to a certain structure, with the most popular being the Xml Schema Definition (xsd). An example of an xsd is below, and it will be used in one of our examples that uses the xsd to generate code to encode and decode to and from xml.</p>
 
@@ -2237,7 +2237,7 @@
 
 <h2>Binary Formats</h2>
 
-<p><a href="http://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
+<p><a href="https://www.thomaswhitton.com/blog/2013/06/29/binary-message-format-c-plus-plus-examples/">Binary Message Format C++ Examples</a></p>
 
 <p>Then we have non human-readable messaging. These use some sort of binary representation when going across the wire but need to be decoded and encoded either side. These have been given the name of &ldquo;protocol buffers&rdquo;. The two mainly used ones are Google&rsquo;s protobuf and msgpack. The advantages of these are that the payloads of data you need to send are a lot smaller compared with a human readable format. But then you lose the ability to understand (without computer interaction) what is being sent across the wire. You are also going to need a bit more time at each end to encode and decode, but protocol buffers are heavily optimised and should not take too long to encode/decode. Both of these formats have many bindings in multiple programming languages to allow you to communicate between any system you need. There seems to be a lot of debate currently about which is faster out of the two, and I suggest you profile the two for your specific needs and actually decide which to use taking into account your own profiling and the fundamental differences between the two libraries.</p>
 
@@ -2351,9 +2351,9 @@
   
   <entry>
     <title type="html"><![CDATA[Scripting Packet Analysis]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
+    <link href="https://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis/"/>
     <updated>2013-01-10T22:16:00+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
+    <id>https://www.thomaswhitton.com/blog/2013/01/10/scripting-packet-analysis</id>
     <content type="html"><![CDATA[<p>Working with networking applications can be quite hard to troubleshoot sometimes. Wireshark is an amazingly helpful tool to debug problems, however sometimes it just can&rsquo;t do exactly what you want it to do. Libraries are available in common scripting libraries such as Python and Ruby to quickly create scripts that can analyse network traffic in a specific way.</p>
 
 <!-- more -->
@@ -2361,15 +2361,15 @@
 
 <p>As well as troubleshooting problems, these libraries can be used to create useful tools useful in testing, helping developers in one of their most important goal: to automate everything.</p>
 
-<p>Anyway here is the presentation <a href="http://www.thomaswhitton.com/scripting-packet-anaylsis-presentation">Scripting Packet Analysis and Modifcation</a>.</p>
+<p>Anyway here is the presentation <a href="https://www.thomaswhitton.com/scripting-packet-anaylsis-presentation">Scripting Packet Analysis and Modifcation</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Django by Example]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
+    <link href="https://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
     <updated>2012-10-25T21:50:00+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
+    <id>https://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
     <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&rsquo;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&rsquo;s always useful to see how abother language/framework does things differently.</p>
 
 <!-- more -->
@@ -2377,15 +2377,15 @@
 
 <p>Repowatcher is a site designed to easily track and organise repositories on github and bitbucket. I show some simple stuff in the presentation but the entire code base can be found <a href="https://github.com/oracal/repowatcher">here</a>.</p>
 
-<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="http://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
+<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="https://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Cineworld API]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/08/26/cineworld-api/"/>
     <updated>2011-08-26T22:19:42+01:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
+    <id>https://www.thomaswhitton.com/blog/2011/08/26/cineworld-api</id>
     <content type="html"><![CDATA[<p>So after working on commercial software for a few years, I really fancied getting my feet wet in some open source software again, I haven&rsquo;t had too much time for this, but when I found out my favorite cinema had their own API I couldn&rsquo;t resist making a wrapper for it.</p>
 
 <p>It only took a couple of hours but it was quite fun to make. I tried to make up for missing information supplied by the API by introducing some simple hacks to get the information a different way. I&rsquo;ll go through my methodology in this blog post as well as some simple use cases. So here it is the <a href="https://github.com/oracal/cineworld">Cineworld API Wrapper written in Python</a></p>
@@ -2566,9 +2566,9 @@
   
   <entry>
     <title type="html"><![CDATA[Python GUI Programming]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
+    <id>https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
     <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&rsquo;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&rsquo;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&rsquo;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->
@@ -2983,9 +2983,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest Wordpress Blog, Part 2]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
+    <id>https://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
     <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&rsquo;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
@@ -3420,9 +3420,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest WordPress Blog]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
+    <id>https://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
     <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&rsquo;s my guide for setting up a really simple blog.</p>
 
 <!-- more -->
@@ -3445,7 +3445,7 @@
 </span><span class='line'><span class="c">description: a starter theme</span>
 </span><span class='line'><span class="c">version: 0.1</span>
 </span><span class='line'><span class="c">author: thomas whitton</span>
-</span><span class='line'><span class="c">author uri: http://www.thomaswhitton.com</span>
+</span><span class='line'><span class="c">author uri: https://www.thomaswhitton.com</span>
 </span><span class='line'><span class="c">tags: simple, clean, single column</span>
 </span><span class='line'><span class="c">*/</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -3692,9 +3692,9 @@
   
   <entry>
     <title type="html"><![CDATA[Explorer 16 LCD]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
     <updated>2011-02-13T00:06:12+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
+    <id>https://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
     <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we&rsquo;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&rsquo;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&rsquo;t require a  connection to a computer, which is handy.</p>
 
 <!-- more -->
@@ -4079,9 +4079,9 @@
   
   <entry>
     <title type="html"><![CDATA[Beginning with the Explorer 16]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
     <updated>2011-02-05T21:22:48+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
+    <id>https://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
     <content type="html"><![CDATA[<p>So I&rsquo;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&rsquo;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&rsquo;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
 
 <!-- more -->
@@ -4335,9 +4335,9 @@
   
   <entry>
     <title type="html"><![CDATA[Qt Etiquette]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
     <updated>2011-01-27T20:55:41+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
+    <id>https://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
     <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&rsquo;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
 
 <!-- more -->
@@ -4405,9 +4405,9 @@
   
   <entry>
     <title type="html"><![CDATA[Encryption Libraries]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
     <updated>2011-01-20T20:44:29+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
+    <id>https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
     <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&rsquo;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
 
 <!-- more -->

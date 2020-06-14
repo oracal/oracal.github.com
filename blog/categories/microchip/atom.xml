@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: microchip | Thomas Whitton]]></title>
-  <link href="http://www.thomaswhitton.com/blog/categories/microchip/atom.xml" rel="self"/>
-  <link href="http://www.thomaswhitton.com/"/>
+  <link href="https://www.thomaswhitton.com/blog/categories/microchip/atom.xml" rel="self"/>
+  <link href="https://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>http://www.thomaswhitton.com/</id>
+  <id>https://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Explorer 16 LCD]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd/"/>
     <updated>2011-02-13T00:06:12+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
+    <id>https://www.thomaswhitton.com/blog/2011/02/13/explorer-16-lcd</id>
     <content type="html"><![CDATA[<p>As a follow up to my previous article on the Explorer 16 board we&rsquo;ll look at displaying a string on the LCD screen supplied on the board in a very similar manner to the serial connection function. In fact we&rsquo;re going to use the standard output of the c standard library to be able to output to the serial port or the LCD screen. The LCD screen is a very important peripheral for displaying useful  information and for quickly debugging programs and doesn&rsquo;t require a  connection to a computer, which is handy.</p>
 
 <!-- more -->
@@ -487,9 +487,9 @@
   
   <entry>
     <title type="html"><![CDATA[Beginning with the Explorer 16]]></title>
-    <link href="http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
+    <link href="https://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16/"/>
     <updated>2011-02-05T21:22:48+00:00</updated>
-    <id>http://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
+    <id>https://www.thomaswhitton.com/blog/2011/02/05/beginning-with-the-explorer-16</id>
     <content type="html"><![CDATA[<p>So I&rsquo;ve found it very helpful in the past to teach others things that I have quite a lot of experience in as quite often I learn a few things and at the same time observe a different perspective on a problem, which is very important to a job where problem solving is paramount. So here&rsquo;s my beginners tutorial on programming the 16 bit PIC24F family chip on the Explorer 16 board, which by the way is a pretty awesome board to work with. So I&rsquo;m just quickly going to show how to light an LED and communicate with the computer via the serial port, these things actually reward the user very quickly with some actual physical output. So here it goes:</p>
 
 <!-- more -->
