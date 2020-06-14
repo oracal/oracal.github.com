@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: pyqt | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/pyqt/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/pyqt/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Python GUI Programming]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming/"/>
     <updated>2011-03-06T21:28:00+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/06/python-gui-programming</id>
     <content type="html"><![CDATA[<p>There are many options for GUI programming with Python. I&rsquo;ll go over my favorite, and generally most well known frameworks and show you some simple programs with each one. In fact these aren&rsquo;t really Python frameworks but actually Python bindings for already established c/c++ libraries. So the three options are PyQt/PySide, wxPython  and PyGTK with their respective c++ frameworks Qt, wxWidgets and GTK+. I&rsquo;ll go over the differences of PyQt and PySide, I mention both since PyQt is more mature than PySide but has a more restrictive license, also PySide has just moved out of beta with its version 1 release, and according to its creators, the company behind the original Qt, it is ready for production level code.</p>
 
 <!-- more -->

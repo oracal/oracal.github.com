@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: encryption | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/encryption/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/encryption/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Encryption Libraries]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
     <updated>2011-01-20T20:44:29+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
+    <id>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
     <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&rsquo;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
 
 <!-- more -->

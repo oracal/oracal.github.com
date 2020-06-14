@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: django | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/django/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/django/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Django by Example]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
+    <link href="http://www.thomaswhitton.com/blog/2012/10/25/django-by-example/"/>
     <updated>2012-10-25T21:50:00+01:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
+    <id>http://www.thomaswhitton.com/blog/2012/10/25/django-by-example</id>
     <content type="html"><![CDATA[<p>I work in a development team that is very heavily invested in ruby on rails for their webapps and that&rsquo;s where most of the teams experience lies with web development. But being a python guy I was quite keen to show everyone some Django development. So I used my latest project <a href="http://www.repowatcher.com">repowatcher</a> as an example for some Django code, and hopefully get more people excited about Python and Django, plus it&rsquo;s always useful to see how abother language/framework does things differently.</p>
 
 <!-- more -->
@@ -25,7 +25,7 @@
 
 <p>Repowatcher is a site designed to easily track and organise repositories on github and bitbucket. I show some simple stuff in the presentation but the entire code base can be found <a href="https://github.com/oracal/repowatcher">here</a>.</p>
 
-<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="https://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
+<p>I also had a go at using reveal.js for the first time to create my presentation. Anyway here is the presentation: <a href="http://www.thomaswhitton.com/django-presentation">Django by Example</a>.</p>
 ]]></content>
   </entry>
   

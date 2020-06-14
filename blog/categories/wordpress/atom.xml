@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: wordpress | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/wordpress/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/wordpress/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest Wordpress Blog, Part 2]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2/"/>
     <updated>2011-03-06T21:07:32+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/06/the-simplest-wordpress-blog-part-2</id>
     <content type="html"><![CDATA[<p>This is the second part of my simple wordpress tutorial, this will go through showing the blog post, the comments section and the search functionally. Putting this tutorial together with the last you&rsquo;ll have a completely unstylized functioning blog, which you can add all the styling you want.</p>
 
 <!-- more -->
@@ -447,9 +447,9 @@
   
   <entry>
     <title type="html"><![CDATA[The Simplest WordPress Blog]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog/"/>
     <updated>2011-03-01T21:28:14+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
+    <id>http://www.thomaswhitton.com/blog/2011/03/01/the-simplest-wordpress-blog</id>
     <content type="html"><![CDATA[<p>So I like to start all my Wordpress theme designs with a very simplistic Wordpress base and then add all the complicated functionality found in my themes. I think it is a useful learning tool for the beginner to get used to Wordpress programming. So here&rsquo;s my guide for setting up a really simple blog.</p>
 
 <!-- more -->
@@ -472,7 +472,7 @@
 </span><span class='line'><span class="nt">description</span><span class="o">:</span> <span class="nt">a</span> <span class="nt">starter</span> <span class="nt">theme</span>
 </span><span class='line'><span class="nt">version</span><span class="o">:</span> <span class="nt">0</span><span class="nc">.1</span>
 </span><span class='line'><span class="nt">author</span><span class="o">:</span> <span class="nt">thomas</span> <span class="nt">whitton</span>
-</span><span class='line'><span class="nt">author</span> <span class="nt">uri</span><span class="o">:</span> <span class="o">&lt;</span><span class="nt">a</span> <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;https://www.thomaswhitton.com&quot;</span><span class="o">&gt;</span><span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="nc">.thomaswhitton.com</span><span class="o">&lt;/</span><span class="nt">a</span><span class="o">&gt;</span>
+</span><span class='line'><span class="nt">author</span> <span class="nt">uri</span><span class="o">:</span> <span class="o">&lt;</span><span class="nt">a</span> <span class="nt">href</span><span class="o">=</span><span class="s2">&quot;http://www.thomaswhitton.com&quot;</span><span class="o">&gt;</span><span class="nt">http</span><span class="o">://</span><span class="nt">www</span><span class="nc">.thomaswhitton.com</span><span class="o">&lt;/</span><span class="nt">a</span><span class="o">&gt;</span>
 </span><span class='line'><span class="nt">tags</span><span class="o">:</span> <span class="nt">simple</span><span class="o">,</span> <span class="nt">clean</span><span class="o">,</span> <span class="nt">single</span> <span class="nt">column</span>
 </span><span class='line'><span class="o">&lt;/</span><span class="nt">em</span><span class="o">&gt;/</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>

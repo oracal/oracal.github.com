@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: qt | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/qt/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/qt/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Qt Etiquette]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette/"/>
     <updated>2011-01-27T20:55:41+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
+    <id>http://www.thomaswhitton.com/blog/2011/01/27/qt-etiquette</id>
     <content type="html"><![CDATA[<p>So I have been using Qt now for about six months and I have to say it is one of the best frameworks I have ever used, it seems very complete, the documentation for it is amazing and even the Qt IDE: Qt Creator is awesome. Some of the really useful things I find are the signal and slot mechanism, the widget methodology and the expanse of widgets available. So I feel pretty confident with Qt now and just though I&rsquo;d share some information that I learned along the way that may or may not be included in the documentation, the sort of info only found by experience. Hopefully this helps a few people out, so here it goes.</p>
 
 <!-- more -->
@@ -81,9 +81,9 @@
   
   <entry>
     <title type="html"><![CDATA[Encryption Libraries]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
+    <link href="http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries/"/>
     <updated>2011-01-20T20:44:29+00:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
+    <id>http://www.thomaswhitton.com/blog/2011/01/20/encryption-libraries</id>
     <content type="html"><![CDATA[<p>Recently I was working on a small personal project and I was in need of a quick and easy encryption library that would be able to do quite a few different encryption algorithms. My only real prerequisites were that the library had to be in c++ (well c would do but I&rsquo;d prefer it to be in oop form), the encryption algorithms had to include AES 128 and it had to be cross platform. I was quite surprised at how few encryption libraries there were for c++. The three mainstream cross platform libraries that I found were crypto++, Botan and QCA (Qt Cryptology Architecture) (there was also the OpenSSL library but that is written in c).</p>
 
 <!-- more -->

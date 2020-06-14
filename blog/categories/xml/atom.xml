@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: xml | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/xml/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/xml/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Xml C++ Examples]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/"/>
+    <link href="http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples/"/>
     <updated>2013-07-01T18:55:00+01:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples</id>
+    <id>http://www.thomaswhitton.com/blog/2013/07/01/xml-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>In each of the examples below I have used the address example from the previous article as an example xml file to be read in and parsed (as is common with xml, especially configuration files), create an xml message from scratch, query the xml message and also output as xml to a stream or file. I have separated out the querying into an outputAddress function that will be used throughout the example.</p>
 
 <!-- more -->
@@ -1012,9 +1012,9 @@
   
   <entry>
     <title type="html"><![CDATA[Messaging Formats]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
+    <link href="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
     <updated>2013-06-26T15:42:00+01:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
+    <id>http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
     <content type="html"><![CDATA[<p>With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It usually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and disadvantages, including my opinions, and links to some other blog posts with examples of using them with c++.</p>
 
 <!-- more -->

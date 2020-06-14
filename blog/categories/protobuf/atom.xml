@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: protobuf | Thomas Whitton]]></title>
-  <link href="https://www.thomaswhitton.com/blog/categories/protobuf/atom.xml" rel="self"/>
-  <link href="https://www.thomaswhitton.com/"/>
+  <link href="http://www.thomaswhitton.com/blog/categories/protobuf/atom.xml" rel="self"/>
+  <link href="http://www.thomaswhitton.com/"/>
   <updated>2014-04-09T22:39:23+01:00</updated>
-  <id>https://www.thomaswhitton.com/</id>
+  <id>http://www.thomaswhitton.com/</id>
   <author>
     <name><![CDATA[Thomas Whitton]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Binary Message Format C++ Examples]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
+    <link href="http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples/"/>
     <updated>2013-07-03T15:44:00+01:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
+    <id>http://www.thomaswhitton.com/blog/2013/07/03/binary-message-format-c-plus-plus-examples</id>
     <content type="html"><![CDATA[<p>One of the main reasons c++ is chosen as a language for an application is so that it can squeeze every last bit of performance out of your computer. With a networked application this quest for performance is combined with the network&rsquo;s performance. A lot of the time we have no control over the network that the application is on and therefore our only control over this performance factor is the amount of data we are sending across it. Binary message formats allow us to compress data much more efficiently than other formats and therefore are a good match to c++. Below are a couple of code examples, using binary message formats in c++.</p>
 
 <!-- more -->
@@ -583,9 +583,9 @@
   
   <entry>
     <title type="html"><![CDATA[Messaging Formats]]></title>
-    <link href="https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
+    <link href="http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats/"/>
     <updated>2013-06-26T15:42:00+01:00</updated>
-    <id>https://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
+    <id>http://www.thomaswhitton.com/blog/2013/06/26/messaging-formats</id>
     <content type="html"><![CDATA[<p>With ever increasing data volumes being transfered in networks around the world, the type data formats used to pass information around has obviously been a heavily discussed topic. It usually comes down to three main factors: data compression, speed of encoding/decoding and how easy it is to read and debug. In this post I am going to talk about some of the most commonly used message formats; their advantages and disadvantages, including my opinions, and links to some other blog posts with examples of using them with c++.</p>
 
 <!-- more -->
